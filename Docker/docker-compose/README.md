@@ -1,7 +1,7 @@
 ## <p style="text-align: center;">Docker</p>
 
 ### <p style="text-align: center;">Docker-compose</p>
-<p style="text-align: center;">![task ](./img/diagram.png)</p>
+![task ](./img/diagram.png)
 
 #### run project
 
@@ -56,4 +56,4 @@ For right work the main files of project must be located as on pattern below:
 
 ##### working images
 The page after click on reload button:  
-<p style="text-align: center;">![1](./img/1.png)![2](./img/2.png)</p>
+![1](./img/1.png) ![2](./img/2.png)

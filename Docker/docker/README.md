@@ -1,7 +1,7 @@
 ## <p style="text-align: center;">Docker</p>
 
 ### <p style="text-align: center;">Dockerized jenkins server</p>
-<p style="text-align: center;">![task ](./img/1.png)</p>
+![task ](./img/1.png)
 
 #### get plugins list from existing jenkins server
 
