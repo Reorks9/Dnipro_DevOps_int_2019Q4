@@ -1,0 +1,3 @@
+FROM httpd:2.4.41-alpine
+EXPOSE 8081
+COPY ./httpd/my-httpd.conf /usr/local/apache2/conf/httpd.conf

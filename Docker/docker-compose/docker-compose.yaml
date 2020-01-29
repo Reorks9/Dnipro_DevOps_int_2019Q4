@@ -1,0 +1,38 @@
+version: "3"
+services:
+  nginx:
+    build:
+      context: .
+      dockerfile: ./nginx/dockerfile
+    networks:
+      - back-tier
+    volumes:
+      - ./app2:/etc/nginx/conf.d/nginxwebapp/
+  apache:
+    build:
+      context: .
+      dockerfile: ./httpd/dockerfile
+    networks:
+      - back-tier
+    volumes:
+      - ./app1:/usr/local/apache2/htdocs/
+  lb:
+    build:
+      context: .
+      dockerfile: ./haproxy/dockerfile
+    links:
+      - nginx
+      - apache
+    ports:
+      - 80:80
+    networks:
+      - front-tier
+      - back-tier 
+    depends_on:
+      - nginx
+      - apache
+networks:
+  back-tier:
+    driver: bridge
+  front-tier:
+    driver: bridge

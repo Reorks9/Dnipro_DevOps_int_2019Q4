@@ -1,0 +1,45 @@
+Starting docker_nginx_1 ... 
+Starting docker_apache_1 ... 
+Starting docker_nginx_1
+Starting docker_apache_1 ... done
+Recreating docker_lb_1 ... 
+Recreating docker_lb_1 ... done
+Attaching to docker_nginx_1, docker_apache_1, docker_lb_1
+apache_1  | AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.19.0.3. Set the 'ServerName' directive globally to suppress this message
+apache_1  | AH00558: httpd: Could not reliably determine the server's fully qualified domain name, using 172.19.0.3. Set the 'ServerName' directive globally to suppress this message
+apache_1  | [Wed Jan 29 08:49:00.934996 2020] [mpm_event:notice] [pid 1:tid 139954831531336] AH00489: Apache/2.4.41 (Unix) configured -- resuming normal operations
+apache_1  | [Wed Jan 29 08:49:00.935027 2020] [core:notice] [pid 1:tid 139954831531336] AH00094: Command line: 'httpd -D FOREGROUND'
+lb_1      | <7>haproxy-systemd-wrapper: executing /usr/local/sbin/haproxy -p /run/haproxy.pid -db -f /usr/local/etc/haproxy/haproxy.cfg -Ds 
+lb_1      | Note: setting global.maxconn to 2000.
+apache_1  | 172.19.0.4 - - [29/Jan/2020:08:49:14 +0000] "GET / HTTP/1.1" 200 571
+nginx_1   | 2020/01/29 08:49:14 [error] 7#7: *1 open() "/etc/nginx/conf.d/nginxwebapp/favicon.ico" failed (2: No such file or directory), client: 172.19.0.4, server: nginxwebapp, request: "GET /favicon.ico HTTP/1.1", host: "192.168.0.109", referrer: "http://192.168.0.109/"
+nginx_1   | 172.19.0.4 - - [29/Jan/2020:08:49:14 +0000] "GET /favicon.ico HTTP/1.1" 404 555 "http://192.168.0.109/" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+apache_1  | 172.19.0.4 - - [29/Jan/2020:08:49:20 +0000] "GET / HTTP/1.1" 304 -
+nginx_1   | 172.19.0.4 - - [29/Jan/2020:08:49:21 +0000] "GET / HTTP/1.1" 200 561 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+apache_1  | 172.19.0.4 - - [29/Jan/2020:08:49:22 +0000] "GET / HTTP/1.1" 200 571
+nginx_1   | 172.19.0.4 - - [29/Jan/2020:08:49:23 +0000] "GET / HTTP/1.1" 200 561 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+apache_1  | 172.19.0.4 - - [29/Jan/2020:08:49:24 +0000] "GET / HTTP/1.1" 200 571
+nginx_1   | 172.19.0.4 - - [29/Jan/2020:08:49:33 +0000] "GET / HTTP/1.1" 200 561 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+apache_1  | 172.19.0.4 - - [29/Jan/2020:08:49:33 +0000] "GET / HTTP/1.1" 200 571
+nginx_1   | 172.19.0.4 - - [29/Jan/2020:08:49:34 +0000] "GET / HTTP/1.1" 200 561 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+apache_1  | 172.19.0.4 - - [29/Jan/2020:08:50:33 +0000] "GET / HTTP/1.1" 200 571
+nginx_1   | 172.19.0.4 - - [29/Jan/2020:08:50:53 +0000] "GET / HTTP/1.1" 200 561 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+apache_1  | 172.19.0.4 - - [29/Jan/2020:08:50:53 +0000] "GET / HTTP/1.1" 200 571
+nginx_1   | 172.19.0.4 - - [29/Jan/2020:08:50:54 +0000] "GET / HTTP/1.1" 200 561 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+apache_1  | 172.19.0.4 - - [29/Jan/2020:08:50:55 +0000] "GET / HTTP/1.1" 200 571
+nginx_1   | 172.19.0.4 - - [29/Jan/2020:08:50:55 +0000] "GET / HTTP/1.1" 200 561 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+apache_1  | 172.19.0.4 - - [29/Jan/2020:08:50:55 +0000] "GET / HTTP/1.1" 200 571
+nginx_1   | 172.19.0.4 - - [29/Jan/2020:08:50:56 +0000] "GET / HTTP/1.1" 200 561 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+apache_1  | 172.19.0.4 - - [29/Jan/2020:08:50:56 +0000] "GET / HTTP/1.1" 200 571
+nginx_1   | 172.19.0.4 - - [29/Jan/2020:08:50:56 +0000] "GET / HTTP/1.1" 200 561 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+apache_1  | 172.19.0.4 - - [29/Jan/2020:08:50:56 +0000] "GET / HTTP/1.1" 200 571
+nginx_1   | 172.19.0.4 - - [29/Jan/2020:08:50:57 +0000] "GET / HTTP/1.1" 200 561 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+apache_1  | 172.19.0.4 - - [29/Jan/2020:08:50:57 +0000] "GET / HTTP/1.1" 200 571
+nginx_1   | 172.19.0.4 - - [29/Jan/2020:08:50:57 +0000] "GET / HTTP/1.1" 200 561 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+apache_1  | 172.19.0.4 - - [29/Jan/2020:08:50:57 +0000] "GET / HTTP/1.1" 200 571
+nginx_1   | 172.19.0.4 - - [29/Jan/2020:08:50:58 +0000] "GET / HTTP/1.1" 200 561 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+apache_1  | 172.19.0.4 - - [29/Jan/2020:08:50:58 +0000] "GET / HTTP/1.1" 200 571
+nginx_1   | 172.19.0.4 - - [29/Jan/2020:08:50:58 +0000] "GET / HTTP/1.1" 200 561 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+apache_1  | 172.19.0.4 - - [29/Jan/2020:08:50:58 +0000] "GET / HTTP/1.1" 200 571
+nginx_1   | 172.19.0.4 - - [29/Jan/2020:08:51:00 +0000] "GET / HTTP/1.1" 200 561 "-" "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/79.0.3945.130 Safari/537.36"
+apache_1  | 172.19.0.4 - - [29/Jan/2020:08:51:00 +0000] "GET / HTTP/1.1" 200 571

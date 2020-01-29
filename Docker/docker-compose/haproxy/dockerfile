@@ -1,0 +1,5 @@
+FROM haproxy:1.6.15-alpine
+EXPOSE 80
+EXPOSE 8081
+EXPOSE 8082
+COPY ./haproxy/haproxy.cfg /usr/local/etc/haproxy/haproxy.cfg
