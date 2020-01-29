@@ -1,8 +1,10 @@
 ## <p style="text-align: center;">Docker</p>
 
 ### <p style="text-align: center;">Docker-compose</p>
-<p style="text-align: center;">![task ](img/diagram.png)</p>
+<p style="text-align: center;">![task ](./img/diagram.png)</p>
+
 #### run project
+
 To start the project, replace the data in the `app1` and` app2` folders with your own and from the folder containing `docker-compose.yaml` run the command: 
 ```bash
 docker-compose up --build
@@ -54,4 +56,4 @@ For right work the main files of project must be located as on pattern below:
 
 ##### working images
 The page after click on reload button:  
-<p style="text-align: center;">![1](img/1.png)![2](img/2.png)</p>
+<p style="text-align: center;">![1](./img/1.png)![2](./img/2.png)</p>

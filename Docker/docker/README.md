@@ -1,14 +1,19 @@
 ## <p style="text-align: center;">Docker</p>
 
 ### <p style="text-align: center;">Dockerized jenkins server</p>
-<p style="text-align: center;">![task ](img/1.png)</p>
+<p style="text-align: center;">![task ](./img/1.png)</p>
+
 #### get plugins list from existing jenkins server
+
 ##### first way
+
 Go to `JENKINS_URL/script` and put code below into block for code in page and click "run" button.  
-```groovy
+
+```
 def plugins = jenkins.model.Jenkins.instance.getPluginManager().getPlugins()
 plugins.each {println "${it.getShortName()}:${it.getVersion()}"}
 ```
+
 save list of plugins to `./plugins.txt`.  
 
 ##### second way
