@@ -50,12 +50,13 @@ where:
 #### run image
 To run container please enter command dellow (use "-d" key for run container in detach mode):
 ```bash
-docker run -t -p 8081:8081 jenk
+docker run -t -p 8081:8081 --env JAVA_OPTS="-Djenkins.install.runSetupWizard=false" jenk
 ```
 where:  
--   `8081:8081` - host_port:container_port. Please note, if you want to change app port - you have to edit his in `dockerfile`.  
+-   `8081:8081` - host_port:container_port. Please note, if you want to change app port - you have to edit his in `dockerfile`;  
+-   `--env JAVA_OPTS="-Djenkins.install.runSetupWizard=false"` - environment variable to disable setup wizard window.  
 
-You also can mount jenkins home folder with help the command:
+Also, you can mount jenkins home folder using the command:  
 ```bash
 docker run -t -p 8081:8081 -v ./jenkins:/var/lib/jenkins --name jenk jenk
 ```

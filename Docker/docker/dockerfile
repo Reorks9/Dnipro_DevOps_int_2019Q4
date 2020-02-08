@@ -1,5 +1,6 @@
-# run only with -t key. Like "docker run -t -p 8081:8081 jenk"
+# run only with -t key. Like "docker run -t -p 8081:8081 -v /home/arudy/jenkins:/var/lib/jenkins --env JAVA_OPTS="-Djenkins.install.runSetupWizard=false" jenk"
 FROM ubuntu:bionic
+MAINTAINER Andrii Rudyi "studentota2lvl@gmail.com"
 EXPOSE 8081
 ARG DEBIAN_FRONTEND=noninteractive
 ARG REF=/var/lib/jenkins

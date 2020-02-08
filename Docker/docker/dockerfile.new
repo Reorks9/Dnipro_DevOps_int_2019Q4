@@ -1,0 +1,63 @@
+# run only with -t key. Like "docker run -t -p 8081:8081 jenk"
+# FROM ubuntu:bionic
+# EXPOSE 8081
+# ARG DEBIAN_FRONTEND=noninteractive
+# ARG REF=/var/lib/jenkins
+# ARG JENKINS_UC=https://updates.jenkins.io
+# ENV homeDir=$REF
+# ENV tmpDir=$homeDir/tmpData
+# COPY ./plugins.txt ${tmpDir}/plugins.txt
+# RUN \
+# # install app
+# 	apt-get update && \
+# 	apt-get -y install apt-utils gnupg2 openjdk-8-jdk wget curl unzip && \
+# 	wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | apt-key add - && \
+# 	sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list' && \
+# 	apt-get update && \
+# 	apt-get -y install jenkins && \
+# 	mkdir -p ${tmpDir}/ && \
+# # add new user
+# 	service jenkins restart && \
+# 	sleep 45 && \
+# 	pass="$(cat $homeDir/secrets/initialAdminPassword)" && \
+# 	echo 'jenkins.model.Jenkins.instance.securityRealm.createAccount("arudy", "arudy")' | java -jar /var/cache/jenkins/war/WEB-INF/jenkins-cli.jar -auth admin:$pass -s http://localhost:8080/ groovy = && \
+# # change default jenkins port
+# 	cat /etc/default/jenkins | sed "s/HTTP_PORT=8080/HTTP_PORT=8081/g" > ${tmpDir}/jenkinsConfig && \
+# 	mv -f ${tmpDir}/jenkinsConfig /etc/default/jenkins && \
+# 	service jenkins restart && \
+# # install plugins
+# 	wget https://raw.githubusercontent.com/jenkinsci/docker/master/install-plugins.sh -O ${tmpDir}/plugins.sh && \
+# 	cat ${tmpDir}/plugins.sh | sed "s/REF=\/usr\/share\/jenkins\/ref\/plugins/REF=\/var\/lib\/jenkins\/plugins/g" | sed "s/\/usr\/local\/bin/\/var\/lib\/jenkins\/tmpData/g"> ${tmpDir}/install-plugins.sh && \
+# 	chmod +x ${tmpDir}/install-plugins.sh && \
+# 	wget https://raw.githubusercontent.com/jenkinsci/docker/master/jenkins-support -O ${tmpDir}/support && \
+# 	cat ${tmpDir}/support | sed "s/\/usr\/share\/jenkins\/ref/\/var\/lib\/jenkins/g" > ${tmpDir}/jenkins-support && \
+# 	${tmpDir}/install-plugins.sh < ${tmpDir}/plugins.txt && \
+# 	chown -R jenkins:jenkins $homeDir/ && \
+# # delete unnecessary files
+# 	rm -rf ${tmpDir}/ && \
+# 	service jenkins restart
+# CMD service jenkins start; read item # костыль....
+
+
+
+FROM ubuntu:bionic
+MAINTAINER Andrii Rudyi "studentota2lvl@gmail.com"
+RUN apt-get update
+RUN apt-get --no-install-recommends install -q -y openjdk-8-jre-headless wget
+COPY ./jenkins.war /opt/jenkins.war
+RUN rm -rf /var/lib/apt/lists/* 
+# ADD http://mirrors.jenkins-ci.org/war/2.87/jenkins.war /opt/jenkins.war
+# wget localhost:8080/jnlpJars/jenkins-cli.jar -O /opt/jenkins-cli.jar
+RUN chmod 644 /opt/jenkins.war
+ENV \
+	JENKINS_HOME='/var/lib/jenkins' \
+	JAVA_OPTS='-Djenkins.install.runSetupWizard=false'
+EXPOSE 8080
+# ENTRYPOINT ["java", "-jar", "/opt/jenkins.war"]
+ENTRYPOINT ["/bin/bash"]
+
+# , "-Djenkins.install.runSetupWizard=false"
+# --env JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
+# docker run -t -p 8080:8080 jenk2
+# docker run -t -p 8080:8080 -v /home/arudy/jenkins:/var/lib/jenkins jenk2
+# docker run -t -p 8080:8080 -v /home/arudy/jenkins:/var/lib/jenkins --env JAVA_OPTS="-Djenkins.install.runSetupWizard=false" jenk
