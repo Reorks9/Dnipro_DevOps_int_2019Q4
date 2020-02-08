@@ -3,7 +3,7 @@
 FROM ubuntu:bionic
 MAINTAINER Andrii Rudyi "studentota2lvl@gmail.com"
 RUN apt-get update && \
-    apt-get --no-install-recommends install -q -y openjdk-8-jre-headless maven nginx && \
+    apt-get --no-install-recommends install -q -y openjdk-8-jre-headless maven nginx git docker.io && \
     rm -rf /var/lib/apt/lists/* && \
     mkdir -p /etc/nginx/sites-available/jenkins
 COPY ./nginx.conf /etc/nginx/sites-available/jenkins/nginx.conf
@@ -14,7 +14,8 @@ RUN chmod 0755 /etc/nginx/sites-available/jenkins && \
 	unlink /etc/nginx/sites-enabled/default && \
 	ln -s /etc/nginx/sites-available/jenkins/nginx.conf /etc/nginx/sites-enabled/nginx.conf && \
 	echo "daemon on;" >> /etc/nginx/nginx.conf && \
-	chmod 644 /opt/jenkins.war 
+	chmod 644 /opt/jenkins.war && \
+	usermod -aG docker $USER
 ENV JENKINS_HOME /var/lib/jenkins
 ENTRYPOINT /usr/sbin/nginx && java -jar /opt/jenkins.war
 EXPOSE 80

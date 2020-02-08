@@ -1,21 +1,21 @@
 pipeline {
-  agent none
+  agent any
   environment {
     GIT_HUB_USER_NAME   = "studentota2lvl"
     GIT_HUB_USER_EMAIL  = "studentota2lvl@gmail.com"
     GIT_HUB_REPO        = "git@github.com:studentota2lvl/Dnipro_DevOps_int_2019Q4.git"
+    registry            = "${GIT_HUB_USER_NAME}/jenkins"
     DOCKER_HUB_CREDS    = credentials('docker_credentials')
     IMAGE_NAME          = "jenkinsMavenNginx"
     DOCKER_HUB_REPO     = "${IMAGE_NAME}"
     jenkinsImage        = ''
+    dockerfile          = "jenkins.Dockerfile"
   }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~Install app~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   stages {
     stage('Environment preconfiguration') {
       steps{
-        echo '~~~~~~~~~~~Install app and git variables~~~~~~~~~~~'
-        sh 'apt-get update'
-        sh 'apt-get install -y git'
+        echo '~~~~~~~~~~~Install git variables~~~~~~~~~~~'
         sh 'git config --global user.name "$GIT_HUB_USER_NAME"'
         sh 'git config --global user.email "$GIT_HUB_USER_EMAIL"'
         sh 'ssh-keyscan "github.com"> ~/.ssh/known_hosts 2>/dev/null'
@@ -35,7 +35,7 @@ pipeline {
       steps {
         echo '~~~~~~~~~~~Starting to build jenkins image~~~~~~~~~~~'
         script {
-          jenkinsImage = docker.build("jenkinsImage:${env.BUILD_ID}", "./Dnipro_DevOps_int_2019Q4/jenkins/jenkins.Dockerfile") // hardcode
+          jenkinsImage = docker.build("${registry}:${env.BUILD_ID}", "-f ./jenkins/${dockerfile} . ") // hardcode
         }
       }
     }
