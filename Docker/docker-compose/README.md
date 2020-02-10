@@ -41,6 +41,10 @@ For right work the main files of project must be located as on pattern below:
 
 ***
 #### other
+##### ips of all containers in docker-compose in a single line use:
+```bash
+for s in `docker-compose ps -q`; do echo ip of `docker inspect -f "{{.Name}}" $s` is `docker inspect -f '{{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $s`; done
+```
 ##### file references
 [./app1/index.html](./app1/index.html) and [./app2/index.html](./app2/index.html) - web application files;  
 [diagram.drawio](./diagram.drawio) and [./img/diagram.png](./img/diagram.png) - files of UML Diagram;  

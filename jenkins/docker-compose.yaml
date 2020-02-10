@@ -1,0 +1,35 @@
+version: "3.3"
+services:
+  master:
+    privileged: true
+    build:
+      context: ./master/
+      dockerfile: ./master.Dockerfile
+    networks:
+      static-network:
+        ipv4_address: 172.20.0.2
+    ports:
+      - 80:80
+    volumes:
+      - /home/arudy/log:/var/log
+      - /home/arudy/jenkinsData04022020:/var/lib/jenkins
+    environment:
+      - JAVA_OPTS="-Djenkins.install.runSetupWizard=false"
+  slave:
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+      - SYS_ADMIN
+    build:
+      context: ./slave/
+      dockerfile: ./slave.Dockerfile
+    networks:
+      static-network:
+        ipv4_address: 172.20.0.3
+    volumes:
+      - /home/arudy/log:/var/log
+networks:
+  static-network:
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16

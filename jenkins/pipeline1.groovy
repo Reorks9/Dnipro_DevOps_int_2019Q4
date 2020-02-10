@@ -1,5 +1,7 @@
 pipeline {
-  agent any
+  agent { 
+    label 'docker' 
+  }
   environment {
     GIT_HUB_USER_NAME   = "studentota2lvl"
     GIT_HUB_USER_EMAIL  = "studentota2lvl@gmail.com"
@@ -18,7 +20,8 @@ pipeline {
         echo '~~~~~~~~~~~Install git variables~~~~~~~~~~~'
         sh 'git config --global user.name "$GIT_HUB_USER_NAME"'
         sh 'git config --global user.email "$GIT_HUB_USER_EMAIL"'
-        sh 'ssh-keyscan "github.com"> ~/.ssh/known_hosts 2>/dev/null'
+        sh 'mkdir -p ~/.ssh'
+        sh 'ssh-keyscan "github.com">> ~/.ssh/known_hosts'
       }
     }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~Clone repo~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -54,10 +57,8 @@ pipeline {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~Post actions~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   post {
     always {
-      sh 'ls -al'
       sh 'rm -rf *'
       sh 'rm -rf .git'
-      sh 'ls -al'
     }
   }
 }
@@ -65,3 +66,29 @@ pipeline {
 // sh "docker login --username=${DOCKER_HUB_LOGIN} --password=${DOCKER_HUB_PASS}"
 // sh "build -f /home/arudy/docker/jenkins.Dockerfile -t ${DOCKER_HUB_LOGIN}/${DOCKER_REPO}:${IMAGE_NAME} ."
 // sh "docker push ${DOCKER_HUB_LOGIN}/${DOCKER_REPO}:${IMAGE_NAME}"
+
+
+// dockerfile
+// Execute the Pipeline, or stage, with a container built from a Dockerfile contained in the source repository. In order to use this option, the Jenkinsfile must be loaded from either a Multibranch Pipeline or a Pipeline from SCM. Conventionally this is the Dockerfile in the root of the source repository: agent { dockerfile true }. If building a Dockerfile in another directory, use the dir option: agent { dockerfile { dir 'someSubDir' } }. If your Dockerfile has another name, you can specify the file name with the filename option. You can pass additional arguments to the docker build …​command with the additionalBuildArgs option, like agent { dockerfile { additionalBuildArgs '--build-arg foo=bar' } }. For example, a repository with the file build/Dockerfile.build, expecting a build argument version:
+
+// agent {
+//     // Equivalent to "docker build -f Dockerfile.build --build-arg version=1.0.2 ./build/
+//     dockerfile {
+//         filename 'Dockerfile.build'
+//         dir 'build'
+//         label 'my-defined-label'
+//         additionalBuildArgs  '--build-arg version=1.0.2'
+//         args '-v /tmp:/tmp'
+//     }
+// }
+// dockerfile also optionally accepts a registryUrl and registryCredentialsId parameters which will help to specify the Docker Registry to use and its credentials. For example:
+
+// agent {
+//     dockerfile {
+//         filename 'Dockerfile.build'
+//         dir 'build'
+//         label 'my-defined-label'
+//         registryUrl 'https://myregistry.com/'
+//         registryCredentialsId 'myPredefinedCredentialsInJenkins'
+//     }
+// }
