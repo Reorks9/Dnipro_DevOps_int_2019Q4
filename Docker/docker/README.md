@@ -77,6 +77,12 @@ where:
 ```bash
 docker container rm $(docker ps -a | cut -d' ' -f1)
 ```
+##### remove all docker images
+```
+docker rmi -f $(docker image ls | awk '{print $3}')
+```
+
+
 ***
 #### file references
 [dockerfile](./dockerfile) - dokerfile this image;  

@@ -23,6 +23,8 @@ services:
     build:
       context: ./slave/
       dockerfile: ./slave.Dockerfile
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
     networks:
       static-network:
         ipv4_address: 172.20.0.3

@@ -1,0 +1,184 @@
+Started by user arudy
+Running in Durability level: MAX_SURVIVABILITY
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on docker in /var/lib/jenkins/workspace/build docker image
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Environment preconfiguration)
+[Pipeline] echo
+~~~~~~~~~~~Install git variables~~~~~~~~~~~
+[Pipeline] sh
++ git config --global user.name studentota2lvl
+[Pipeline] sh
++ git config --global user.email studentota2lvl@gmail.com
+[Pipeline] sh
++ mkdir -p /var/lib/jenkins//.ssh
+[Pipeline] sh
++ ssh-keyscan github.com
+# github.com:22 SSH-2.0-babeld-907b992b
+# github.com:22 SSH-2.0-babeld-907b992b
+# github.com:22 SSH-2.0-babeld-907b992b
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Repo cloning)
+[Pipeline] echo
+~~~~~~~~~~~Cloning repo which include dockerfile and configs~~~~~~~~~~~
+[Pipeline] sshagent
+[ssh-agent] Using credentials studentota2lvl (ssh login and private key for git hub)
+[ssh-agent] Looking for ssh-agent implementation...
+[ssh-agent]   Exec ssh-agent (binary ssh-agent on a remote machine)
+$ ssh-agent
+SSH_AUTH_SOCK=/tmp/ssh-riqo7r2KbpwC/agent.1583
+SSH_AGENT_PID=1585
+Running ssh-add (command line suppressed)
+Identity added: /var/lib/jenkins/workspace/build docker image@tmp/private_key_1359476765979817877.key (/var/lib/jenkins/workspace/build docker image@tmp/private_key_1359476765979817877.key)
+[ssh-agent] Started.
+[Pipeline] {
+[Pipeline] sh
++ git clone git@github.com:studentota2lvl/Dnipro_DevOps_int_2019Q4.git ./
+Cloning into '.'...
+[Pipeline] }
+$ ssh-agent -k
+unset SSH_AUTH_SOCK;
+unset SSH_AGENT_PID;
+echo Agent pid 1585 killed;
+[ssh-agent] Stopped.
+[Pipeline] // sshagent
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Build image)
+[Pipeline] echo
+~~~~~~~~~~~Starting to build jenkins image~~~~~~~~~~~
+[Pipeline] sh
++ cp -r ./Docker/docker/README.md ./Docker/docker/dockerfile ./Docker/docker/dockerfile.new ./Docker/docker/get-plugins-list.groovy ./Docker/docker/img ./Docker/docker/logs ./Docker/docker/plugins.txt .
+[Pipeline] script
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] sh
++ docker build -t studentota2lvl/jenkins:1 -f ./dockerfile .
+Sending build context to Docker daemon  1.086MB
+
+Step 1/11 : FROM ubuntu:bionic
+ ---> ccc6e87d482b
+Step 2/11 : MAINTAINER Andrii Rudyi "studentota2lvl@gmail.com"
+ ---> Using cache
+ ---> a9033fc6b25c
+Step 3/11 : EXPOSE 8081
+ ---> Using cache
+ ---> 0f852430245b
+Step 4/11 : ARG DEBIAN_FRONTEND=noninteractive
+ ---> Using cache
+ ---> 1c8c60902d1e
+Step 5/11 : ARG REF=/var/lib/jenkins
+ ---> Using cache
+ ---> 4ade1322a414
+Step 6/11 : ARG JENKINS_UC=https://updates.jenkins.io
+ ---> Using cache
+ ---> ba4cbdc049dc
+Step 7/11 : ENV homeDir=$REF
+ ---> Using cache
+ ---> 955b5fb25fd5
+Step 8/11 : ENV tmpDir=$homeDir/tmpData
+ ---> Using cache
+ ---> 7a6baaccedb2
+Step 9/11 : COPY ./plugins.txt ${tmpDir}/plugins.txt
+ ---> Using cache
+ ---> e508bd7243c4
+Step 10/11 : RUN 	apt-get update && 	apt-get -y install apt-utils gnupg2 openjdk-8-jdk wget curl unzip && 	wget -q -O - https://pkg.jenkins.io/debian/jenkins.io.key | apt-key add - && 	sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list' && 	apt-get update && 	apt-get -y install jenkins && 	mkdir -p ${tmpDir}/ && 	service jenkins restart && 	sleep 45 && 	pass="$(cat $homeDir/secrets/initialAdminPassword)" && 	echo 'jenkins.model.Jenkins.instance.securityRealm.createAccount("arudy", "arudy")' | java -jar /var/cache/jenkins/war/WEB-INF/jenkins-cli.jar -auth admin:$pass -s http://localhost:8080/ groovy = && 	cat /etc/default/jenkins | sed "s/HTTP_PORT=8080/HTTP_PORT=8081/g" > ${tmpDir}/jenkinsConfig && 	mv -f ${tmpDir}/jenkinsConfig /etc/default/jenkins && 	service jenkins restart && 	wget https://raw.githubusercontent.com/jenkinsci/docker/master/install-plugins.sh -O ${tmpDir}/plugins.sh && 	cat ${tmpDir}/plugins.sh | sed "s/REF=\/usr\/share\/jenkins\/ref\/plugins/REF=\/var\/lib\/jenkins\/plugins/g" | sed "s/\/usr\/local\/bin/\/var\/lib\/jenkins\/tmpData/g"> ${tmpDir}/install-plugins.sh && 	chmod +x ${tmpDir}/install-plugins.sh && 	wget https://raw.githubusercontent.com/jenkinsci/docker/master/jenkins-support -O ${tmpDir}/support && 	cat ${tmpDir}/support | sed "s/\/usr\/share\/jenkins\/ref/\/var\/lib\/jenkins/g" > ${tmpDir}/jenkins-support && 	${tmpDir}/install-plugins.sh < ${tmpDir}/plugins.txt && 	chown -R jenkins:jenkins $homeDir/ && 	rm -rf ${tmpDir}/ && 	service jenkins restart
+ ---> Using cache
+ ---> 948c6057417a
+Step 11/11 : CMD service jenkins start; read item # костыль....
+ ---> Using cache
+ ---> bf6adde871aa
+Successfully built bf6adde871aa
+Successfully tagged studentota2lvl/jenkins:1
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Deploy Image)
+[Pipeline] echo
+~~~~~~~~~~~Deploy image to docker hub~~~~~~~~~~~
+[Pipeline] script
+[Pipeline] {
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] withDockerRegistry
+$ docker login -u studentota2lvl -p ******** https://index.docker.io/v1/
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+WARNING! Your password will be stored unencrypted in /var/lib/jenkins/workspace/build docker image@tmp/d97268d4-db6a-4d9c-81ee-5cac37811da9/config.json.
+Configure a credential helper to remove this warning. See
+https://docs.docker.com/engine/reference/commandline/login/#credentials-store
+
+Login Succeeded
+[Pipeline] {
+[Pipeline] isUnix
+[Pipeline] sh
++ docker tag studentota2lvl/jenkins:1 studentota2lvl/jenkins:ubuntu-1
+[Pipeline] isUnix
+[Pipeline] sh
++ docker push studentota2lvl/jenkins:ubuntu-1
+The push refers to repository [docker.io/studentota2lvl/jenkins]
+d817036715c7: Preparing
+2009bb93930d: Preparing
+f55aa0bd26b8: Preparing
+1d0dfb259f6a: Preparing
+21ec61b65b20: Preparing
+43c67172d1d1: Preparing
+43c67172d1d1: Waiting
+1d0dfb259f6a: Layer already exists
+f55aa0bd26b8: Layer already exists
+2009bb93930d: Layer already exists
+21ec61b65b20: Layer already exists
+d817036715c7: Layer already exists
+43c67172d1d1: Layer already exists
+ubuntu-1: digest: sha256:580b9d6ba22a95b18e2c810589c287776215ef4a325c5bdd9d6b0bfbe4bbabe8 size: 1573
+[Pipeline] isUnix
+[Pipeline] sh
++ docker tag studentota2lvl/jenkins:1 studentota2lvl/jenkins:ubuntu-latest
+[Pipeline] isUnix
+[Pipeline] sh
++ docker push studentota2lvl/jenkins:ubuntu-latest
+The push refers to repository [docker.io/studentota2lvl/jenkins]
+d817036715c7: Preparing
+2009bb93930d: Preparing
+f55aa0bd26b8: Preparing
+1d0dfb259f6a: Preparing
+21ec61b65b20: Preparing
+43c67172d1d1: Preparing
+43c67172d1d1: Waiting
+21ec61b65b20: Layer already exists
+2009bb93930d: Layer already exists
+1d0dfb259f6a: Layer already exists
+d817036715c7: Layer already exists
+f55aa0bd26b8: Layer already exists
+43c67172d1d1: Layer already exists
+ubuntu-latest: digest: sha256:580b9d6ba22a95b18e2c810589c287776215ef4a325c5bdd9d6b0bfbe4bbabe8 size: 1573
+[Pipeline] }
+[Pipeline] // withDockerRegistry
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // script
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] stage
+[Pipeline] { (Declarative: Post Actions)
+[Pipeline] sh
++ rm -rf Docker Git README.md dockerfile dockerfile.new get-plugins-list.groovy img jenkins logs plugins.txt
+[Pipeline] sh
++ rm -rf .git
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

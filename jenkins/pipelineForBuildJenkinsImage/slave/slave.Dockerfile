@@ -22,6 +22,12 @@ RUN apk update && \
   	chown "${uid}":"${gid}" "$JENKINS_HOME" && \
   	addgroup -g "${gid}" "${group}" && \
   	adduser -h "$JENKINS_HOME" -u "${uid}" -G "${group}" -s /bin/sh -D "${user}" && \
+  	addgroup docker && \
+  	addgroup "${user}" docker && \
+## that run docker with user jenkins
+### from jenkins master:	PATH=/bin:/usr/bin:/sbin:/usr/sbin
+### from container master:	PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+	ln -s /usr/local/bin/docker /bin/docker && \
 ## to allow user
   	sed -i s/"${user}:!"/"${user}:*"/g /etc/shadow && \
 # set permissions to files

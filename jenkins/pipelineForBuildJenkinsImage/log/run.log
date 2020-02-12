@@ -1,0 +1,100 @@
+Recreating docker_slave_1 ... 
+Recreating docker_master_1 ... 
+Recreating docker_slave_1
+Recreating docker_slave_1 ... done
+Attaching to docker_master_1, docker_slave_1
+slave_1   | 2020-02-10 20:27:06,376 CRIT Supervisor is running as root.  Privileges were not dropped because no user is specified in the config file.  If you intend to run as root, you can set user=root in the config file to avoid this message.
+slave_1   | 2020-02-10 20:27:06,549 INFO supervisord started with pid 1
+slave_1   | 2020-02-10 20:27:07,551 INFO spawned: 'docker' with pid 7
+slave_1   | 2020-02-10 20:27:07,554 INFO spawned: 'sshd' with pid 8
+slave_1   | Generating public/private rsa key pair.
+slave_1   | 2020-02-10 20:27:07,765 CRIT uncaptured python exception, closing channel <POutputDispatcher at 139679357176848 for <Subprocess at 139679357176176 with name sshd in state STARTING> (stdout)> (<class 'OSError'>:[Errno 29] Invalid seek [/usr/lib/python3.8/site-packages/supervisor/supervisord.py|runforever|218] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|handle_read_event|270] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|record_output|204] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|_log|173] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|info|327] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|log|345] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|emit|227] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|doRollover|264])
+slave_1   | Your identification has been saved in /etc/ssh/ssh_host_rsa_key.
+slave_1   | Your public key has been saved in /etc/ssh/ssh_host_rsa_key.pub.
+slave_1   | The key fingerprint is:
+slave_1   | SHA256:L9FXVzYd/iFBFTh4wsQ3iM2D1UAtL8Houd1GnZj1B/w root@b39ec7b31c9d
+slave_1   | The key's randomart image is:
+slave_1   | +---[RSA 3072]----+
+slave_1   | |          &=B+o=*|
+slave_1   | |         + & O=o+|
+slave_1   | |        . . O.O=+|
+slave_1   | |         + . *.+E|
+slave_1   | |        S + =   o|
+slave_1   | |         + o o   |
+slave_1   | |        . . .    |
+slave_1   | |         .       |
+slave_1   | |                 |
+slave_1   | +----[SHA256]-----+
+slave_1   | 2020-02-10 20:27:08,083 CRIT uncaptured python exception, closing channel <POutputDispatcher at 139679357176848 for <Subprocess at 139679357176176 with name sshd in state STARTING> (stdout)> (<class 'OSError'>:[Errno 29] Invalid seek [/usr/lib/python3.8/site-packages/supervisor/supervisord.py|runforever|218] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|handle_read_event|270] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|record_output|204] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|_log|173] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|info|327] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|log|345] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|emit|227] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|doRollover|264])
+slave_1   | Generating public/private dsa key pair.
+slave_1   | 2020-02-10 20:27:08,096 CRIT uncaptured python exception, closing channel <POutputDispatcher at 139679357176848 for <Subprocess at 139679357176176 with name sshd in state STARTING> (stdout)> (<class 'OSError'>:[Errno 29] Invalid seek [/usr/lib/python3.8/site-packages/supervisor/supervisord.py|runforever|218] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|handle_read_event|270] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|record_output|204] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|_log|173] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|info|327] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|log|345] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|emit|227] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|doRollover|264])
+slave_1   | Your identification has been saved in /etc/ssh/ssh_host_dsa_key.
+slave_1   | Your public key has been saved in /etc/ssh/ssh_host_dsa_key.pub.
+slave_1   | The key fingerprint is:
+slave_1   | SHA256:f10CrgWk6EdeDWRHCvuh3m3AUaTR6idU2ylDsAq3meI root@b39ec7b31c9d
+slave_1   | The key's randomart image is:
+slave_1   | +---[DSA 1024]----+
+slave_1   | |        ..B==    |
+slave_1   | |       . * X+    |
+slave_1   | |      o = O+oo . |
+slave_1   | |     . = Xo=+.o  |
+slave_1   | |      o So+ oo. .|
+slave_1   | |     . + oo=.. o |
+slave_1   | |      E . +o+ .  |
+slave_1   | |           o     |
+slave_1   | |                 |
+slave_1   | +----[SHA256]-----+
+slave_1   | 2020-02-10 20:27:08,374 CRIT uncaptured python exception, closing channel <POutputDispatcher at 139679357176848 for <Subprocess at 139679357176176 with name sshd in state STARTING> (stdout)> (<class 'OSError'>:[Errno 29] Invalid seek [/usr/lib/python3.8/site-packages/supervisor/supervisord.py|runforever|218] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|handle_read_event|270] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|record_output|204] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|_log|173] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|info|327] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|log|345] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|emit|227] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|doRollover|264])
+slave_1   | 2020-02-10 20:27:08,648 INFO success: docker entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+slave_1   | 2020-02-10 20:27:08,648 INFO success: sshd entered RUNNING state, process has stayed up for > than 1 seconds (startsecs)
+slave_1   | /certs/server/cert.pem: OK
+slave_1   | 2020-02-10 20:27:09,964 CRIT uncaptured python exception, closing channel <POutputDispatcher at 139679357175456 for <Subprocess at 139679357039664 with name docker in state RUNNING> (stdout)> (<class 'OSError'>:[Errno 29] Invalid seek [/usr/lib/python3.8/site-packages/supervisor/supervisord.py|runforever|218] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|handle_read_event|270] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|record_output|204] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|_log|173] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|info|327] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|log|345] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|emit|227] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|doRollover|264])
+master_1  | Running from: /opt/jenkins.war
+master_1  | webroot: EnvVars.masterEnvVars.get("JENKINS_HOME")
+slave_1   | /certs/client/cert.pem: OK
+slave_1   | 2020-02-10 20:27:12,870 CRIT uncaptured python exception, closing channel <POutputDispatcher at 139679357175456 for <Subprocess at 139679357039664 with name docker in state RUNNING> (stdout)> (<class 'OSError'>:[Errno 29] Invalid seek [/usr/lib/python3.8/site-packages/supervisor/supervisord.py|runforever|218] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|handle_read_event|270] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|record_output|204] [/usr/lib/python3.8/site-packages/supervisor/dispatchers.py|_log|173] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|info|327] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|log|345] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|emit|227] [/usr/lib/python3.8/site-packages/supervisor/loggers.py|doRollover|264])
+master_1  | 2020-02-10 20:27:13.449+0000 [id=1]	INFO	org.eclipse.jetty.util.log.Log#initialized: Logging initialized @2809ms to org.eclipse.jetty.util.log.JavaUtilLog
+master_1  | 2020-02-10 20:27:14.695+0000 [id=1]	INFO	winstone.Logger#logInternal: Beginning extraction from war file
+master_1  | 2020-02-10 20:27:15.023+0000 [id=1]	WARNING	o.e.j.s.handler.ContextHandler#setContextPath: Empty contextPath
+master_1  | 2020-02-10 20:27:15.354+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: jetty-9.4.25.v20191220; built: 2019-12-20T17:00:00.294Z; git: a9729c7e7f33a459d2616a8f9e9ba8a90f432e95; jvm 1.8.0_242-8u242-b08-0ubuntu3~18.04-b08
+master_1  | 2020-02-10 20:27:20.326+0000 [id=1]	INFO	o.e.j.w.StandardDescriptorProcessor#visitServlet: NO JSP Support for /, did not find org.eclipse.jetty.jsp.JettyJspServlet
+master_1  | 2020-02-10 20:27:21.259+0000 [id=1]	INFO	o.e.j.s.s.DefaultSessionIdManager#doStart: DefaultSessionIdManager workerName=node0
+master_1  | 2020-02-10 20:27:21.266+0000 [id=1]	INFO	o.e.j.s.s.DefaultSessionIdManager#doStart: No SessionScavenger set, using defaults
+master_1  | 2020-02-10 20:27:21.332+0000 [id=1]	INFO	o.e.j.server.session.HouseKeeper#startScavenging: node0 Scavenging every 660000ms
+master_1  | 2020-02-10 20:27:24.771+0000 [id=1]	INFO	hudson.WebAppMain#contextInitialized: Jenkins home directory: /var/lib/jenkins found at: EnvVars.masterEnvVars.get("JENKINS_HOME")
+master_1  | 2020-02-10 20:27:26.017+0000 [id=1]	INFO	o.e.j.s.handler.ContextHandler#doStart: Started w.@4a07d605{Jenkins v2.219,/,file:///var/lib/jenkins/war/,AVAILABLE}{/var/lib/jenkins/war}
+master_1  | 2020-02-10 20:27:26.141+0000 [id=1]	INFO	o.e.j.server.AbstractConnector#doStart: Started ServerConnector@735b478{HTTP/1.1,[http/1.1]}{0.0.0.0:8080}
+master_1  | 2020-02-10 20:27:26.142+0000 [id=1]	INFO	org.eclipse.jetty.server.Server#doStart: Started @15504ms
+master_1  | 2020-02-10 20:27:26.143+0000 [id=20]	INFO	winstone.Logger#logInternal: Winstone Servlet Engine running: controlPort=disabled
+master_1  | 2020-02-10 20:27:28.676+0000 [id=26]	INFO	jenkins.InitReactorRunner$1#onAttained: Started initialization
+master_1  | 2020-02-10 20:27:32.067+0000 [id=25]	INFO	jenkins.InitReactorRunner$1#onAttained: Listed all plugins
+master_1  | 2020-02-10 20:27:43.952+0000 [id=26]	INFO	jenkins.InitReactorRunner$1#onAttained: Prepared all plugins
+master_1  | 2020-02-10 20:27:44.003+0000 [id=26]	INFO	jenkins.InitReactorRunner$1#onAttained: Started all plugins
+master_1  | 2020-02-10 20:27:47.754+0000 [id=26]	INFO	h.ExtensionFinder$GuiceFinder$FaultTolerantScope$1#error: Failed to instantiate optional component hudson.plugins.build_timeout.operations.AbortAndRestartOperation$DescriptorImpl; skipping
+master_1  | 2020-02-10 20:27:48.020+0000 [id=25]	INFO	jenkins.InitReactorRunner$1#onAttained: Augmented all extensions
+master_1  | 2020-02-10 20:27:48.344+0000 [id=25]	INFO	hudson.slaves.SlaveComputer#tryReconnect: Attempting to reconnect docker
+master_1  | 2020-02-10 20:27:48.539+0000 [id=26]	INFO	jenkins.InitReactorRunner$1#onAttained: Loaded all jobs
+master_1  | 2020-02-10 20:27:48.991+0000 [id=41]	INFO	hudson.model.AsyncPeriodicWork#lambda$doRun$0: Started Download metadata
+master_1  | 2020-02-10 20:27:49.013+0000 [id=41]	INFO	hudson.model.AsyncPeriodicWork#lambda$doRun$0: Finished Download metadata. 19 ms
+master_1  | [02/10/20 20:27:49] SSH Launch of docker on 172.20.0.3 failed in 429 ms
+slave_1   | 2020-02-10 20:27:49,566 INFO reaped unknown pid 193
+master_1  | 2020-02-10 20:27:50.476+0000 [id=26]	INFO	o.s.c.s.AbstractApplicationContext#prepareRefresh: Refreshing org.springframework.web.context.support.StaticWebApplicationContext@47686fb: display name [Root WebApplicationContext]; startup date [Mon Feb 10 20:27:50 GMT 2020]; root of context hierarchy
+master_1  | 2020-02-10 20:27:50.477+0000 [id=26]	INFO	o.s.c.s.AbstractApplicationContext#obtainFreshBeanFactory: Bean factory for application context [org.springframework.web.context.support.StaticWebApplicationContext@47686fb]: org.springframework.beans.factory.support.DefaultListableBeanFactory@4f090f77
+master_1  | 2020-02-10 20:27:50.491+0000 [id=26]	INFO	o.s.b.f.s.DefaultListableBeanFactory#preInstantiateSingletons: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@4f090f77: defining beans [authenticationManager]; root of factory hierarchy
+master_1  | 2020-02-10 20:27:50.896+0000 [id=26]	INFO	o.s.c.s.AbstractApplicationContext#prepareRefresh: Refreshing org.springframework.web.context.support.StaticWebApplicationContext@61ec4518: display name [Root WebApplicationContext]; startup date [Mon Feb 10 20:27:50 GMT 2020]; root of context hierarchy
+master_1  | 2020-02-10 20:27:50.897+0000 [id=26]	INFO	o.s.c.s.AbstractApplicationContext#obtainFreshBeanFactory: Bean factory for application context [org.springframework.web.context.support.StaticWebApplicationContext@61ec4518]: org.springframework.beans.factory.support.DefaultListableBeanFactory@29922256
+master_1  | 2020-02-10 20:27:50.899+0000 [id=26]	INFO	o.s.b.f.s.DefaultListableBeanFactory#preInstantiateSingletons: Pre-instantiating singletons in org.springframework.beans.factory.support.DefaultListableBeanFactory@29922256: defining beans [filter,legacy]; root of factory hierarchy
+master_1  | 2020-02-10 20:27:51.193+0000 [id=25]	INFO	jenkins.InitReactorRunner$1#onAttained: Completed initialization
+master_1  | 2020-02-10 20:27:51.664+0000 [id=19]	INFO	hudson.slaves.SlaveComputer#tryReconnect: Attempting to reconnect docker
+master_1  | 2020-02-10 20:27:51.722+0000 [id=19]	INFO	hudson.WebAppMain$3#run: Jenkins is fully up and running
+master_1  | [02/10/20 20:27:51] SSH Launch of docker on 172.20.0.3 failed in 113 ms
+slave_1   | 2020-02-10 20:27:52,788 INFO reaped unknown pid 195
+master_1  | 2020-02-10 20:28:00.992+0000 [id=29]	INFO	hudson.slaves.SlaveComputer#tryReconnect: Attempting to reconnect docker
+master_1  | [02/10/20 20:28:01] SSH Launch of docker on 172.20.0.3 failed in 64 ms
+slave_1   | 2020-02-10 20:28:02,062 INFO reaped unknown pid 197
+master_1  | 2020-02-10 20:30:00.991+0000 [id=28]	INFO	hudson.slaves.SlaveComputer#tryReconnect: Attempting to reconnect docker
+master_1  | [02/10/20 20:30:01] SSH Launch of docker on 172.20.0.3 failed in 67 ms
+slave_1   | 2020-02-10 20:30:02,062 INFO reaped unknown pid 199
+master_1  | 2020-02-10 20:32:00.991+0000 [id=34]	INFO	hudson.slaves.SlaveComputer#tryReconnect: Attempting to reconnect docker
+master_1  | [02/10/20 20:32:01] SSH Launch of docker on 172.20.0.3 failed in 35 ms
+slave_1   | 2020-02-10 20:32:02,032 INFO reaped unknown pid 201
