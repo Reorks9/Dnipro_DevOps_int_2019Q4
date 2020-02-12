@@ -18,4 +18,4 @@ send:
 restart:
   stage: restart
   script:
-    - ssh -p ${web_server_port} ${web_server_user}@${web_server_addr} "docker-compose-restart node"'
+    - ssh -p ${web_server_port} ${web_server_user}@${web_server_addr} "docker-compose restart node"'
