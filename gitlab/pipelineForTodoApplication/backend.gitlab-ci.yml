@@ -1,0 +1,21 @@
+image: node:latest
+
+stages:
+  - send
+  - restart
+  
+variables:
+  web_server_addr: "37.229.19.16"
+  web_server_dest_folder: "/var/www/todo/back"
+  web_server_port: "3317"
+
+
+send:
+  stage: send
+  script:
+    - scp -r -p ${web_server_port} ./dist/* ${web_server_user}@${web_server_addr}:~${web_server_dest_folder}
+
+restart:
+  stage: restart
+  script:
+    - ssh -p ${web_server_port} ${web_server_user}@${web_server_addr} "docker-compose-restart node"'

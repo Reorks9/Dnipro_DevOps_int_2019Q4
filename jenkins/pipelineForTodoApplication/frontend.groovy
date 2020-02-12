@@ -33,7 +33,7 @@ pipeline {
       steps {
         echo '~~~~~~~~~~~build angular app~~~~~~~~~~~'
         script {
-          docker.image('node').withRun('-v .:/home/node/app') {
+          docker.image('node').inside('-v .:/home/node/app') {
             sh 'cp ./src/environments/environment.ts ./src/environments/environment.dev.ts'
             sh 'npm Install'
             sh 'cd /home/node/app && npm build:dev'

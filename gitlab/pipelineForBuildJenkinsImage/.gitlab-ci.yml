@@ -5,24 +5,54 @@ services:
 
 stages:
   - build
- # - test
- # - push
-
+  - test
+  - push
+  
 variables:
-  image_name: jenkins
-
-before_script:
-  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY
+  image_name: "studentota2lvl/pipelinefortodoapplication"
+  image_tag: "studentota2lvl/jenkins"
+  gitlab_registry: "registry.gitlab.com/"
+  dockerhub_registry: "docker.io/"
+  gitlab_image: ${gitlab_registry}${image_name}:$CI_COMMIT_SHA
 
 build:
   stage: build
+  script:
+  # login in to gitlab registry
+    - docker login -u ${gitlab_user} -p ${gitlab_pass} ${gitlab_registry}
+    - docker build -t ${gitlab_image} .
+    - docker push ${gitlab_image}
+
+test:
+  stage: test
+  script:
+    - docker pull ${gitlab_image}
+    - docker run -d -t --name test ${gitlab_image}
+    - sleep 40
+    - docker exec --tty test /usr/bin/wget localhost:8081 --http-user=${jenkins_user} --http-password=${jenkins_pass} --auth-no-challenge --server-response > .state 2>&1
+    - docker kill test
   artifacts:
     paths:
-      - build/
-  cache:
-    paths:
-      - build/
+    - .state
+    expire_in: 1 day
+
+push:
+  stage: push
   script:
-    - docker build -t ${image_name}:$CI_COMMIT_SHA -t $CI_REGISTRY_IMAGE:latest .
-    - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHA
-    - docker push $CI_REGISTRY_IMAGE:latest
+    - responce=$(cat .state | grep -c '200 OK')
+    - > 
+        if [[ $responce == 1 ]]; then  
+        # login in to dockerhub registry
+            docker logout;  
+            docker login -u ${dockerhub_user} -p ${dockerhub_pass} ${dockerhub_registry};  
+            docker pull ${gitlab_image}; 
+        # add tag for docker hub;
+            docker tag ${gitlab_image} ${image_tag}:$CI_COMMIT_SHA; 
+            docker push ${image_tag}:$CI_COMMIT_SHA; 
+        # add latest tag for docker hub; 
+            docker tag ${gitlab_image} ${image_tag}:latest;
+            docker push ${image_tag}:latest; 
+            echo "done"; 
+        else 
+            echo "test was not success"; 
+        fi;

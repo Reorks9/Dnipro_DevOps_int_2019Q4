@@ -1,0 +1,25 @@
+image: node:latest
+
+stages:
+  - build
+  - send
+  
+variables:
+  web_server_dest: "37.229.19.16:~/var/www/todo/front/"
+  web_server_port: "3317"
+
+build:
+  stage: build
+  script:
+    - cp ./src/environments/environment.ts ./src/environments/environment.dev.ts
+    - npm Install
+    - npm build:dev
+  artifacts:
+    paths:
+    - ./dist
+    expire_in: 1 week
+
+send:
+  stage: send
+  script:
+    - scp -r -p ${web_server_port} ./dist/* ${web_server_user}@${web_server_dest}
