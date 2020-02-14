@@ -54,9 +54,7 @@ pipeline {
           echo "${responce}"
         }
       }
-    }
-  }
-  
+    }  
 // // + wget 0.0.0.0:8081 --user=**** --password=**** --auth-no-challenge --server-response
 // // --2020-02-12 07:01:47--  http://0.0.0.0:8081/
 // // Connecting to 0.0.0.0:8081... failed: Connection refused.
@@ -67,7 +65,7 @@ pipeline {
 //           jenkinsImage.inside('-p 17000:8081') {
 //             sh 'echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"'
 //             sh 'sleep 40'
-//             def responce = sh (returnStdout: true, script: 'wget 0.0.0.0:8081 --user=arudy --password=arudy --auth-no-challenge --server-response 2>&1').trim()
+//             def responce = sh (returnStdout: true, script: 'wget 127.0.0.1:8081 --user=arudy --password=arudy --auth-no-challenge --server-response 2>&1').trim()
 //             sh 'sleep 10'
 //           }
 //         }

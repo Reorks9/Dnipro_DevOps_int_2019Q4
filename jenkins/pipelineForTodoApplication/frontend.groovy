@@ -6,6 +6,7 @@ pipeline {
     GIT_HUB_USER_NAME   = "studentota2lvl"
     GIT_HUB_USER_EMAIL  = "studentota2lvl@gmail.com"
     GIT_HUB_REPO        = "git@github.com:studentota2lvl/front-TODO.git"
+    WEB_SERVER_PATH  = "jenkins@192.168.0.115:/var/www/todo/front"
   }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~Install app~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   stages {
@@ -22,7 +23,7 @@ pipeline {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~Clone repo~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     stage('Repo cloning') {
       steps {
-        echo '~~~~~~~~~~~Cloning repo which include dockerfile and configs~~~~~~~~~~~'
+        echo '~~~~~~~~~~~Cloning repo~~~~~~~~~~~'
         sshagent (credentials: ['ssh_key_for_github']) {
           sh 'git clone "$GIT_HUB_REPO" ./'
         }
@@ -45,7 +46,7 @@ pipeline {
     stage('send files to server') {
       steps {
         echo '~~~~~~~~~~~send files to server~~~~~~~~~~~'
-        sh 'scp -r ./dist/* jenkins@192.168.0.115:/var/www/todo/front'
+        sh 'scp -r ./dist/* "$WEB_SERVER_PATH'
       }
     }
   }

@@ -25,4 +25,4 @@ photo of the build process
 [slave](./slave) - jenkins slave's folder;  
 [pipeline.log](./log/pipeline.log) - jenkins pipeline build log.  
 #### links
-[docker registry] (https://registry.hub.docker.com/r/studentota2lvl/jenkins) -link to docker registry. 
+[docker registry](https://registry.hub.docker.com/r/studentota2lvl/jenkins) -link to docker registry. 

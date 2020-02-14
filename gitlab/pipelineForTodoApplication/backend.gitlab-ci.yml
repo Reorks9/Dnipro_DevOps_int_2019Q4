@@ -9,13 +9,26 @@ variables:
   web_server_dest_folder: "/var/www/todo/back"
   web_server_port: "3317"
 
-
 send:
   stage: send
   script:
-    - scp -r -p ${web_server_port} ./dist/* ${web_server_user}@${web_server_addr}:~${web_server_dest_folder}
+    - which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )
+    - eval $(ssh-agent -s)
+    - echo "$ssh_private_key" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - ssh-keyscan ${web_server_addr} >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - chmod 700 ~/.ssh
+    - scp -r -p ${web_server_port} ./dist/* ${web_server_user}@${web_server_addr}:${web_server_dest_folder}
 
 restart:
   stage: restart
   script:
-    - ssh -p ${web_server_port} ${web_server_user}@${web_server_addr} "docker-compose restart node"'
+    - which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )
+    - eval $(ssh-agent -s)
+    - echo "$ssh_private_key" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - ssh-keyscan ${web_server_addr} >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - chmod 700 ~/.ssh
+    - ssh -p ${web_server_port} ${web_server_user}@${web_server_addr} "docker-compose restart node"

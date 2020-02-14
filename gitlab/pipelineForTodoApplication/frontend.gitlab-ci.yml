@@ -5,15 +5,16 @@ stages:
   - send
   
 variables:
-  web_server_dest: "37.229.19.16:~/var/www/todo/front/"
+  web_server_addr: "37.229.19.16"
+  web_server_path: "/var/www/todo/front/"
   web_server_port: "3317"
 
 build:
   stage: build
   script:
     - cp ./src/environments/environment.ts ./src/environments/environment.dev.ts
-    - npm Install
-    - npm build:dev
+    - npm install
+    - npm run build:dev
   artifacts:
     paths:
     - ./dist
@@ -22,4 +23,11 @@ build:
 send:
   stage: send
   script:
-    - scp -r -p ${web_server_port} ./dist/* ${web_server_user}@${web_server_dest}
+    - which ssh-agent || ( apt-get update -y && apt-get install openssh-client -y )
+    - eval $(ssh-agent -s)
+    - echo "$ssh_private_key" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - ssh-keyscan ${web_server_addr} >> ~/.ssh/known_hosts
+    - chmod 644 ~/.ssh/known_hosts
+    - chmod 700 ~/.ssh
+    - scp -r -p ${web_server_port} ./dist/* ${web_server_user}@${web_server_addr}:${web_server_path}

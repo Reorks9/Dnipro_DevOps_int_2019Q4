@@ -4,6 +4,9 @@ pipeline {
     GIT_HUB_USER_NAME   = "studentota2lvl"
     GIT_HUB_USER_EMAIL  = "studentota2lvl@gmail.com"
     GIT_HUB_REPO        = "git@github.com:studentota2lvl/back-TODO.git"
+    WEB_SERVER_USER     = "jenkins"
+    WEB_SERVER_ADDR     = "192.168.0.115"
+    WEB_SERVER_PATH     = "/var/www/todo/back"
   }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~build env~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   stages {
@@ -19,7 +22,7 @@ pipeline {
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~Clone repo~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     stage('Repo cloning') {
       steps {
-        echo '~~~~~~~~~~~Cloning repo which include dockerfile and configs~~~~~~~~~~~'
+        echo '~~~~~~~~~~~Cloning repo with app~~~~~~~~~~~'
         sshagent (credentials: ['ssh_key_for_github']) {
           sh 'git clone "$GIT_HUB_REPO" ./'
         }
@@ -30,8 +33,8 @@ pipeline {
       steps {
         echo '~~~~~~~~~~~send files to server~~~~~~~~~~~'
         sh 'cp ./.env.sample ./.env'
-        sh 'scp -r ./* jenkins@192.168.0.115:/var/www/todo/back'
-        sh 'ssh jenkins@192.168.0.115 "docker-compose-restart node"'
+        sh 'scp -r ./* "$WEB_SERVER_USER"@"$WEB_SERVER_ADDR":"$WEB_SERVER_PATH"'
+        sh 'ssh "$WEB_SERVER_USER"@"$WEB_SERVER_ADDR" "docker-compose-restart node"'
       }
     }
   }
