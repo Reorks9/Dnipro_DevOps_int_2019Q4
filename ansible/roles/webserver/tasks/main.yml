@@ -1,0 +1,102 @@
+---
+# nodejs VM with a docker engine
+- name: Install aptitude using apt
+  apt: 
+    name: aptitude
+    state: latest
+    update_cache: yes
+    force_apt_get: yes
+
+- name: Install required system packages
+  apt: 
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+  loop: [ 'apt-transport-https', 'ca-certificates', 'curl', 'software-properties-common', 'python3-pip']
+
+- name: pip install
+  pip:
+    name: "{{ item }}"
+    state: present
+  loop: [ 'docker-py', 'PyYAML', 'docker-compose']
+
+- name: Add Docker GPG apt Key
+  apt_key:
+    url: https://download.docker.com/linux/ubuntu/gpg
+    state: present
+
+- name: get os type
+  shell: "echo $(lsb_release -cs)"
+  register: echo_output
+
+- name: Add Docker Repository
+  apt_repository:
+    repo: deb https://download.docker.com/linux/ubuntu "{{ echo_output.stdout }}" stable
+    state: present
+
+- name: Update apt and install docker.io
+  apt: 
+    update_cache: yes 
+    name: docker.io 
+    state: latest
+
+- name: start docker
+  systemd:
+    name: docker
+    state: started
+    enabled: true
+
+- name: Ensure group docker exists
+  group:
+    name: docker
+    state: present
+
+- name: Add user to "docker" group
+  user:
+    name: "{{ remote_user }}"
+    groups: "docker"
+    append: true
+
+# - name: Install Docker Compose
+#   get_url:
+#     url: https://github.com/docker/compose/releases/download/1.17.0/docker-compose-Linux-x86_64
+#     timeout: 50
+#     dest: /usr/local/bin/docker-compose
+#     mode: 0755
+
+- name: restart docker service
+  systemd:
+    state: started
+    daemon_reload: yes
+    name: docker
+
+- name: reset ssh connection to allow user changes
+  meta: reset_connection
+
+- name: Create application directory
+  file:
+    path: "{{ pathToAppDir }}"
+    state: directory
+    mode: '0755'
+
+- name: Create frontend dir
+  file:
+    path: "{{ pathToAppDir }}front"
+    state: directory
+    mode: '0755'
+
+- name: Create backend dir
+  file:
+    path: "{{ pathToAppDir }}back"
+    state: directory
+    mode: '0755'
+
+- name: Change file ownership, group and permissions
+  file:
+    path: "{{ pathToAppDir }}"
+    state: directory
+    recurse: yes
+    owner: "{{ remote_user }}"
+    group: "{{ remote_user }}"
+    mode: '0755'
+...

@@ -1,0 +1,40 @@
+---
+# copy docker-compose and dockerfiles to web hosts
+- name: Create directory if it does not exist
+  become: false
+  file:
+    path: "{{ pathToDockerData }}"
+    state: directory
+    mode: '0755'
+  delegate_to: 127.0.0.1
+
+- name: Clone docker data
+  become: false
+  git:
+    repo: "{{ docker_env_repo_link }}"
+    dest: "{{ pathToDockerData }}"
+    clone: yes
+    recursive: yes
+    force: yes
+    accept_hostkey: yes
+    version: master
+    key_file: "{{ git_lab_key }}"
+  delegate_to: 127.0.0.1
+
+- name: Copy files to web server
+  copy:
+    src: "{{ pathToDockerData }}/"
+    dest: "{{ pathToAppDir }}"
+
+- name: stop application
+  shell: docker-compose down
+  args:
+    chdir: "{{ pathToAppDir }}"
+
+- name: remove files from ansible host
+  become: false
+  file: 
+    path: "{{ pathToDockerData }}/"
+    state: absent
+  delegate_to: 127.0.0.1
+...

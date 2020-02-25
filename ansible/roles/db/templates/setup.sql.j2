@@ -1,0 +1,4 @@
+CREATE USER '{{ mysql_app_user }}'@'%' IDENTIFIED BY '{{ mysql_app_user_pass }}';
+CREATE DATABASE {{ db_name }};
+GRANT ALL ON {{ db_name }}.* TO '{{ mysql_app_user }}'@'%';
+FLUSH PRIVILEGES;

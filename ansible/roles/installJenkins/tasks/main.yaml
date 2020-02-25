@@ -1,0 +1,147 @@
+---
+- name: Install openjdk-8-jdk
+  apt: 
+    update_cache: yes 
+    name: openjdk-8-jdk
+
+- name: add jenkins apt-key
+  apt_key:
+    url: https://pkg.jenkins.io/debian/jenkins.io.key
+    state: present
+
+- name: add jenkins repo
+  apt_repository:
+    repo: deb https://pkg.jenkins.io/debian-stable binary/
+    state: present
+    update_cache: yes
+
+- name: install jenkins
+  apt:
+    name: jenkins
+    state: present
+
+- name: get jenkins data from s3
+  become: false
+  aws_s3:
+    aws_access_key: "{{ec2_access_key}}"
+    aws_secret_key: "{{ec2_secret_key}}"
+    region: "{{ region }}"
+    retries: 5
+    bucket: "{{ jenkins_data_bucket_name }}"
+    object: /latest.backup
+    dest: "{{ path_to_jenkins_data }}/latest.backup"
+    mode: get
+  delegate_to: 127.0.0.1
+
+- name: Copy jenkins data
+  copy:
+    src: "{{ path_to_jenkins_data }}/latest.backup"
+    dest: /root/latest.backup
+
+- name: unzip jenkins data
+  shell: |
+    tar -pxvf /root/latest.backup -C "{{ jenkins_home }}/"
+  notify:
+    - restart jenkins
+
+- name: remove zip from ansible host
+  become: false
+  shell: |
+    rm -f "{{ path_to_jenkins_data }}/latest.backup"
+  delegate_to: 127.0.0.1
+
+- name: remove zip from remote host
+  file: 
+    path: /root/latest.backup
+    state: absent
+
+- name: Create .ssh directory if it does not exist
+  file:
+    path: "{{ jenkins_home }}/.ssh"
+    state: directory
+    mode: '0755'
+
+- name: Send jenkins to ansible private ssh key
+  copy:
+    src: /home/ansible/ssh_keys/{{ backup_key_name }}
+    dest: "{{ jenkins_home }}/.ssh/{{ backup_key_name }}"
+  notify:
+    - restart jenkins
+
+- name: add ansible host to known_hosts
+  shell: ssh-keyscan "{{ ansible_dns_name }}">>"{{ jenkins_home }}/.ssh/known_hosts"
+
+- name: Change file ownership, group and permissions
+  file:
+    path: "{{ jenkins_home }}"
+    state: directory
+    recurse: yes
+    owner: "{{ jenkins_user }}"
+    group: "{{ jenkins_user }}"
+  notify:
+    - restart jenkins
+
+- name: Change permissions for ssh folder
+  file:
+    path: "{{ jenkins_home }}/.ssh/"
+    state: directory
+    recurse: yes
+    owner: "{{ jenkins_user }}"
+    group: "{{ jenkins_user }}"
+    mode: '0600'
+  notify:
+    - restart jenkins
+
+- name: Change permissions for ssh keys
+  shell: |
+      chmod 700 "{{ jenkins_home }}/.ssh" > /dev/null 2>&1
+      chmod 600 "{{ jenkins_home }}/.ssh/*" > /dev/null 2>&1
+      chmod 644 "{{ jenkins_home }}/.ssh/authorized_keys" > /dev/null 2>&1
+      chmod 644 "{{ jenkins_home }}/.ssh/config" > /dev/null 2>&1
+      chmod 644 "{{ jenkins_home }}/.ssh/*.pub" > /dev/null 2>&1
+      chmod 644 "{{ jenkins_home }}/.ssh/known_hosts"
+  notify:
+    - restart jenkins
+
+- name: start jenkins
+  systemd:
+    name: jenkins
+    state: started
+    enabled: true
+
+- name: enable jenkins
+  systemd:
+    name: jenkins
+
+- name: Allow all access to tcp port 8080
+  ufw:
+    state: enabled
+    rule: allow
+    port: '8080'
+    proto: tcp
+
+- name: send backup script
+  template: 
+    src: templates/sendBackupToAnsible.sh.j2
+    dest: /root/backupJenkinsData.sh
+    mode: '0755' 
+    owner: root
+    group: root
+
+- name: add script to cron schedule
+  cron:
+    name: "make and send jenkins backup"
+    minute: "0"
+    hour: "*/12"
+    job: "/root/backupJenkinsData.sh"
+
+- name: create local backup script
+  become: false
+  template: 
+    src: templates/makeJenkinsBackup.sh.j2
+    dest: /home/ansible/makeJenkinsBackup.sh
+    mode: '0710' 
+    owner: ansible
+    group: ansible
+  delegate_to: 127.0.0.1
+...

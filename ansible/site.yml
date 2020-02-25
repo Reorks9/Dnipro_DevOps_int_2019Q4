@@ -1,0 +1,91 @@
+---
+# create aws VM and get instances public IP and write it to ./hosts
+- hosts: 127.0.0.1
+  become: yes
+  gather_facts: False
+  vars_files:
+    - group_vars/pass.yml
+  connection: local
+  roles:
+    - createIns_ec2
+    - getInsIp_ec2
+  tags: create_resource
+
+# install mysql to db instances and prepare it
+- hosts: db
+  become: yes
+  gather_facts: False
+  remote_user: "{{ remote_user }}"
+  vars_files:
+    - group_vars/pass.yml
+  roles:
+    - db
+  tags: instDb
+
+# install software to webservers and prepare it
+- hosts: webserver
+  become: yes
+  gather_facts: False
+  remote_user: "{{ remote_user }}"
+  vars_files:
+    - group_vars/pass.yml
+  roles:
+    - webserver
+    - sendFront
+    - sendBack
+    - updateDockerData
+    - startApp
+  tags: instWeb
+
+# install software to load balancer instance and prepare it
+- hosts: lb
+  become: yes
+  gather_facts: False
+  remote_user: "{{ remote_user }}"
+  roles:
+    - lb
+  tags: instLb
+
+# install software to jenkins server and prepare it
+- hosts: jenkins
+  become: yes
+  gather_facts: False
+  remote_user: "{{ remote_user }}"
+  vars_files:
+    - group_vars/pass.yml
+  roles:
+    - installJenkins
+  tags: installJenkins
+
+# update backend part of app and restart node containers
+- hosts: webserver
+  become: yes
+  gather_facts: False
+  remote_user: "{{ remote_user }}"
+  serial: "30%"
+  roles:
+    - sendBack
+    - restartApp
+  tags: updateBackend
+
+# update frontend part of app
+- hosts: webserver
+  become: yes
+  gather_facts: False
+  remote_user: "{{ remote_user }}"
+  serial: "30%"
+  roles:
+    - sendFront
+  tags: updateFrontend
+
+# update docker-compose or dockerfiles and reboot all docker-compose
+- hosts: webserver
+  become: yes
+  gather_facts: False
+  remote_user: "{{ remote_user }}"
+  serial: "30%"
+  roles:
+    - updateDockerData
+    - startApp
+  tags: updateDockerData
+...

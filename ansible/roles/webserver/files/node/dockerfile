@@ -1,0 +1,16 @@
+FROM node:12.13.1-alpine3.10
+EXPOSE 3317
+EXPOSE 3306
+WORKDIR /home/node/app
+COPY ./back/package*.json ./
+RUN npm install
+RUN npm install pm2 -g
+COPY ./back/ ./
+CMD [ "npm", "start" ]
+
+# FROM node:12.13.1-alpine3.10
+# EXPOSE 3317
+# EXPOSE 3306
+# WORKDIR /home/node/app
+# RUN npm install -g nodemon
+# CMD [ "nodemon", "index.js" ]

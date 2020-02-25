@@ -1,0 +1,11 @@
+[lb]
+ec2-18-195-51-125.eu-central-1.compute.amazonaws.com
+
+[webserver]
+ec2-18-195-51-125.eu-central-1.compute.amazonaws.com
+
+[db]
+ec2-18-195-51-125.eu-central-1.compute.amazonaws.com
+
+[jenkins]
+ec2-18-195-51-125.eu-central-1.compute.amazonaws.com

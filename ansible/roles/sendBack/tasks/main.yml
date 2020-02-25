@@ -1,0 +1,51 @@
+---
+# copy backend files to web hosts
+- name: Create directory if it does not exist
+  become: false
+  file:
+    path: "{{ pathToBackApp }}"
+    state: directory
+    mode: '0755'
+  delegate_to: 127.0.0.1
+
+- name: Clone backend part
+  become: false
+  git:
+    repo: "{{ backend_repo_link }}"
+    dest: "{{ pathToBackApp }}"
+    clone: yes
+    recursive: yes
+    force: yes
+    accept_hostkey: yes
+    version: master
+    key_file: "{{ git_hub_key }}"
+  delegate_to: 127.0.0.1
+
+- name: get the username running the deploy
+  become: false
+  shell: whoami
+  register: username_on_the_host
+  delegate_to: 127.0.0.1
+
+- name: send .env configuration
+  become: false
+  template: 
+    src: templates/.env.j2 
+    dest: "{{ pathToBackApp }}/.env"
+    mode: '0755' 
+    owner: "{{ username_on_the_host.stdout }}"
+    group: "{{ username_on_the_host.stdout }}"
+  delegate_to: 127.0.0.1
+
+- name: Copy artifact files
+  copy:
+    src: "{{ pathToBackApp }}/"
+    dest: "{{ pathToAppDir }}back/"
+
+- name: remove files from ansible host
+  become: false
+  file: 
+    path: "{{ pathToBackApp }}/"
+    state: absent
+  delegate_to: 127.0.0.1
+...

@@ -1,0 +1,12 @@
+---
+# - name: start docker
+#   shell: (docker-compose up --build --scale node=5 &) && sleep 30
+#   args:
+#     chdir: "{{ pathToAppDir }}"
+
+- name: start docker
+  docker_compose:
+    project_src: "{{ pathToAppDir }}"
+    scale:
+      node: 3
+...

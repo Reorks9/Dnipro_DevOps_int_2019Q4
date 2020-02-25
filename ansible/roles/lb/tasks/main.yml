@@ -1,0 +1,70 @@
+---
+#lb for all site
+- name: add nginx apt-key
+  apt_key: 
+    url: http://nginx.org/keys/nginx_signing.key 
+    state: present 
+
+- name: add nginx apt repository
+  apt_repository: 
+    repo: 'deb http://nginx.org/packages/mainline/ubuntu/ xenial nginx' 
+    state: present 
+    filename: nginx 
+    update_cache: yes
+- set_fact:
+    ansible_python_interpreter: /usr/bin/python3
+
+- name: install nginx
+  apt: 
+    name: nginx
+    state: present
+    update_cache: yes
+
+- name: Create sites-available dir if not exist
+  file:
+    path: /etc/nginx/sites-available/todo
+    state: directory
+    mode: '0755'
+    owner: root
+    group: root
+
+- name: Create sites-enabled dir if not exist
+  file:
+    path: /etc/nginx/sites-enabled/todo
+    state: directory
+    mode: '0755'
+    owner: root
+    group: root
+
+- name: backup conf file
+  copy: 
+    remote_src: True
+    src: /etc/nginx/nginx.conf
+    dest: /etc/nginx/nginx.conf.bac
+
+- name: replace conf file
+  copy: 
+    force: True
+    src: files/nginx.conf
+    dest: /etc/nginx/nginx.conf
+
+- name: Pushes configuration
+  template: 
+    src: templates/nginx.cfg.j2 
+    dest: /etc/nginx/sites-available/todo/nginx.conf 
+    mode: '0755' 
+    owner: root
+    group: root
+  notify:
+    - restart nginx
+
+- name: Create a link
+  file:
+    src: /etc/nginx/sites-available/todo/nginx.conf
+    dest: /etc/nginx/sites-enabled/nginx.conf
+    owner: root
+    group: root
+    state: link
+  notify:
+    - restart nginx
+...

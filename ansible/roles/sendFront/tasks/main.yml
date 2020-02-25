@@ -1,0 +1,61 @@
+---
+# copy frontend build to web hosts
+
+- name: Create directory if it does not exist
+  become: false
+  file:
+    path: "{{ pathToFrontApp }}"
+    state: directory
+    mode: '0755'
+  delegate_to: 127.0.0.1
+
+- name: Clone frontend part
+  become: false
+  git:
+    repo: "{{ frontend_repo_link }}"
+    dest: "{{ pathToFrontApp }}"
+    clone: yes
+    recursive: yes
+    force: yes
+    accept_hostkey: yes
+    version: master
+    key_file: "{{ git_hub_key }}"
+  delegate_to: 127.0.0.1
+
+- name: get the username running the deploy
+  become: false
+  shell: whoami
+  register: username_on_the_host
+  delegate_to: 127.0.0.1
+
+- name: send environment.dev.ts configuration
+  become: false
+  template:
+    src: templates/environment.dev.ts.j2 
+    dest: "{{ pathToFrontApp }}/src/environments/environment.dev.ts"
+    mode: '0755' 
+    owner: "{{ username_on_the_host.stdout }}"
+    group: "{{ username_on_the_host.stdout }}"
+  delegate_to: 127.0.0.1
+
+- name: build angular app
+  become: false
+  shell: |
+    npm install
+    npm run build:dev
+  args:
+    chdir: "{{ pathToFrontApp }}"
+  delegate_to: 127.0.0.1
+
+- name: Copy artifact files
+  copy:
+    src: "{{ pathToFrontApp }}/dist/"
+    dest: "{{ pathToAppDir }}front/"
+
+- name: remove files from ansible host
+  become: false
+  file: 
+    path: "{{ pathToFrontApp }}/"
+    state: absent
+  delegate_to: 127.0.0.1
+...

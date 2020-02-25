@@ -1,0 +1,108 @@
+---
+- name: Install MySQL
+  apt: 
+    name: [ 'mysql-server', 'python3-pip' ]
+    state: latest
+    update_cache: yes
+
+- name: pymysql
+  pip:
+    name: pymysql
+    state: present
+
+- name: change type connection to server
+  shell: |
+    sed -i 's/127\.0\.0\.1/0\.0\.0\.0/g' /etc/mysql/mysql.conf.d/mysqld.cnf
+
+- name: copy .my.cnf file with root password credentials
+  template: 
+    src: templates/my.cnf.j2
+    dest: /root/.my.cnf
+    owner: root
+    mode: 0600
+  notify:
+    - Restart MySQL
+
+# ################################
+# # add this block if run script #
+# ################################
+# - name: send sql setup script
+#   template: 
+#     src: templates/setup.sql.j2
+#     dest: /root/setup.sql
+#     mode: '0755' 
+#     owner: root
+#     group: root
+
+# - name: change type connection to server
+#   shell: |
+#     mysql -u "{{ login_user }}" -p < /root/setup.sql
+# ################################
+# # add this block if run script #
+# ################################
+
+###################################
+# remove this block if run script #
+###################################
+- name: Create a new database
+  mysql_db:
+    name: "{{ db_name }}"
+    state: present
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+  become: yes
+  notify:
+    - Restart MySQL
+
+- name: Create a new user
+  mysql_user:
+    name: "{{ mysql_app_user }}"
+    password: "{{ mysql_app_user_pass }}"
+    priv: '"{{ db_name }}".*:ALL'
+    host: "%"
+    state: present
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+  notify:
+    - Restart MySQL
+
+- name: update mysql root password for all root accounts
+  mysql_user: 
+    name: root 
+    host: "{{ item }}"
+    password: "{{ mysql_root_password }}"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+  with_items:
+    - "{{ groups['db'][0] }}"
+    - 127.0.0.1
+    - ::1
+    - localhost
+
+- name: delete anonymous MySQL server user for $server_hostname
+  mysql_user:
+    user: ""
+    host: "{{ groups['db'][0] }}"
+    state: "absent"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+
+- name: delete anonymous MySQL server user for localhost
+  mysql_user:
+    user: ""
+    state: "absent"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+
+- name: remove the MySQL test database
+  mysql_db: 
+    db: test
+    state: absent
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+  notify:
+    - Restart MySQL
+###################################
+# remove this block if run script #
+###################################
+
+- name: Start the MySQL service
+  service:
+    daemon_reload: yes
+    name: mysql
+    state: started
+...

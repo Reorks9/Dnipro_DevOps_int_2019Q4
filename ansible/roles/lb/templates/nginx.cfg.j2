@@ -1,0 +1,27 @@
+upstream nginx_backends {
+ {% for backend in groups['webserver'] %}
+  server {{ backend }}:80;
+ {% endfor %}
+}
+upstream node_backends {
+ {% for backend in groups['webserver'] %}
+  server {{ backend }}:{{ node_port }};
+ {% endfor %}
+}
+
+server {
+ server_name todo.com;
+ access_log  /var/log/nginx/todo.com_access.log;
+ error_log   /var/log/nginx/todo.com_error.lg;
+
+ location /api/ {
+  proxy_pass http://node_backends;
+  add_header 'Docker_Server:' "$hostname";
+  proxy_buffering off;
+ }
+
+ location / {
+  proxy_pass http://nginx_backends;
+  add_header 'Docker_Server:' "false";
+ }
+}

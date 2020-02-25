@@ -1,0 +1,9 @@
+---
+- name: restart docker
+  shell: |
+    docker-compose stop node
+    docker-compose build node
+    docker-compose up -d --no-recreate node
+  args:
+    chdir: "{{ pathToAppDir }}"
+...

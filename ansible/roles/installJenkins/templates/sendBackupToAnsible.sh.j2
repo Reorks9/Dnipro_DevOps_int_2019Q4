@@ -1,0 +1,7 @@
+#!/bin/bash
+backupname=$(date +"%d_%m_%Y_%T");
+cd /var/lib/jenkins/
+tar -cpzf ./"$backupname".backup *
+scp ./"$backupname".backup jenkins@{{ ansible_dns_name }}:home/jenkins/jenkinsToS3Backup/
+rm ./"$backupname".backup
+# ssh jenkins@{{ ansible_dns_name }} -i "{{ jenkins_home }}/.ssh/{{ backup_key_name }}" 'home/ansible/makeJenkinsBackup.sh'

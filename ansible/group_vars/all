@@ -1,0 +1,44 @@
+---
+# repo
+backend_repo_link: git@github.com:studentota2lvl/back-TODO.git
+frontend_repo_link: git@github.com:studentota2lvl/front-TODO.git
+docker_env_repo_link: git@gitlab.com:studentota2lvl/dockerdata.git
+
+# AWS variables
+key_name: ansible_to_aws_key
+region: eu-central-1
+image: ami-0cc0a36f626a4fdf5 # https://cloud-images.ubuntu.com/locator/ec2/
+id: "AW+tst"
+sec_group: "{{ id }}-sec"
+EC2_VMS:
+  lb:
+    count: 1
+  webserver:
+    count: 1
+  jenkins:
+    count: 1
+  db:
+    count: 1
+remote_user: ubuntu
+# jenkins variables
+backup_key_name: jenkins_to_ansible_key
+# ansible server variables
+git_hub_key: /home/ansible/.ssh/id_rsa
+git_lab_key: /home/ansible/.ssh/id_rsa
+ansible_dns_name: ec2-54-93-131-248.eu-central-1.compute.amazonaws.com
+pathToFrontApp: /home/ansible/tempData/todo/front
+pathToBackApp: /home/ansible/tempData/todo/back
+pathToDockerData: /home/ansible/tempData/dockerData
+hostpath: ./hosts
+jenkins_data_bucket_name: studentota2lvl-jenkins-data
+path_to_jenkins_data: /home/ansible/tempData/jenkinsBackup
+# web server variables
+node_port: 3317
+pathToAppDir: /var/www/todo/
+# db server variables
+db_name: todo
+mysql_auth_plugin: mysql_native_password
+login_user: root
+# mysql_root_password: root
+mysql_app_user: nodeUser
+...

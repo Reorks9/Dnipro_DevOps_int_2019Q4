@@ -1,0 +1,49 @@
+---
+# get ec2 instance ip and write in to general inventory file(hosts)
+- name: Get instances facts
+  ec2_instance_info:
+    aws_access_key: "{{ec2_access_key}}"
+    aws_secret_key: "{{ec2_secret_key}}"
+    region: "{{ region }}"
+  register: result
+
+- name: Add lb to hosts
+  lineinfile: 
+    dest: "{{ hostpath }}"
+    regexp: "{{ item.public_dns_name }}"
+    insertafter: "lb"
+    line: "{{ item.public_dns_name }}"
+    state: present
+  with_items: "{{ result.instances }}"
+  when: item.tags.Name == "lb"
+
+- name: Add webserver to hosts
+  lineinfile: 
+    dest: "{{ hostpath }}"
+    regexp: "{{ item.public_dns_name }}"
+    insertafter: "webserver"
+    line: "{{ item.public_dns_name }}"
+    state: present
+  with_items: "{{ result.instances }}"
+  when: item.tags.Name == "webserver"
+
+- name: Add db to hosts
+  lineinfile: 
+    dest: "{{ hostpath }}"
+    regexp: "{{ item.public_dns_name }}"
+    insertafter: "db"
+    line: "{{ item.public_dns_name }}"
+    state: present
+  with_items: "{{ result.instances }}"
+  when: item.tags.Name == "db"
+
+- name: Add jenkins to hosts
+  lineinfile: 
+    dest: "{{ hostpath }}"
+    regexp: "{{ item.public_dns_name }}"
+    insertafter: "jenkins"
+    line: "{{ item.public_dns_name }}"
+    state: present
+  with_items: "{{ result.instances }}"
+  when: item.tags.Name == "jenkins"
+...
