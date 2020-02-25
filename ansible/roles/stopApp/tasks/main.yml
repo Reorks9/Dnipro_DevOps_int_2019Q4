@@ -1,0 +1,11 @@
+---
+- name: Stop all services
+  docker_compose:
+    project_src: "{{ pathToAppDir }}"
+    state: absent
+
+# - name: stop application
+#   shell: docker-compose down
+#   args:
+#     chdir: "{{ pathToAppDir }}"
+...

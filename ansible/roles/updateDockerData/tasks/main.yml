@@ -26,11 +26,6 @@
     src: "{{ pathToDockerData }}/"
     dest: "{{ pathToAppDir }}"
 
-- name: stop application
-  shell: docker-compose down
-  args:
-    chdir: "{{ pathToAppDir }}"
-
 - name: remove files from ansible host
   become: false
   file: 

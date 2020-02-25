@@ -86,6 +86,7 @@
   serial: "30%"
   roles:
     - updateDockerData
+    - stopApp
     - startApp
   tags: updateDockerData
 ...

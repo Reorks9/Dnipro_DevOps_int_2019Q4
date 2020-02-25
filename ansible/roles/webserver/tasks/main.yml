@@ -16,9 +16,10 @@
 
 - name: pip install
   pip:
-    name: "{{ item }}"
+    name:
+      - docker
+      - docker-compose
     state: present
-  loop: [ 'docker-py', 'PyYAML', 'docker-compose']
 
 - name: Add Docker GPG apt Key
   apt_key:
@@ -40,12 +41,6 @@
     name: docker.io 
     state: latest
 
-- name: start docker
-  systemd:
-    name: docker
-    state: started
-    enabled: true
-
 - name: Ensure group docker exists
   group:
     name: docker
@@ -56,19 +51,6 @@
     name: "{{ remote_user }}"
     groups: "docker"
     append: true
-
-# - name: Install Docker Compose
-#   get_url:
-#     url: https://github.com/docker/compose/releases/download/1.17.0/docker-compose-Linux-x86_64
-#     timeout: 50
-#     dest: /usr/local/bin/docker-compose
-#     mode: 0755
-
-- name: restart docker service
-  systemd:
-    state: started
-    daemon_reload: yes
-    name: docker
 
 - name: reset ssh connection to allow user changes
   meta: reset_connection
