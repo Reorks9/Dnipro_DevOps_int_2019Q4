@@ -26,6 +26,7 @@
         cidr_ip: 0.0.0.0/0
         rule_desc: allow all
   register: result_sec_group
+
 - name: Provision instances
   ec2:
     aws_access_key: "{{ec2_access_key}}"

@@ -51,7 +51,7 @@
 - name: Pushes configuration
   template: 
     src: templates/nginx.cfg.j2 
-    dest: /etc/nginx/sites-available/todo/nginx.conf 
+    dest: /etc/nginx/sites-available/todo.conf 
     mode: '0755' 
     owner: root
     group: root
@@ -60,8 +60,8 @@
 
 - name: Create a link
   file:
-    src: /etc/nginx/sites-available/todo/nginx.conf
-    dest: /etc/nginx/sites-enabled/nginx.conf
+    src: /etc/nginx/sites-available/todo.conf
+    dest: /etc/nginx/sites-enabled/todo.conf
     owner: root
     group: root
     state: link

@@ -57,7 +57,7 @@
   mysql_user:
     name: "{{ mysql_app_user }}"
     password: "{{ mysql_app_user_pass }}"
-    priv: '"{{ db_name }}".*:ALL'
+    priv: '{{ db_name }}.*:ALL'
     host: "%"
     state: present
     login_unix_socket: /var/run/mysqld/mysqld.sock

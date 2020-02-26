@@ -1,0 +1,3580 @@
+ansible-playbook 2.9.5
+  config file = /home/ansible/ansible.cfg
+  configured module search path = ['/home/ansible/.ansible/plugins/modules', '/usr/share/ansible/plugins/modules']
+  ansible python module location = /usr/local/lib/python3.6/dist-packages/ansible
+  executable location = /usr/local/bin/ansible-playbook
+  python version = 3.6.9 (default, Nov  7 2019, 10:44:02) [GCC 8.3.0]
+Using /home/ansible/ansible.cfg as config file
+host_list declined parsing /home/ansible/hosts as it did not pass its verify_file() method
+script declined parsing /home/ansible/hosts as it did not pass its verify_file() method
+auto declined parsing /home/ansible/hosts as it did not pass its verify_file() method
+Parsed /home/ansible/hosts inventory source with ini plugin
+[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+/usr/lib/python3/dist-packages/requests/__init__.py:80: RequestsDependencyWarning: urllib3 (1.25.8) or chardet (3.0.4) doesn't match a supported version!
+  RequestsDependencyWarning)
+Read vars_file 'group_vars/pass.yml'
+Read vars_file 'group_vars/pass.yml'
+Read vars_file 'group_vars/pass.yml'
+Read vars_file 'group_vars/pass.yml'
+Read vars_file 'group_vars/pass.yml'
+Read vars_file 'group_vars/pass.yml'
+Read vars_file 'group_vars/pass.yml'
+Read vars_file 'group_vars/pass.yml'
+Read vars_file 'group_vars/pass.yml'
+
+PLAYBOOK: site.yml ********************************************************************************************************************************************************
+8 plays in site.yml
+Read vars_file 'group_vars/pass.yml'
+Read vars_file 'group_vars/pass.yml'
+Read vars_file 'group_vars/pass.yml'
+
+PLAY [127.0.0.1] **********************************************************************************************************************************************************
+META: ran handlers
+Read vars_file 'group_vars/pass.yml'
+
+TASK [createIns_ec2 : Upload public key to AWS] ***************************************************************************************************************************
+task path: /home/ansible/roles/createIns_ec2/tasks/main.yml:3
+<127.0.0.1> ESTABLISH LOCAL CONNECTION FOR USER: ansible
+<127.0.0.1> EXEC /bin/sh -c 'echo ~ansible && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673173.253596-202139513888652 `" && echo ansible-tmp-1582673173.253596-202139513888652="` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673173.253596-202139513888652 `" ) && sleep 0'
+Using module file /usr/local/lib/python3.6/dist-packages/ansible/modules/cloud/amazon/ec2_key.py
+<127.0.0.1> PUT /home/ansible/.ansible/tmp/ansible-local-56881gll1udq/tmp6uu7rogz TO /home/ansible/.ansible/tmp/ansible-tmp-1582673173.253596-202139513888652/AnsiballZ_ec2_key.py
+<127.0.0.1> EXEC /bin/sh -c 'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1582673173.253596-202139513888652/ /home/ansible/.ansible/tmp/ansible-tmp-1582673173.253596-202139513888652/AnsiballZ_ec2_key.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '/usr/bin/python3 /home/ansible/.ansible/tmp/ansible-tmp-1582673173.253596-202139513888652/AnsiballZ_ec2_key.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'rm -f -r /home/ansible/.ansible/tmp/ansible-tmp-1582673173.253596-202139513888652/ > /dev/null 2>&1 && sleep 0'
+changed: [127.0.0.1] => {
+    "changed": true,
+    "invocation": {
+        "module_args": {
+            "aws_access_key": "AKIA5BZQYGZC2BEGWB6P",
+            "aws_secret_key": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+            "debug_botocore_endpoint_logs": false,
+            "ec2_url": null,
+            "force": true,
+            "key_material": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCxA7EtApsIwIJqUHpclNQcZuM8YFwsuB8Li3pazlrSbspdhr2PONhSTUsA+Q79ADDdFEaqQQ1elxeCHEWGWFgjjJsJqNg+3tuGV07hUMI3zsaIcwcs3tViPq/df+bauKnM26KEh2o8sjK3zPoXjamF+GX72rsV8ajSoSeqXbcmePkpEcKYiyHMrGrL1CEp081YwYk0N5zb4sSOCNdQEv8JCUsjpgHcBAlJx2QlOistr1BbAHVp+IY/1xjXRO7qH6ACv3oVOnhYctxfBtBYoCrwUBueZHlcQz5EI0m3x+uAnzrV8tq2VEIT+SbdaQnz0kQZlqzCdya1VHGNsJN30PLN8lMFhbuNu3fe/77wbSLREF8T0/doSbj12KcajF84GIycJcdCWz3K76jUuELwonEovccrxABuDfYKDBJ2VWS+Bu9Pk9KdVsksTy9gZWJREzz1i1MgNDvXHb/dfucjXentHPvHwxW96WhJAW7m91MIn07NoJeEfbgBGYQiSGnNLyi0C6RfJbkXABPs1Qdx1g223/2zhO7uogFOjC0C4nz9YUpu33vPmT8TOcuwCzAeI0CmeMpNpyC0tls1juiFERLBe8CSMAxDWmDmOHAgzLur66DUUC82l2epyktogLX2qsjXTZ46RMgYqyO+gRz2qywxzEv8SuMY3ODfsYP0teZm3Q== root@apache",
+            "name": "ansible_to_aws_key",
+            "profile": null,
+            "region": "eu-central-1",
+            "security_token": null,
+            "state": "present",
+            "validate_certs": true,
+            "wait": false,
+            "wait_timeout": 300
+        }
+    },
+    "key": {
+        "fingerprint": "e0:65:98:2b:11:9f:4f:4b:e0:f2:53:5c:40:91:7d:54",
+        "name": "ansible_to_aws_key"
+    },
+    "msg": "key pair created"
+}
+Read vars_file 'group_vars/pass.yml'
+
+TASK [createIns_ec2 : Create security group] ******************************************************************************************************************************
+task path: /home/ansible/roles/createIns_ec2/tasks/main.yml:11
+<127.0.0.1> ESTABLISH LOCAL CONNECTION FOR USER: ansible
+<127.0.0.1> EXEC /bin/sh -c 'echo ~ansible && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673174.2729475-46166451826420 `" && echo ansible-tmp-1582673174.2729475-46166451826420="` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673174.2729475-46166451826420 `" ) && sleep 0'
+Using module file /usr/local/lib/python3.6/dist-packages/ansible/modules/cloud/amazon/ec2_group.py
+<127.0.0.1> PUT /home/ansible/.ansible/tmp/ansible-local-56881gll1udq/tmp3t9eev3w TO /home/ansible/.ansible/tmp/ansible-tmp-1582673174.2729475-46166451826420/AnsiballZ_ec2_group.py
+<127.0.0.1> EXEC /bin/sh -c 'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1582673174.2729475-46166451826420/ /home/ansible/.ansible/tmp/ansible-tmp-1582673174.2729475-46166451826420/AnsiballZ_ec2_group.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '/usr/bin/python3 /home/ansible/.ansible/tmp/ansible-tmp-1582673174.2729475-46166451826420/AnsiballZ_ec2_group.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'rm -f -r /home/ansible/.ansible/tmp/ansible-tmp-1582673174.2729475-46166451826420/ > /dev/null 2>&1 && sleep 0'
+changed: [127.0.0.1] => {
+    "changed": true,
+    "description": "Sec group for app AWS",
+    "group_id": "sg-0aaf3b328c7462f03",
+    "group_name": "AWS-sec",
+    "invocation": {
+        "module_args": {
+            "aws_access_key": "AKIA5BZQYGZC2BEGWB6P",
+            "aws_secret_key": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+            "debug_botocore_endpoint_logs": false,
+            "description": "Sec group for app AWS",
+            "ec2_url": null,
+            "group_id": null,
+            "name": "AWS-sec",
+            "profile": null,
+            "purge_rules": true,
+            "purge_rules_egress": true,
+            "purge_tags": true,
+            "region": "eu-central-1",
+            "rules": [
+                {
+                    "cidr_ip": "0.0.0.0/0",
+                    "ports": [
+                        22,
+                        80,
+                        443,
+                        3317,
+                        3306
+                    ],
+                    "proto": "tcp",
+                    "rule_desc": "allow all"
+                }
+            ],
+            "rules_egress": null,
+            "security_token": null,
+            "state": "present",
+            "tags": null,
+            "validate_certs": true,
+            "vpc_id": null
+        }
+    },
+    "ip_permissions": [
+        {
+            "from_port": 80,
+            "ip_protocol": "tcp",
+            "ip_ranges": [
+                {
+                    "cidr_ip": "0.0.0.0/0",
+                    "description": "allow all"
+                }
+            ],
+            "ipv6_ranges": [],
+            "prefix_list_ids": [],
+            "to_port": 80,
+            "user_id_group_pairs": []
+        },
+        {
+            "from_port": 3317,
+            "ip_protocol": "tcp",
+            "ip_ranges": [
+                {
+                    "cidr_ip": "0.0.0.0/0",
+                    "description": "allow all"
+                }
+            ],
+            "ipv6_ranges": [],
+            "prefix_list_ids": [],
+            "to_port": 3317,
+            "user_id_group_pairs": []
+        },
+        {
+            "from_port": 22,
+            "ip_protocol": "tcp",
+            "ip_ranges": [
+                {
+                    "cidr_ip": "0.0.0.0/0",
+                    "description": "allow all"
+                }
+            ],
+            "ipv6_ranges": [],
+            "prefix_list_ids": [],
+            "to_port": 22,
+            "user_id_group_pairs": []
+        },
+        {
+            "from_port": 3306,
+            "ip_protocol": "tcp",
+            "ip_ranges": [
+                {
+                    "cidr_ip": "0.0.0.0/0",
+                    "description": "allow all"
+                }
+            ],
+            "ipv6_ranges": [],
+            "prefix_list_ids": [],
+            "to_port": 3306,
+            "user_id_group_pairs": []
+        },
+        {
+            "from_port": 443,
+            "ip_protocol": "tcp",
+            "ip_ranges": [
+                {
+                    "cidr_ip": "0.0.0.0/0",
+                    "description": "allow all"
+                }
+            ],
+            "ipv6_ranges": [],
+            "prefix_list_ids": [],
+            "to_port": 443,
+            "user_id_group_pairs": []
+        }
+    ],
+    "ip_permissions_egress": [
+        {
+            "ip_protocol": "-1",
+            "ip_ranges": [
+                {
+                    "cidr_ip": "0.0.0.0/0"
+                }
+            ],
+            "ipv6_ranges": [],
+            "prefix_list_ids": [],
+            "user_id_group_pairs": []
+        }
+    ],
+    "owner_id": "897213544005",
+    "tags": {},
+    "vpc_id": "vpc-a503f9cf"
+}
+Read vars_file 'group_vars/pass.yml'
+
+TASK [createIns_ec2 : Provision instances] ********************************************************************************************************************************
+task path: /home/ansible/roles/createIns_ec2/tasks/main.yml:29
+<127.0.0.1> ESTABLISH LOCAL CONNECTION FOR USER: ansible
+<127.0.0.1> EXEC /bin/sh -c 'echo ~ansible && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673179.7186007-256760695319935 `" && echo ansible-tmp-1582673179.7186007-256760695319935="` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673179.7186007-256760695319935 `" ) && sleep 0'
+Using module file /usr/local/lib/python3.6/dist-packages/ansible/modules/cloud/amazon/ec2.py
+<127.0.0.1> PUT /home/ansible/.ansible/tmp/ansible-local-56881gll1udq/tmpotulmyud TO /home/ansible/.ansible/tmp/ansible-tmp-1582673179.7186007-256760695319935/AnsiballZ_ec2.py
+<127.0.0.1> EXEC /bin/sh -c 'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1582673179.7186007-256760695319935/ /home/ansible/.ansible/tmp/ansible-tmp-1582673179.7186007-256760695319935/AnsiballZ_ec2.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '/usr/bin/python3 /home/ansible/.ansible/tmp/ansible-tmp-1582673179.7186007-256760695319935/AnsiballZ_ec2.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'rm -f -r /home/ansible/.ansible/tmp/ansible-tmp-1582673179.7186007-256760695319935/ > /dev/null 2>&1 && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'echo ~ansible && sleep 0'
+changed: [127.0.0.1] => (item={'key': 'lb', 'value': {'count': 1}}) => {
+    "ansible_loop_var": "item",
+    "changed": true,
+    "instance_ids": [
+        "i-0cad0d69e66d3ae1a"
+    ],
+    "instances": [
+        {
+            "ami_launch_index": "0",
+            "architecture": "x86_64",
+            "block_device_mapping": {
+                "/dev/sda1": {
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-05117b33f6179020c"
+                }
+            },
+            "dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+            "ebs_optimized": false,
+            "groups": {
+                "sg-0aaf3b328c7462f03": "AWS-sec"
+            },
+            "hypervisor": "xen",
+            "id": "i-0cad0d69e66d3ae1a",
+            "image_id": "ami-0cc0a36f626a4fdf5",
+            "instance_type": "t2.micro",
+            "kernel": null,
+            "key_name": "ansible_to_aws_key",
+            "launch_time": "2020-02-25T23:26:21.000Z",
+            "placement": "eu-central-1b",
+            "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+            "private_ip": "172.31.39.122",
+            "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+            "public_ip": "3.121.116.126",
+            "ramdisk": null,
+            "region": "eu-central-1",
+            "root_device_name": "/dev/sda1",
+            "root_device_type": "ebs",
+            "state": "running",
+            "state_code": 16,
+            "tags": {
+                "Name": "lb"
+            },
+            "tenancy": "default",
+            "virtualization_type": "hvm"
+        }
+    ],
+    "invocation": {
+        "module_args": {
+            "assign_public_ip": null,
+            "aws_access_key": "AKIA5BZQYGZC2BEGWB6P",
+            "aws_secret_key": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+            "count": 1,
+            "count_tag": "lb",
+            "debug_botocore_endpoint_logs": false,
+            "ebs_optimized": false,
+            "ec2_url": null,
+            "exact_count": 1,
+            "group": null,
+            "group_id": [
+                "sg-0aaf3b328c7462f03"
+            ],
+            "id": null,
+            "image": "ami-0cc0a36f626a4fdf5",
+            "instance_ids": null,
+            "instance_initiated_shutdown_behavior": "stop",
+            "instance_profile_name": null,
+            "instance_tags": {
+                "Name": "lb"
+            },
+            "instance_type": "t2.micro",
+            "kernel": null,
+            "key_name": "ansible_to_aws_key",
+            "monitoring": false,
+            "network_interfaces": null,
+            "placement_group": null,
+            "private_ip": null,
+            "profile": null,
+            "ramdisk": null,
+            "region": "eu-central-1",
+            "security_token": null,
+            "source_dest_check": null,
+            "spot_launch_group": null,
+            "spot_price": null,
+            "spot_type": "one-time",
+            "spot_wait_timeout": 600,
+            "state": "present",
+            "tenancy": "default",
+            "termination_protection": null,
+            "user_data": null,
+            "validate_certs": true,
+            "volumes": null,
+            "vpc_subnet_id": null,
+            "wait": true,
+            "wait_timeout": 300,
+            "zone": null
+        }
+    },
+    "item": {
+        "key": "lb",
+        "value": {
+            "count": 1
+        }
+    },
+    "tagged_instances": [
+        {
+            "ami_launch_index": "0",
+            "architecture": "x86_64",
+            "block_device_mapping": {
+                "/dev/sda1": {
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-05117b33f6179020c"
+                }
+            },
+            "dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+            "ebs_optimized": false,
+            "groups": {
+                "sg-0aaf3b328c7462f03": "AWS-sec"
+            },
+            "hypervisor": "xen",
+            "id": "i-0cad0d69e66d3ae1a",
+            "image_id": "ami-0cc0a36f626a4fdf5",
+            "instance_type": "t2.micro",
+            "kernel": null,
+            "key_name": "ansible_to_aws_key",
+            "launch_time": "2020-02-25T23:26:21.000Z",
+            "placement": "eu-central-1b",
+            "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+            "private_ip": "172.31.39.122",
+            "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+            "public_ip": "3.121.116.126",
+            "ramdisk": null,
+            "region": "eu-central-1",
+            "root_device_name": "/dev/sda1",
+            "root_device_type": "ebs",
+            "state": "running",
+            "state_code": 16,
+            "tags": {
+                "Name": "lb"
+            },
+            "tenancy": "default",
+            "virtualization_type": "hvm"
+        }
+    ]
+}
+<127.0.0.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673197.7377512-137792251987624 `" && echo ansible-tmp-1582673197.7377512-137792251987624="` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673197.7377512-137792251987624 `" ) && sleep 0'
+Using module file /usr/local/lib/python3.6/dist-packages/ansible/modules/cloud/amazon/ec2.py
+<127.0.0.1> PUT /home/ansible/.ansible/tmp/ansible-local-56881gll1udq/tmpkvw16zg1 TO /home/ansible/.ansible/tmp/ansible-tmp-1582673197.7377512-137792251987624/AnsiballZ_ec2.py
+<127.0.0.1> EXEC /bin/sh -c 'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1582673197.7377512-137792251987624/ /home/ansible/.ansible/tmp/ansible-tmp-1582673197.7377512-137792251987624/AnsiballZ_ec2.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '/usr/bin/python3 /home/ansible/.ansible/tmp/ansible-tmp-1582673197.7377512-137792251987624/AnsiballZ_ec2.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'rm -f -r /home/ansible/.ansible/tmp/ansible-tmp-1582673197.7377512-137792251987624/ > /dev/null 2>&1 && sleep 0'
+changed: [127.0.0.1] => (item={'key': 'webserver', 'value': {'count': 1}}) => {
+    "ansible_loop_var": "item",
+    "changed": true,
+    "instance_ids": [
+        "i-03068ac7b90713a6b"
+    ],
+    "instances": [
+        {
+            "ami_launch_index": "0",
+            "architecture": "x86_64",
+            "block_device_mapping": {
+                "/dev/sda1": {
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-00efe123bb74bba97"
+                }
+            },
+            "dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+            "ebs_optimized": false,
+            "groups": {
+                "sg-0aaf3b328c7462f03": "AWS-sec"
+            },
+            "hypervisor": "xen",
+            "id": "i-03068ac7b90713a6b",
+            "image_id": "ami-0cc0a36f626a4fdf5",
+            "instance_type": "t2.micro",
+            "kernel": null,
+            "key_name": "ansible_to_aws_key",
+            "launch_time": "2020-02-25T23:26:39.000Z",
+            "placement": "eu-central-1b",
+            "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+            "private_ip": "172.31.32.13",
+            "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+            "public_ip": "52.59.249.35",
+            "ramdisk": null,
+            "region": "eu-central-1",
+            "root_device_name": "/dev/sda1",
+            "root_device_type": "ebs",
+            "state": "running",
+            "state_code": 16,
+            "tags": {
+                "Name": "webserver"
+            },
+            "tenancy": "default",
+            "virtualization_type": "hvm"
+        }
+    ],
+    "invocation": {
+        "module_args": {
+            "assign_public_ip": null,
+            "aws_access_key": "AKIA5BZQYGZC2BEGWB6P",
+            "aws_secret_key": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+            "count": 1,
+            "count_tag": "webserver",
+            "debug_botocore_endpoint_logs": false,
+            "ebs_optimized": false,
+            "ec2_url": null,
+            "exact_count": 1,
+            "group": null,
+            "group_id": [
+                "sg-0aaf3b328c7462f03"
+            ],
+            "id": null,
+            "image": "ami-0cc0a36f626a4fdf5",
+            "instance_ids": null,
+            "instance_initiated_shutdown_behavior": "stop",
+            "instance_profile_name": null,
+            "instance_tags": {
+                "Name": "webserver"
+            },
+            "instance_type": "t2.micro",
+            "kernel": null,
+            "key_name": "ansible_to_aws_key",
+            "monitoring": false,
+            "network_interfaces": null,
+            "placement_group": null,
+            "private_ip": null,
+            "profile": null,
+            "ramdisk": null,
+            "region": "eu-central-1",
+            "security_token": null,
+            "source_dest_check": null,
+            "spot_launch_group": null,
+            "spot_price": null,
+            "spot_type": "one-time",
+            "spot_wait_timeout": 600,
+            "state": "present",
+            "tenancy": "default",
+            "termination_protection": null,
+            "user_data": null,
+            "validate_certs": true,
+            "volumes": null,
+            "vpc_subnet_id": null,
+            "wait": true,
+            "wait_timeout": 300,
+            "zone": null
+        }
+    },
+    "item": {
+        "key": "webserver",
+        "value": {
+            "count": 1
+        }
+    },
+    "tagged_instances": [
+        {
+            "ami_launch_index": "0",
+            "architecture": "x86_64",
+            "block_device_mapping": {
+                "/dev/sda1": {
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-00efe123bb74bba97"
+                }
+            },
+            "dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+            "ebs_optimized": false,
+            "groups": {
+                "sg-0aaf3b328c7462f03": "AWS-sec"
+            },
+            "hypervisor": "xen",
+            "id": "i-03068ac7b90713a6b",
+            "image_id": "ami-0cc0a36f626a4fdf5",
+            "instance_type": "t2.micro",
+            "kernel": null,
+            "key_name": "ansible_to_aws_key",
+            "launch_time": "2020-02-25T23:26:39.000Z",
+            "placement": "eu-central-1b",
+            "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+            "private_ip": "172.31.32.13",
+            "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+            "public_ip": "52.59.249.35",
+            "ramdisk": null,
+            "region": "eu-central-1",
+            "root_device_name": "/dev/sda1",
+            "root_device_type": "ebs",
+            "state": "running",
+            "state_code": 16,
+            "tags": {
+                "Name": "webserver"
+            },
+            "tenancy": "default",
+            "virtualization_type": "hvm"
+        }
+    ]
+}
+<127.0.0.1> EXEC /bin/sh -c 'echo ~ansible && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673220.7241654-69269080551487 `" && echo ansible-tmp-1582673220.7241654-69269080551487="` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673220.7241654-69269080551487 `" ) && sleep 0'
+Using module file /usr/local/lib/python3.6/dist-packages/ansible/modules/cloud/amazon/ec2.py
+<127.0.0.1> PUT /home/ansible/.ansible/tmp/ansible-local-56881gll1udq/tmprknlplgc TO /home/ansible/.ansible/tmp/ansible-tmp-1582673220.7241654-69269080551487/AnsiballZ_ec2.py
+<127.0.0.1> EXEC /bin/sh -c 'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1582673220.7241654-69269080551487/ /home/ansible/.ansible/tmp/ansible-tmp-1582673220.7241654-69269080551487/AnsiballZ_ec2.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '/usr/bin/python3 /home/ansible/.ansible/tmp/ansible-tmp-1582673220.7241654-69269080551487/AnsiballZ_ec2.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'rm -f -r /home/ansible/.ansible/tmp/ansible-tmp-1582673220.7241654-69269080551487/ > /dev/null 2>&1 && sleep 0'
+changed: [127.0.0.1] => (item={'key': 'jenkins', 'value': {'count': 1}}) => {
+    "ansible_loop_var": "item",
+    "changed": true,
+    "instance_ids": [
+        "i-0af7c2bad9fd7edf2"
+    ],
+    "instances": [
+        {
+            "ami_launch_index": "0",
+            "architecture": "x86_64",
+            "block_device_mapping": {
+                "/dev/sda1": {
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-005dd81ba70a6ccc8"
+                }
+            },
+            "dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+            "ebs_optimized": false,
+            "groups": {
+                "sg-0aaf3b328c7462f03": "AWS-sec"
+            },
+            "hypervisor": "xen",
+            "id": "i-0af7c2bad9fd7edf2",
+            "image_id": "ami-0cc0a36f626a4fdf5",
+            "instance_type": "t2.micro",
+            "kernel": null,
+            "key_name": "ansible_to_aws_key",
+            "launch_time": "2020-02-25T23:27:02.000Z",
+            "placement": "eu-central-1b",
+            "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+            "private_ip": "172.31.33.25",
+            "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+            "public_ip": "3.120.131.32",
+            "ramdisk": null,
+            "region": "eu-central-1",
+            "root_device_name": "/dev/sda1",
+            "root_device_type": "ebs",
+            "state": "running",
+            "state_code": 16,
+            "tags": {
+                "Name": "jenkins"
+            },
+            "tenancy": "default",
+            "virtualization_type": "hvm"
+        }
+    ],
+    "invocation": {
+        "module_args": {
+            "assign_public_ip": null,
+            "aws_access_key": "AKIA5BZQYGZC2BEGWB6P",
+            "aws_secret_key": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+            "count": 1,
+            "count_tag": "jenkins",
+            "debug_botocore_endpoint_logs": false,
+            "ebs_optimized": false,
+            "ec2_url": null,
+            "exact_count": 1,
+            "group": null,
+            "group_id": [
+                "sg-0aaf3b328c7462f03"
+            ],
+            "id": null,
+            "image": "ami-0cc0a36f626a4fdf5",
+            "instance_ids": null,
+            "instance_initiated_shutdown_behavior": "stop",
+            "instance_profile_name": null,
+            "instance_tags": {
+                "Name": "jenkins"
+            },
+            "instance_type": "t2.micro",
+            "kernel": null,
+            "key_name": "ansible_to_aws_key",
+            "monitoring": false,
+            "network_interfaces": null,
+            "placement_group": null,
+            "private_ip": null,
+            "profile": null,
+            "ramdisk": null,
+            "region": "eu-central-1",
+            "security_token": null,
+            "source_dest_check": null,
+            "spot_launch_group": null,
+            "spot_price": null,
+            "spot_type": "one-time",
+            "spot_wait_timeout": 600,
+            "state": "present",
+            "tenancy": "default",
+            "termination_protection": null,
+            "user_data": null,
+            "validate_certs": true,
+            "volumes": null,
+            "vpc_subnet_id": null,
+            "wait": true,
+            "wait_timeout": 300,
+            "zone": null
+        }
+    },
+    "item": {
+        "key": "jenkins",
+        "value": {
+            "count": 1
+        }
+    },
+    "tagged_instances": [
+        {
+            "ami_launch_index": "0",
+            "architecture": "x86_64",
+            "block_device_mapping": {
+                "/dev/sda1": {
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-005dd81ba70a6ccc8"
+                }
+            },
+            "dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+            "ebs_optimized": false,
+            "groups": {
+                "sg-0aaf3b328c7462f03": "AWS-sec"
+            },
+            "hypervisor": "xen",
+            "id": "i-0af7c2bad9fd7edf2",
+            "image_id": "ami-0cc0a36f626a4fdf5",
+            "instance_type": "t2.micro",
+            "kernel": null,
+            "key_name": "ansible_to_aws_key",
+            "launch_time": "2020-02-25T23:27:02.000Z",
+            "placement": "eu-central-1b",
+            "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+            "private_ip": "172.31.33.25",
+            "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+            "public_ip": "3.120.131.32",
+            "ramdisk": null,
+            "region": "eu-central-1",
+            "root_device_name": "/dev/sda1",
+            "root_device_type": "ebs",
+            "state": "running",
+            "state_code": 16,
+            "tags": {
+                "Name": "jenkins"
+            },
+            "tenancy": "default",
+            "virtualization_type": "hvm"
+        }
+    ]
+}
+<127.0.0.1> EXEC /bin/sh -c 'echo ~ansible && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673238.6241841-41670521317319 `" && echo ansible-tmp-1582673238.6241841-41670521317319="` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673238.6241841-41670521317319 `" ) && sleep 0'
+Using module file /usr/local/lib/python3.6/dist-packages/ansible/modules/cloud/amazon/ec2.py
+<127.0.0.1> PUT /home/ansible/.ansible/tmp/ansible-local-56881gll1udq/tmpwu6686z4 TO /home/ansible/.ansible/tmp/ansible-tmp-1582673238.6241841-41670521317319/AnsiballZ_ec2.py
+<127.0.0.1> EXEC /bin/sh -c 'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1582673238.6241841-41670521317319/ /home/ansible/.ansible/tmp/ansible-tmp-1582673238.6241841-41670521317319/AnsiballZ_ec2.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '/usr/bin/python3 /home/ansible/.ansible/tmp/ansible-tmp-1582673238.6241841-41670521317319/AnsiballZ_ec2.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'rm -f -r /home/ansible/.ansible/tmp/ansible-tmp-1582673238.6241841-41670521317319/ > /dev/null 2>&1 && sleep 0'
+changed: [127.0.0.1] => (item={'key': 'db', 'value': {'count': 1}}) => {
+    "ansible_loop_var": "item",
+    "changed": true,
+    "instance_ids": [
+        "i-04fa89befcb93e0b6"
+    ],
+    "instances": [
+        {
+            "ami_launch_index": "0",
+            "architecture": "x86_64",
+            "block_device_mapping": {
+                "/dev/sda1": {
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-000177c3a2f630c2f"
+                }
+            },
+            "dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+            "ebs_optimized": false,
+            "groups": {
+                "sg-0aaf3b328c7462f03": "AWS-sec"
+            },
+            "hypervisor": "xen",
+            "id": "i-04fa89befcb93e0b6",
+            "image_id": "ami-0cc0a36f626a4fdf5",
+            "instance_type": "t2.micro",
+            "kernel": null,
+            "key_name": "ansible_to_aws_key",
+            "launch_time": "2020-02-25T23:27:20.000Z",
+            "placement": "eu-central-1b",
+            "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+            "private_ip": "172.31.45.163",
+            "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+            "public_ip": "54.93.247.123",
+            "ramdisk": null,
+            "region": "eu-central-1",
+            "root_device_name": "/dev/sda1",
+            "root_device_type": "ebs",
+            "state": "running",
+            "state_code": 16,
+            "tags": {
+                "Name": "db"
+            },
+            "tenancy": "default",
+            "virtualization_type": "hvm"
+        }
+    ],
+    "invocation": {
+        "module_args": {
+            "assign_public_ip": null,
+            "aws_access_key": "AKIA5BZQYGZC2BEGWB6P",
+            "aws_secret_key": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+            "count": 1,
+            "count_tag": "db",
+            "debug_botocore_endpoint_logs": false,
+            "ebs_optimized": false,
+            "ec2_url": null,
+            "exact_count": 1,
+            "group": null,
+            "group_id": [
+                "sg-0aaf3b328c7462f03"
+            ],
+            "id": null,
+            "image": "ami-0cc0a36f626a4fdf5",
+            "instance_ids": null,
+            "instance_initiated_shutdown_behavior": "stop",
+            "instance_profile_name": null,
+            "instance_tags": {
+                "Name": "db"
+            },
+            "instance_type": "t2.micro",
+            "kernel": null,
+            "key_name": "ansible_to_aws_key",
+            "monitoring": false,
+            "network_interfaces": null,
+            "placement_group": null,
+            "private_ip": null,
+            "profile": null,
+            "ramdisk": null,
+            "region": "eu-central-1",
+            "security_token": null,
+            "source_dest_check": null,
+            "spot_launch_group": null,
+            "spot_price": null,
+            "spot_type": "one-time",
+            "spot_wait_timeout": 600,
+            "state": "present",
+            "tenancy": "default",
+            "termination_protection": null,
+            "user_data": null,
+            "validate_certs": true,
+            "volumes": null,
+            "vpc_subnet_id": null,
+            "wait": true,
+            "wait_timeout": 300,
+            "zone": null
+        }
+    },
+    "item": {
+        "key": "db",
+        "value": {
+            "count": 1
+        }
+    },
+    "tagged_instances": [
+        {
+            "ami_launch_index": "0",
+            "architecture": "x86_64",
+            "block_device_mapping": {
+                "/dev/sda1": {
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-000177c3a2f630c2f"
+                }
+            },
+            "dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+            "ebs_optimized": false,
+            "groups": {
+                "sg-0aaf3b328c7462f03": "AWS-sec"
+            },
+            "hypervisor": "xen",
+            "id": "i-04fa89befcb93e0b6",
+            "image_id": "ami-0cc0a36f626a4fdf5",
+            "instance_type": "t2.micro",
+            "kernel": null,
+            "key_name": "ansible_to_aws_key",
+            "launch_time": "2020-02-25T23:27:20.000Z",
+            "placement": "eu-central-1b",
+            "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+            "private_ip": "172.31.45.163",
+            "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+            "public_ip": "54.93.247.123",
+            "ramdisk": null,
+            "region": "eu-central-1",
+            "root_device_name": "/dev/sda1",
+            "root_device_type": "ebs",
+            "state": "running",
+            "state_code": 16,
+            "tags": {
+                "Name": "db"
+            },
+            "tenancy": "default",
+            "virtualization_type": "hvm"
+        }
+    ]
+}
+Read vars_file 'group_vars/pass.yml'
+
+TASK [getInsIp_ec2 : Get instances facts] *********************************************************************************************************************************
+task path: /home/ansible/roles/getInsIp_ec2/tasks/main.yml:3
+<127.0.0.1> ESTABLISH LOCAL CONNECTION FOR USER: ansible
+<127.0.0.1> EXEC /bin/sh -c 'echo ~ansible && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673256.644702-242901232152297 `" && echo ansible-tmp-1582673256.644702-242901232152297="` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673256.644702-242901232152297 `" ) && sleep 0'
+Using module file /usr/local/lib/python3.6/dist-packages/ansible/modules/cloud/amazon/ec2_instance_info.py
+<127.0.0.1> PUT /home/ansible/.ansible/tmp/ansible-local-56881gll1udq/tmpniaodo5e TO /home/ansible/.ansible/tmp/ansible-tmp-1582673256.644702-242901232152297/AnsiballZ_ec2_instance_info.py
+<127.0.0.1> EXEC /bin/sh -c 'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1582673256.644702-242901232152297/ /home/ansible/.ansible/tmp/ansible-tmp-1582673256.644702-242901232152297/AnsiballZ_ec2_instance_info.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '/usr/bin/python3 /home/ansible/.ansible/tmp/ansible-tmp-1582673256.644702-242901232152297/AnsiballZ_ec2_instance_info.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'rm -f -r /home/ansible/.ansible/tmp/ansible-tmp-1582673256.644702-242901232152297/ > /dev/null 2>&1 && sleep 0'
+ok: [127.0.0.1] => {
+    "changed": false,
+    "instances": [
+        {
+            "ami_launch_index": 0,
+            "architecture": "x86_64",
+            "block_device_mappings": [
+                {
+                    "device_name": "/dev/sda1",
+                    "ebs": {
+                        "attach_time": "2020-02-25T23:26:41+00:00",
+                        "delete_on_termination": true,
+                        "status": "attached",
+                        "volume_id": "vol-00efe123bb74bba97"
+                    }
+                }
+            ],
+            "capacity_reservation_specification": {
+                "capacity_reservation_preference": "open"
+            },
+            "client_token": "",
+            "cpu_options": {
+                "core_count": 1,
+                "threads_per_core": 1
+            },
+            "ebs_optimized": false,
+            "ena_support": true,
+            "hibernation_options": {
+                "configured": false
+            },
+            "hypervisor": "xen",
+            "image_id": "ami-0cc0a36f626a4fdf5",
+            "instance_id": "i-03068ac7b90713a6b",
+            "instance_type": "t2.micro",
+            "key_name": "ansible_to_aws_key",
+            "launch_time": "2020-02-25T23:26:39+00:00",
+            "metadata_options": {
+                "http_endpoint": "enabled",
+                "http_put_response_hop_limit": 1,
+                "http_tokens": "optional",
+                "state": "applied"
+            },
+            "monitoring": {
+                "state": "disabled"
+            },
+            "network_interfaces": [
+                {
+                    "association": {
+                        "ip_owner_id": "amazon",
+                        "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+                        "public_ip": "52.59.249.35"
+                    },
+                    "attachment": {
+                        "attach_time": "2020-02-25T23:26:39+00:00",
+                        "attachment_id": "eni-attach-0283e4e086e3393ff",
+                        "delete_on_termination": true,
+                        "device_index": 0,
+                        "status": "attached"
+                    },
+                    "description": "",
+                    "groups": [
+                        {
+                            "group_id": "sg-0aaf3b328c7462f03",
+                            "group_name": "AWS-sec"
+                        }
+                    ],
+                    "interface_type": "interface",
+                    "ipv6_addresses": [],
+                    "mac_address": "06:00:9b:36:55:32",
+                    "network_interface_id": "eni-0e1e2a664d2aeda0c",
+                    "owner_id": "897213544005",
+                    "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+                    "private_ip_address": "172.31.32.13",
+                    "private_ip_addresses": [
+                        {
+                            "association": {
+                                "ip_owner_id": "amazon",
+                                "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+                                "public_ip": "52.59.249.35"
+                            },
+                            "primary": true,
+                            "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+                            "private_ip_address": "172.31.32.13"
+                        }
+                    ],
+                    "source_dest_check": true,
+                    "status": "in-use",
+                    "subnet_id": "subnet-3f958d42",
+                    "vpc_id": "vpc-a503f9cf"
+                }
+            ],
+            "placement": {
+                "availability_zone": "eu-central-1b",
+                "group_name": "",
+                "tenancy": "default"
+            },
+            "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+            "private_ip_address": "172.31.32.13",
+            "product_codes": [],
+            "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+            "public_ip_address": "52.59.249.35",
+            "root_device_name": "/dev/sda1",
+            "root_device_type": "ebs",
+            "security_groups": [
+                {
+                    "group_id": "sg-0aaf3b328c7462f03",
+                    "group_name": "AWS-sec"
+                }
+            ],
+            "source_dest_check": true,
+            "state": {
+                "code": 16,
+                "name": "running"
+            },
+            "state_transition_reason": "",
+            "subnet_id": "subnet-3f958d42",
+            "tags": {
+                "Name": "webserver"
+            },
+            "virtualization_type": "hvm",
+            "vpc_id": "vpc-a503f9cf"
+        },
+        {
+            "ami_launch_index": 0,
+            "architecture": "x86_64",
+            "block_device_mappings": [
+                {
+                    "device_name": "/dev/sda1",
+                    "ebs": {
+                        "attach_time": "2020-02-25T23:26:22+00:00",
+                        "delete_on_termination": true,
+                        "status": "attached",
+                        "volume_id": "vol-05117b33f6179020c"
+                    }
+                }
+            ],
+            "capacity_reservation_specification": {
+                "capacity_reservation_preference": "open"
+            },
+            "client_token": "",
+            "cpu_options": {
+                "core_count": 1,
+                "threads_per_core": 1
+            },
+            "ebs_optimized": false,
+            "ena_support": true,
+            "hibernation_options": {
+                "configured": false
+            },
+            "hypervisor": "xen",
+            "image_id": "ami-0cc0a36f626a4fdf5",
+            "instance_id": "i-0cad0d69e66d3ae1a",
+            "instance_type": "t2.micro",
+            "key_name": "ansible_to_aws_key",
+            "launch_time": "2020-02-25T23:26:21+00:00",
+            "metadata_options": {
+                "http_endpoint": "enabled",
+                "http_put_response_hop_limit": 1,
+                "http_tokens": "optional",
+                "state": "applied"
+            },
+            "monitoring": {
+                "state": "disabled"
+            },
+            "network_interfaces": [
+                {
+                    "association": {
+                        "ip_owner_id": "amazon",
+                        "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+                        "public_ip": "3.121.116.126"
+                    },
+                    "attachment": {
+                        "attach_time": "2020-02-25T23:26:21+00:00",
+                        "attachment_id": "eni-attach-05513d9387ecf53bf",
+                        "delete_on_termination": true,
+                        "device_index": 0,
+                        "status": "attached"
+                    },
+                    "description": "",
+                    "groups": [
+                        {
+                            "group_id": "sg-0aaf3b328c7462f03",
+                            "group_name": "AWS-sec"
+                        }
+                    ],
+                    "interface_type": "interface",
+                    "ipv6_addresses": [],
+                    "mac_address": "06:d9:80:cd:39:0e",
+                    "network_interface_id": "eni-0e6812f2c82c1aab2",
+                    "owner_id": "897213544005",
+                    "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+                    "private_ip_address": "172.31.39.122",
+                    "private_ip_addresses": [
+                        {
+                            "association": {
+                                "ip_owner_id": "amazon",
+                                "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+                                "public_ip": "3.121.116.126"
+                            },
+                            "primary": true,
+                            "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+                            "private_ip_address": "172.31.39.122"
+                        }
+                    ],
+                    "source_dest_check": true,
+                    "status": "in-use",
+                    "subnet_id": "subnet-3f958d42",
+                    "vpc_id": "vpc-a503f9cf"
+                }
+            ],
+            "placement": {
+                "availability_zone": "eu-central-1b",
+                "group_name": "",
+                "tenancy": "default"
+            },
+            "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+            "private_ip_address": "172.31.39.122",
+            "product_codes": [],
+            "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+            "public_ip_address": "3.121.116.126",
+            "root_device_name": "/dev/sda1",
+            "root_device_type": "ebs",
+            "security_groups": [
+                {
+                    "group_id": "sg-0aaf3b328c7462f03",
+                    "group_name": "AWS-sec"
+                }
+            ],
+            "source_dest_check": true,
+            "state": {
+                "code": 16,
+                "name": "running"
+            },
+            "state_transition_reason": "",
+            "subnet_id": "subnet-3f958d42",
+            "tags": {
+                "Name": "lb"
+            },
+            "virtualization_type": "hvm",
+            "vpc_id": "vpc-a503f9cf"
+        },
+        {
+            "ami_launch_index": 0,
+            "architecture": "x86_64",
+            "block_device_mappings": [
+                {
+                    "device_name": "/dev/sda1",
+                    "ebs": {
+                        "attach_time": "2020-02-25T23:27:03+00:00",
+                        "delete_on_termination": true,
+                        "status": "attached",
+                        "volume_id": "vol-005dd81ba70a6ccc8"
+                    }
+                }
+            ],
+            "capacity_reservation_specification": {
+                "capacity_reservation_preference": "open"
+            },
+            "client_token": "",
+            "cpu_options": {
+                "core_count": 1,
+                "threads_per_core": 1
+            },
+            "ebs_optimized": false,
+            "ena_support": true,
+            "hibernation_options": {
+                "configured": false
+            },
+            "hypervisor": "xen",
+            "image_id": "ami-0cc0a36f626a4fdf5",
+            "instance_id": "i-0af7c2bad9fd7edf2",
+            "instance_type": "t2.micro",
+            "key_name": "ansible_to_aws_key",
+            "launch_time": "2020-02-25T23:27:02+00:00",
+            "metadata_options": {
+                "http_endpoint": "enabled",
+                "http_put_response_hop_limit": 1,
+                "http_tokens": "optional",
+                "state": "applied"
+            },
+            "monitoring": {
+                "state": "disabled"
+            },
+            "network_interfaces": [
+                {
+                    "association": {
+                        "ip_owner_id": "amazon",
+                        "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+                        "public_ip": "3.120.131.32"
+                    },
+                    "attachment": {
+                        "attach_time": "2020-02-25T23:27:02+00:00",
+                        "attachment_id": "eni-attach-097b05ae79a1ebe81",
+                        "delete_on_termination": true,
+                        "device_index": 0,
+                        "status": "attached"
+                    },
+                    "description": "",
+                    "groups": [
+                        {
+                            "group_id": "sg-0aaf3b328c7462f03",
+                            "group_name": "AWS-sec"
+                        }
+                    ],
+                    "interface_type": "interface",
+                    "ipv6_addresses": [],
+                    "mac_address": "06:6f:ac:57:41:8c",
+                    "network_interface_id": "eni-07fd6a85dadd2c36f",
+                    "owner_id": "897213544005",
+                    "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+                    "private_ip_address": "172.31.33.25",
+                    "private_ip_addresses": [
+                        {
+                            "association": {
+                                "ip_owner_id": "amazon",
+                                "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+                                "public_ip": "3.120.131.32"
+                            },
+                            "primary": true,
+                            "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+                            "private_ip_address": "172.31.33.25"
+                        }
+                    ],
+                    "source_dest_check": true,
+                    "status": "in-use",
+                    "subnet_id": "subnet-3f958d42",
+                    "vpc_id": "vpc-a503f9cf"
+                }
+            ],
+            "placement": {
+                "availability_zone": "eu-central-1b",
+                "group_name": "",
+                "tenancy": "default"
+            },
+            "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+            "private_ip_address": "172.31.33.25",
+            "product_codes": [],
+            "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+            "public_ip_address": "3.120.131.32",
+            "root_device_name": "/dev/sda1",
+            "root_device_type": "ebs",
+            "security_groups": [
+                {
+                    "group_id": "sg-0aaf3b328c7462f03",
+                    "group_name": "AWS-sec"
+                }
+            ],
+            "source_dest_check": true,
+            "state": {
+                "code": 16,
+                "name": "running"
+            },
+            "state_transition_reason": "",
+            "subnet_id": "subnet-3f958d42",
+            "tags": {
+                "Name": "jenkins"
+            },
+            "virtualization_type": "hvm",
+            "vpc_id": "vpc-a503f9cf"
+        },
+        {
+            "ami_launch_index": 0,
+            "architecture": "x86_64",
+            "block_device_mappings": [
+                {
+                    "device_name": "/dev/sda1",
+                    "ebs": {
+                        "attach_time": "2020-02-25T23:27:21+00:00",
+                        "delete_on_termination": true,
+                        "status": "attached",
+                        "volume_id": "vol-000177c3a2f630c2f"
+                    }
+                }
+            ],
+            "capacity_reservation_specification": {
+                "capacity_reservation_preference": "open"
+            },
+            "client_token": "",
+            "cpu_options": {
+                "core_count": 1,
+                "threads_per_core": 1
+            },
+            "ebs_optimized": false,
+            "ena_support": true,
+            "hibernation_options": {
+                "configured": false
+            },
+            "hypervisor": "xen",
+            "image_id": "ami-0cc0a36f626a4fdf5",
+            "instance_id": "i-04fa89befcb93e0b6",
+            "instance_type": "t2.micro",
+            "key_name": "ansible_to_aws_key",
+            "launch_time": "2020-02-25T23:27:20+00:00",
+            "metadata_options": {
+                "http_endpoint": "enabled",
+                "http_put_response_hop_limit": 1,
+                "http_tokens": "optional",
+                "state": "applied"
+            },
+            "monitoring": {
+                "state": "disabled"
+            },
+            "network_interfaces": [
+                {
+                    "association": {
+                        "ip_owner_id": "amazon",
+                        "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+                        "public_ip": "54.93.247.123"
+                    },
+                    "attachment": {
+                        "attach_time": "2020-02-25T23:27:20+00:00",
+                        "attachment_id": "eni-attach-033bae9d1350ca2df",
+                        "delete_on_termination": true,
+                        "device_index": 0,
+                        "status": "attached"
+                    },
+                    "description": "",
+                    "groups": [
+                        {
+                            "group_id": "sg-0aaf3b328c7462f03",
+                            "group_name": "AWS-sec"
+                        }
+                    ],
+                    "interface_type": "interface",
+                    "ipv6_addresses": [],
+                    "mac_address": "06:4a:40:14:f9:9e",
+                    "network_interface_id": "eni-0ee810ecae76a3cc9",
+                    "owner_id": "897213544005",
+                    "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+                    "private_ip_address": "172.31.45.163",
+                    "private_ip_addresses": [
+                        {
+                            "association": {
+                                "ip_owner_id": "amazon",
+                                "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+                                "public_ip": "54.93.247.123"
+                            },
+                            "primary": true,
+                            "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+                            "private_ip_address": "172.31.45.163"
+                        }
+                    ],
+                    "source_dest_check": true,
+                    "status": "in-use",
+                    "subnet_id": "subnet-3f958d42",
+                    "vpc_id": "vpc-a503f9cf"
+                }
+            ],
+            "placement": {
+                "availability_zone": "eu-central-1b",
+                "group_name": "",
+                "tenancy": "default"
+            },
+            "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+            "private_ip_address": "172.31.45.163",
+            "product_codes": [],
+            "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+            "public_ip_address": "54.93.247.123",
+            "root_device_name": "/dev/sda1",
+            "root_device_type": "ebs",
+            "security_groups": [
+                {
+                    "group_id": "sg-0aaf3b328c7462f03",
+                    "group_name": "AWS-sec"
+                }
+            ],
+            "source_dest_check": true,
+            "state": {
+                "code": 16,
+                "name": "running"
+            },
+            "state_transition_reason": "",
+            "subnet_id": "subnet-3f958d42",
+            "tags": {
+                "Name": "db"
+            },
+            "virtualization_type": "hvm",
+            "vpc_id": "vpc-a503f9cf"
+        }
+    ],
+    "invocation": {
+        "module_args": {
+            "aws_access_key": "AKIA5BZQYGZC2BEGWB6P",
+            "aws_secret_key": "VALUE_SPECIFIED_IN_NO_LOG_PARAMETER",
+            "debug_botocore_endpoint_logs": false,
+            "ec2_url": null,
+            "filters": {},
+            "instance_ids": [],
+            "profile": null,
+            "region": "eu-central-1",
+            "security_token": null,
+            "validate_certs": true
+        }
+    }
+}
+Read vars_file 'group_vars/pass.yml'
+
+TASK [getInsIp_ec2 : Add lb to hosts] *************************************************************************************************************************************
+task path: /home/ansible/roles/getInsIp_ec2/tasks/main.yml:10
+<127.0.0.1> ESTABLISH LOCAL CONNECTION FOR USER: ansible
+skipping: [127.0.0.1] => (item={'ami_launch_index': 0, 'image_id': 'ami-0cc0a36f626a4fdf5', 'instance_id': 'i-03068ac7b90713a6b', 'instance_type': 't2.micro', 'key_name': 'ansible_to_aws_key', 'launch_time': '2020-02-25T23:26:39+00:00', 'monitoring': {'state': 'disabled'}, 'placement': {'availability_zone': 'eu-central-1b', 'group_name': '', 'tenancy': 'default'}, 'private_dns_name': 'ip-172-31-32-13.eu-central-1.compute.internal', 'private_ip_address': '172.31.32.13', 'product_codes': [], 'public_dns_name': 'ec2-52-59-249-35.eu-central-1.compute.amazonaws.com', 'public_ip_address': '52.59.249.35', 'state': {'code': 16, 'name': 'running'}, 'state_transition_reason': '', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'architecture': 'x86_64', 'block_device_mappings': [{'device_name': '/dev/sda1', 'ebs': {'attach_time': '2020-02-25T23:26:41+00:00', 'delete_on_termination': True, 'status': 'attached', 'volume_id': 'vol-00efe123bb74bba97'}}], 'client_token': '', 'ebs_optimized': False, 'ena_support': True, 'hypervisor': 'xen', 'network_interfaces': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-52-59-249-35.eu-central-1.compute.amazonaws.com', 'public_ip': '52.59.249.35'}, 'attachment': {'attach_time': '2020-02-25T23:26:39+00:00', 'attachment_id': 'eni-attach-0283e4e086e3393ff', 'delete_on_termination': True, 'device_index': 0, 'status': 'attached'}, 'description': '', 'groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'ipv6_addresses': [], 'mac_address': '06:00:9b:36:55:32', 'network_interface_id': 'eni-0e1e2a664d2aeda0c', 'owner_id': '897213544005', 'private_dns_name': 'ip-172-31-32-13.eu-central-1.compute.internal', 'private_ip_address': '172.31.32.13', 'private_ip_addresses': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-52-59-249-35.eu-central-1.compute.amazonaws.com', 'public_ip': '52.59.249.35'}, 'primary': True, 'private_dns_name': 'ip-172-31-32-13.eu-central-1.compute.internal', 'private_ip_address': '172.31.32.13'}], 'source_dest_check': True, 'status': 'in-use', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'interface_type': 'interface'}], 'root_device_name': '/dev/sda1', 'root_device_type': 'ebs', 'security_groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'source_dest_check': True, 'tags': {'Name': 'webserver'}, 'virtualization_type': 'hvm', 'cpu_options': {'core_count': 1, 'threads_per_core': 1}, 'capacity_reservation_specification': {'capacity_reservation_preference': 'open'}, 'hibernation_options': {'configured': False}, 'metadata_options': {'state': 'applied', 'http_tokens': 'optional', 'http_put_response_hop_limit': 1, 'http_endpoint': 'enabled'}})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ami_launch_index": 0,
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "attach_time": "2020-02-25T23:26:41+00:00",
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-00efe123bb74bba97"
+                }
+            }
+        ],
+        "capacity_reservation_specification": {
+            "capacity_reservation_preference": "open"
+        },
+        "client_token": "",
+        "cpu_options": {
+            "core_count": 1,
+            "threads_per_core": 1
+        },
+        "ebs_optimized": false,
+        "ena_support": true,
+        "hibernation_options": {
+            "configured": false
+        },
+        "hypervisor": "xen",
+        "image_id": "ami-0cc0a36f626a4fdf5",
+        "instance_id": "i-03068ac7b90713a6b",
+        "instance_type": "t2.micro",
+        "key_name": "ansible_to_aws_key",
+        "launch_time": "2020-02-25T23:26:39+00:00",
+        "metadata_options": {
+            "http_endpoint": "enabled",
+            "http_put_response_hop_limit": 1,
+            "http_tokens": "optional",
+            "state": "applied"
+        },
+        "monitoring": {
+            "state": "disabled"
+        },
+        "network_interfaces": [
+            {
+                "association": {
+                    "ip_owner_id": "amazon",
+                    "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+                    "public_ip": "52.59.249.35"
+                },
+                "attachment": {
+                    "attach_time": "2020-02-25T23:26:39+00:00",
+                    "attachment_id": "eni-attach-0283e4e086e3393ff",
+                    "delete_on_termination": true,
+                    "device_index": 0,
+                    "status": "attached"
+                },
+                "description": "",
+                "groups": [
+                    {
+                        "group_id": "sg-0aaf3b328c7462f03",
+                        "group_name": "AWS-sec"
+                    }
+                ],
+                "interface_type": "interface",
+                "ipv6_addresses": [],
+                "mac_address": "06:00:9b:36:55:32",
+                "network_interface_id": "eni-0e1e2a664d2aeda0c",
+                "owner_id": "897213544005",
+                "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+                "private_ip_address": "172.31.32.13",
+                "private_ip_addresses": [
+                    {
+                        "association": {
+                            "ip_owner_id": "amazon",
+                            "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+                            "public_ip": "52.59.249.35"
+                        },
+                        "primary": true,
+                        "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+                        "private_ip_address": "172.31.32.13"
+                    }
+                ],
+                "source_dest_check": true,
+                "status": "in-use",
+                "subnet_id": "subnet-3f958d42",
+                "vpc_id": "vpc-a503f9cf"
+            }
+        ],
+        "placement": {
+            "availability_zone": "eu-central-1b",
+            "group_name": "",
+            "tenancy": "default"
+        },
+        "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+        "private_ip_address": "172.31.32.13",
+        "product_codes": [],
+        "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+        "public_ip_address": "52.59.249.35",
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "security_groups": [
+            {
+                "group_id": "sg-0aaf3b328c7462f03",
+                "group_name": "AWS-sec"
+            }
+        ],
+        "source_dest_check": true,
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "state_transition_reason": "",
+        "subnet_id": "subnet-3f958d42",
+        "tags": {
+            "Name": "webserver"
+        },
+        "virtualization_type": "hvm",
+        "vpc_id": "vpc-a503f9cf"
+    },
+    "skip_reason": "Conditional result was False"
+}
+<127.0.0.1> EXEC /bin/sh -c 'echo ~ansible && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673257.615795-197357284336392 `" && echo ansible-tmp-1582673257.615795-197357284336392="` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673257.615795-197357284336392 `" ) && sleep 0'
+Using module file /usr/local/lib/python3.6/dist-packages/ansible/modules/files/lineinfile.py
+<127.0.0.1> PUT /home/ansible/.ansible/tmp/ansible-local-56881gll1udq/tmp51do6oo1 TO /home/ansible/.ansible/tmp/ansible-tmp-1582673257.615795-197357284336392/AnsiballZ_lineinfile.py
+<127.0.0.1> EXEC /bin/sh -c 'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1582673257.615795-197357284336392/ /home/ansible/.ansible/tmp/ansible-tmp-1582673257.615795-197357284336392/AnsiballZ_lineinfile.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '/usr/bin/python3 /home/ansible/.ansible/tmp/ansible-tmp-1582673257.615795-197357284336392/AnsiballZ_lineinfile.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'rm -f -r /home/ansible/.ansible/tmp/ansible-tmp-1582673257.615795-197357284336392/ > /dev/null 2>&1 && sleep 0'
+changed: [127.0.0.1] => (item={'ami_launch_index': 0, 'image_id': 'ami-0cc0a36f626a4fdf5', 'instance_id': 'i-0cad0d69e66d3ae1a', 'instance_type': 't2.micro', 'key_name': 'ansible_to_aws_key', 'launch_time': '2020-02-25T23:26:21+00:00', 'monitoring': {'state': 'disabled'}, 'placement': {'availability_zone': 'eu-central-1b', 'group_name': '', 'tenancy': 'default'}, 'private_dns_name': 'ip-172-31-39-122.eu-central-1.compute.internal', 'private_ip_address': '172.31.39.122', 'product_codes': [], 'public_dns_name': 'ec2-3-121-116-126.eu-central-1.compute.amazonaws.com', 'public_ip_address': '3.121.116.126', 'state': {'code': 16, 'name': 'running'}, 'state_transition_reason': '', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'architecture': 'x86_64', 'block_device_mappings': [{'device_name': '/dev/sda1', 'ebs': {'attach_time': '2020-02-25T23:26:22+00:00', 'delete_on_termination': True, 'status': 'attached', 'volume_id': 'vol-05117b33f6179020c'}}], 'client_token': '', 'ebs_optimized': False, 'ena_support': True, 'hypervisor': 'xen', 'network_interfaces': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-3-121-116-126.eu-central-1.compute.amazonaws.com', 'public_ip': '3.121.116.126'}, 'attachment': {'attach_time': '2020-02-25T23:26:21+00:00', 'attachment_id': 'eni-attach-05513d9387ecf53bf', 'delete_on_termination': True, 'device_index': 0, 'status': 'attached'}, 'description': '', 'groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'ipv6_addresses': [], 'mac_address': '06:d9:80:cd:39:0e', 'network_interface_id': 'eni-0e6812f2c82c1aab2', 'owner_id': '897213544005', 'private_dns_name': 'ip-172-31-39-122.eu-central-1.compute.internal', 'private_ip_address': '172.31.39.122', 'private_ip_addresses': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-3-121-116-126.eu-central-1.compute.amazonaws.com', 'public_ip': '3.121.116.126'}, 'primary': True, 'private_dns_name': 'ip-172-31-39-122.eu-central-1.compute.internal', 'private_ip_address': '172.31.39.122'}], 'source_dest_check': True, 'status': 'in-use', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'interface_type': 'interface'}], 'root_device_name': '/dev/sda1', 'root_device_type': 'ebs', 'security_groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'source_dest_check': True, 'tags': {'Name': 'lb'}, 'virtualization_type': 'hvm', 'cpu_options': {'core_count': 1, 'threads_per_core': 1}, 'capacity_reservation_specification': {'capacity_reservation_preference': 'open'}, 'hibernation_options': {'configured': False}, 'metadata_options': {'state': 'applied', 'http_tokens': 'optional', 'http_put_response_hop_limit': 1, 'http_endpoint': 'enabled'}}) => {
+    "ansible_loop_var": "item",
+    "backup": "",
+    "changed": true,
+    "diff": [
+        {
+            "after": "",
+            "after_header": "./hosts (content)",
+            "before": "",
+            "before_header": "./hosts (content)"
+        },
+        {
+            "after_header": "./hosts (file attributes)",
+            "before_header": "./hosts (file attributes)"
+        }
+    ],
+    "invocation": {
+        "module_args": {
+            "attributes": null,
+            "backrefs": false,
+            "backup": false,
+            "content": null,
+            "create": false,
+            "delimiter": null,
+            "dest": "./hosts",
+            "directory_mode": null,
+            "firstmatch": false,
+            "follow": false,
+            "force": null,
+            "group": null,
+            "insertafter": "lb",
+            "insertbefore": null,
+            "line": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+            "mode": null,
+            "owner": null,
+            "path": "./hosts",
+            "regexp": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+            "remote_src": null,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "present",
+            "unsafe_writes": null,
+            "validate": null
+        }
+    },
+    "item": {
+        "ami_launch_index": 0,
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "attach_time": "2020-02-25T23:26:22+00:00",
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-05117b33f6179020c"
+                }
+            }
+        ],
+        "capacity_reservation_specification": {
+            "capacity_reservation_preference": "open"
+        },
+        "client_token": "",
+        "cpu_options": {
+            "core_count": 1,
+            "threads_per_core": 1
+        },
+        "ebs_optimized": false,
+        "ena_support": true,
+        "hibernation_options": {
+            "configured": false
+        },
+        "hypervisor": "xen",
+        "image_id": "ami-0cc0a36f626a4fdf5",
+        "instance_id": "i-0cad0d69e66d3ae1a",
+        "instance_type": "t2.micro",
+        "key_name": "ansible_to_aws_key",
+        "launch_time": "2020-02-25T23:26:21+00:00",
+        "metadata_options": {
+            "http_endpoint": "enabled",
+            "http_put_response_hop_limit": 1,
+            "http_tokens": "optional",
+            "state": "applied"
+        },
+        "monitoring": {
+            "state": "disabled"
+        },
+        "network_interfaces": [
+            {
+                "association": {
+                    "ip_owner_id": "amazon",
+                    "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+                    "public_ip": "3.121.116.126"
+                },
+                "attachment": {
+                    "attach_time": "2020-02-25T23:26:21+00:00",
+                    "attachment_id": "eni-attach-05513d9387ecf53bf",
+                    "delete_on_termination": true,
+                    "device_index": 0,
+                    "status": "attached"
+                },
+                "description": "",
+                "groups": [
+                    {
+                        "group_id": "sg-0aaf3b328c7462f03",
+                        "group_name": "AWS-sec"
+                    }
+                ],
+                "interface_type": "interface",
+                "ipv6_addresses": [],
+                "mac_address": "06:d9:80:cd:39:0e",
+                "network_interface_id": "eni-0e6812f2c82c1aab2",
+                "owner_id": "897213544005",
+                "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+                "private_ip_address": "172.31.39.122",
+                "private_ip_addresses": [
+                    {
+                        "association": {
+                            "ip_owner_id": "amazon",
+                            "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+                            "public_ip": "3.121.116.126"
+                        },
+                        "primary": true,
+                        "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+                        "private_ip_address": "172.31.39.122"
+                    }
+                ],
+                "source_dest_check": true,
+                "status": "in-use",
+                "subnet_id": "subnet-3f958d42",
+                "vpc_id": "vpc-a503f9cf"
+            }
+        ],
+        "placement": {
+            "availability_zone": "eu-central-1b",
+            "group_name": "",
+            "tenancy": "default"
+        },
+        "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+        "private_ip_address": "172.31.39.122",
+        "product_codes": [],
+        "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+        "public_ip_address": "3.121.116.126",
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "security_groups": [
+            {
+                "group_id": "sg-0aaf3b328c7462f03",
+                "group_name": "AWS-sec"
+            }
+        ],
+        "source_dest_check": true,
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "state_transition_reason": "",
+        "subnet_id": "subnet-3f958d42",
+        "tags": {
+            "Name": "lb"
+        },
+        "virtualization_type": "hvm",
+        "vpc_id": "vpc-a503f9cf"
+    },
+    "msg": "line added"
+}
+skipping: [127.0.0.1] => (item={'ami_launch_index': 0, 'image_id': 'ami-0cc0a36f626a4fdf5', 'instance_id': 'i-0af7c2bad9fd7edf2', 'instance_type': 't2.micro', 'key_name': 'ansible_to_aws_key', 'launch_time': '2020-02-25T23:27:02+00:00', 'monitoring': {'state': 'disabled'}, 'placement': {'availability_zone': 'eu-central-1b', 'group_name': '', 'tenancy': 'default'}, 'private_dns_name': 'ip-172-31-33-25.eu-central-1.compute.internal', 'private_ip_address': '172.31.33.25', 'product_codes': [], 'public_dns_name': 'ec2-3-120-131-32.eu-central-1.compute.amazonaws.com', 'public_ip_address': '3.120.131.32', 'state': {'code': 16, 'name': 'running'}, 'state_transition_reason': '', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'architecture': 'x86_64', 'block_device_mappings': [{'device_name': '/dev/sda1', 'ebs': {'attach_time': '2020-02-25T23:27:03+00:00', 'delete_on_termination': True, 'status': 'attached', 'volume_id': 'vol-005dd81ba70a6ccc8'}}], 'client_token': '', 'ebs_optimized': False, 'ena_support': True, 'hypervisor': 'xen', 'network_interfaces': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-3-120-131-32.eu-central-1.compute.amazonaws.com', 'public_ip': '3.120.131.32'}, 'attachment': {'attach_time': '2020-02-25T23:27:02+00:00', 'attachment_id': 'eni-attach-097b05ae79a1ebe81', 'delete_on_termination': True, 'device_index': 0, 'status': 'attached'}, 'description': '', 'groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'ipv6_addresses': [], 'mac_address': '06:6f:ac:57:41:8c', 'network_interface_id': 'eni-07fd6a85dadd2c36f', 'owner_id': '897213544005', 'private_dns_name': 'ip-172-31-33-25.eu-central-1.compute.internal', 'private_ip_address': '172.31.33.25', 'private_ip_addresses': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-3-120-131-32.eu-central-1.compute.amazonaws.com', 'public_ip': '3.120.131.32'}, 'primary': True, 'private_dns_name': 'ip-172-31-33-25.eu-central-1.compute.internal', 'private_ip_address': '172.31.33.25'}], 'source_dest_check': True, 'status': 'in-use', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'interface_type': 'interface'}], 'root_device_name': '/dev/sda1', 'root_device_type': 'ebs', 'security_groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'source_dest_check': True, 'tags': {'Name': 'jenkins'}, 'virtualization_type': 'hvm', 'cpu_options': {'core_count': 1, 'threads_per_core': 1}, 'capacity_reservation_specification': {'capacity_reservation_preference': 'open'}, 'hibernation_options': {'configured': False}, 'metadata_options': {'state': 'applied', 'http_tokens': 'optional', 'http_put_response_hop_limit': 1, 'http_endpoint': 'enabled'}})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ami_launch_index": 0,
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "attach_time": "2020-02-25T23:27:03+00:00",
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-005dd81ba70a6ccc8"
+                }
+            }
+        ],
+        "capacity_reservation_specification": {
+            "capacity_reservation_preference": "open"
+        },
+        "client_token": "",
+        "cpu_options": {
+            "core_count": 1,
+            "threads_per_core": 1
+        },
+        "ebs_optimized": false,
+        "ena_support": true,
+        "hibernation_options": {
+            "configured": false
+        },
+        "hypervisor": "xen",
+        "image_id": "ami-0cc0a36f626a4fdf5",
+        "instance_id": "i-0af7c2bad9fd7edf2",
+        "instance_type": "t2.micro",
+        "key_name": "ansible_to_aws_key",
+        "launch_time": "2020-02-25T23:27:02+00:00",
+        "metadata_options": {
+            "http_endpoint": "enabled",
+            "http_put_response_hop_limit": 1,
+            "http_tokens": "optional",
+            "state": "applied"
+        },
+        "monitoring": {
+            "state": "disabled"
+        },
+        "network_interfaces": [
+            {
+                "association": {
+                    "ip_owner_id": "amazon",
+                    "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+                    "public_ip": "3.120.131.32"
+                },
+                "attachment": {
+                    "attach_time": "2020-02-25T23:27:02+00:00",
+                    "attachment_id": "eni-attach-097b05ae79a1ebe81",
+                    "delete_on_termination": true,
+                    "device_index": 0,
+                    "status": "attached"
+                },
+                "description": "",
+                "groups": [
+                    {
+                        "group_id": "sg-0aaf3b328c7462f03",
+                        "group_name": "AWS-sec"
+                    }
+                ],
+                "interface_type": "interface",
+                "ipv6_addresses": [],
+                "mac_address": "06:6f:ac:57:41:8c",
+                "network_interface_id": "eni-07fd6a85dadd2c36f",
+                "owner_id": "897213544005",
+                "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+                "private_ip_address": "172.31.33.25",
+                "private_ip_addresses": [
+                    {
+                        "association": {
+                            "ip_owner_id": "amazon",
+                            "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+                            "public_ip": "3.120.131.32"
+                        },
+                        "primary": true,
+                        "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+                        "private_ip_address": "172.31.33.25"
+                    }
+                ],
+                "source_dest_check": true,
+                "status": "in-use",
+                "subnet_id": "subnet-3f958d42",
+                "vpc_id": "vpc-a503f9cf"
+            }
+        ],
+        "placement": {
+            "availability_zone": "eu-central-1b",
+            "group_name": "",
+            "tenancy": "default"
+        },
+        "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+        "private_ip_address": "172.31.33.25",
+        "product_codes": [],
+        "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+        "public_ip_address": "3.120.131.32",
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "security_groups": [
+            {
+                "group_id": "sg-0aaf3b328c7462f03",
+                "group_name": "AWS-sec"
+            }
+        ],
+        "source_dest_check": true,
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "state_transition_reason": "",
+        "subnet_id": "subnet-3f958d42",
+        "tags": {
+            "Name": "jenkins"
+        },
+        "virtualization_type": "hvm",
+        "vpc_id": "vpc-a503f9cf"
+    },
+    "skip_reason": "Conditional result was False"
+}
+skipping: [127.0.0.1] => (item={'ami_launch_index': 0, 'image_id': 'ami-0cc0a36f626a4fdf5', 'instance_id': 'i-04fa89befcb93e0b6', 'instance_type': 't2.micro', 'key_name': 'ansible_to_aws_key', 'launch_time': '2020-02-25T23:27:20+00:00', 'monitoring': {'state': 'disabled'}, 'placement': {'availability_zone': 'eu-central-1b', 'group_name': '', 'tenancy': 'default'}, 'private_dns_name': 'ip-172-31-45-163.eu-central-1.compute.internal', 'private_ip_address': '172.31.45.163', 'product_codes': [], 'public_dns_name': 'ec2-54-93-247-123.eu-central-1.compute.amazonaws.com', 'public_ip_address': '54.93.247.123', 'state': {'code': 16, 'name': 'running'}, 'state_transition_reason': '', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'architecture': 'x86_64', 'block_device_mappings': [{'device_name': '/dev/sda1', 'ebs': {'attach_time': '2020-02-25T23:27:21+00:00', 'delete_on_termination': True, 'status': 'attached', 'volume_id': 'vol-000177c3a2f630c2f'}}], 'client_token': '', 'ebs_optimized': False, 'ena_support': True, 'hypervisor': 'xen', 'network_interfaces': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-54-93-247-123.eu-central-1.compute.amazonaws.com', 'public_ip': '54.93.247.123'}, 'attachment': {'attach_time': '2020-02-25T23:27:20+00:00', 'attachment_id': 'eni-attach-033bae9d1350ca2df', 'delete_on_termination': True, 'device_index': 0, 'status': 'attached'}, 'description': '', 'groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'ipv6_addresses': [], 'mac_address': '06:4a:40:14:f9:9e', 'network_interface_id': 'eni-0ee810ecae76a3cc9', 'owner_id': '897213544005', 'private_dns_name': 'ip-172-31-45-163.eu-central-1.compute.internal', 'private_ip_address': '172.31.45.163', 'private_ip_addresses': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-54-93-247-123.eu-central-1.compute.amazonaws.com', 'public_ip': '54.93.247.123'}, 'primary': True, 'private_dns_name': 'ip-172-31-45-163.eu-central-1.compute.internal', 'private_ip_address': '172.31.45.163'}], 'source_dest_check': True, 'status': 'in-use', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'interface_type': 'interface'}], 'root_device_name': '/dev/sda1', 'root_device_type': 'ebs', 'security_groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'source_dest_check': True, 'tags': {'Name': 'db'}, 'virtualization_type': 'hvm', 'cpu_options': {'core_count': 1, 'threads_per_core': 1}, 'capacity_reservation_specification': {'capacity_reservation_preference': 'open'}, 'hibernation_options': {'configured': False}, 'metadata_options': {'state': 'applied', 'http_tokens': 'optional', 'http_put_response_hop_limit': 1, 'http_endpoint': 'enabled'}})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ami_launch_index": 0,
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "attach_time": "2020-02-25T23:27:21+00:00",
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-000177c3a2f630c2f"
+                }
+            }
+        ],
+        "capacity_reservation_specification": {
+            "capacity_reservation_preference": "open"
+        },
+        "client_token": "",
+        "cpu_options": {
+            "core_count": 1,
+            "threads_per_core": 1
+        },
+        "ebs_optimized": false,
+        "ena_support": true,
+        "hibernation_options": {
+            "configured": false
+        },
+        "hypervisor": "xen",
+        "image_id": "ami-0cc0a36f626a4fdf5",
+        "instance_id": "i-04fa89befcb93e0b6",
+        "instance_type": "t2.micro",
+        "key_name": "ansible_to_aws_key",
+        "launch_time": "2020-02-25T23:27:20+00:00",
+        "metadata_options": {
+            "http_endpoint": "enabled",
+            "http_put_response_hop_limit": 1,
+            "http_tokens": "optional",
+            "state": "applied"
+        },
+        "monitoring": {
+            "state": "disabled"
+        },
+        "network_interfaces": [
+            {
+                "association": {
+                    "ip_owner_id": "amazon",
+                    "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+                    "public_ip": "54.93.247.123"
+                },
+                "attachment": {
+                    "attach_time": "2020-02-25T23:27:20+00:00",
+                    "attachment_id": "eni-attach-033bae9d1350ca2df",
+                    "delete_on_termination": true,
+                    "device_index": 0,
+                    "status": "attached"
+                },
+                "description": "",
+                "groups": [
+                    {
+                        "group_id": "sg-0aaf3b328c7462f03",
+                        "group_name": "AWS-sec"
+                    }
+                ],
+                "interface_type": "interface",
+                "ipv6_addresses": [],
+                "mac_address": "06:4a:40:14:f9:9e",
+                "network_interface_id": "eni-0ee810ecae76a3cc9",
+                "owner_id": "897213544005",
+                "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+                "private_ip_address": "172.31.45.163",
+                "private_ip_addresses": [
+                    {
+                        "association": {
+                            "ip_owner_id": "amazon",
+                            "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+                            "public_ip": "54.93.247.123"
+                        },
+                        "primary": true,
+                        "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+                        "private_ip_address": "172.31.45.163"
+                    }
+                ],
+                "source_dest_check": true,
+                "status": "in-use",
+                "subnet_id": "subnet-3f958d42",
+                "vpc_id": "vpc-a503f9cf"
+            }
+        ],
+        "placement": {
+            "availability_zone": "eu-central-1b",
+            "group_name": "",
+            "tenancy": "default"
+        },
+        "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+        "private_ip_address": "172.31.45.163",
+        "product_codes": [],
+        "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+        "public_ip_address": "54.93.247.123",
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "security_groups": [
+            {
+                "group_id": "sg-0aaf3b328c7462f03",
+                "group_name": "AWS-sec"
+            }
+        ],
+        "source_dest_check": true,
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "state_transition_reason": "",
+        "subnet_id": "subnet-3f958d42",
+        "tags": {
+            "Name": "db"
+        },
+        "virtualization_type": "hvm",
+        "vpc_id": "vpc-a503f9cf"
+    },
+    "skip_reason": "Conditional result was False"
+}
+Read vars_file 'group_vars/pass.yml'
+
+TASK [getInsIp_ec2 : Add webserver to hosts] ******************************************************************************************************************************
+task path: /home/ansible/roles/getInsIp_ec2/tasks/main.yml:20
+<127.0.0.1> ESTABLISH LOCAL CONNECTION FOR USER: ansible
+<127.0.0.1> EXEC /bin/sh -c 'echo ~ansible && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673257.9955072-227967997819608 `" && echo ansible-tmp-1582673257.9955072-227967997819608="` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673257.9955072-227967997819608 `" ) && sleep 0'
+Using module file /usr/local/lib/python3.6/dist-packages/ansible/modules/files/lineinfile.py
+<127.0.0.1> PUT /home/ansible/.ansible/tmp/ansible-local-56881gll1udq/tmp9q92l27h TO /home/ansible/.ansible/tmp/ansible-tmp-1582673257.9955072-227967997819608/AnsiballZ_lineinfile.py
+<127.0.0.1> EXEC /bin/sh -c 'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1582673257.9955072-227967997819608/ /home/ansible/.ansible/tmp/ansible-tmp-1582673257.9955072-227967997819608/AnsiballZ_lineinfile.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '/usr/bin/python3 /home/ansible/.ansible/tmp/ansible-tmp-1582673257.9955072-227967997819608/AnsiballZ_lineinfile.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'rm -f -r /home/ansible/.ansible/tmp/ansible-tmp-1582673257.9955072-227967997819608/ > /dev/null 2>&1 && sleep 0'
+changed: [127.0.0.1] => (item={'ami_launch_index': 0, 'image_id': 'ami-0cc0a36f626a4fdf5', 'instance_id': 'i-03068ac7b90713a6b', 'instance_type': 't2.micro', 'key_name': 'ansible_to_aws_key', 'launch_time': '2020-02-25T23:26:39+00:00', 'monitoring': {'state': 'disabled'}, 'placement': {'availability_zone': 'eu-central-1b', 'group_name': '', 'tenancy': 'default'}, 'private_dns_name': 'ip-172-31-32-13.eu-central-1.compute.internal', 'private_ip_address': '172.31.32.13', 'product_codes': [], 'public_dns_name': 'ec2-52-59-249-35.eu-central-1.compute.amazonaws.com', 'public_ip_address': '52.59.249.35', 'state': {'code': 16, 'name': 'running'}, 'state_transition_reason': '', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'architecture': 'x86_64', 'block_device_mappings': [{'device_name': '/dev/sda1', 'ebs': {'attach_time': '2020-02-25T23:26:41+00:00', 'delete_on_termination': True, 'status': 'attached', 'volume_id': 'vol-00efe123bb74bba97'}}], 'client_token': '', 'ebs_optimized': False, 'ena_support': True, 'hypervisor': 'xen', 'network_interfaces': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-52-59-249-35.eu-central-1.compute.amazonaws.com', 'public_ip': '52.59.249.35'}, 'attachment': {'attach_time': '2020-02-25T23:26:39+00:00', 'attachment_id': 'eni-attach-0283e4e086e3393ff', 'delete_on_termination': True, 'device_index': 0, 'status': 'attached'}, 'description': '', 'groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'ipv6_addresses': [], 'mac_address': '06:00:9b:36:55:32', 'network_interface_id': 'eni-0e1e2a664d2aeda0c', 'owner_id': '897213544005', 'private_dns_name': 'ip-172-31-32-13.eu-central-1.compute.internal', 'private_ip_address': '172.31.32.13', 'private_ip_addresses': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-52-59-249-35.eu-central-1.compute.amazonaws.com', 'public_ip': '52.59.249.35'}, 'primary': True, 'private_dns_name': 'ip-172-31-32-13.eu-central-1.compute.internal', 'private_ip_address': '172.31.32.13'}], 'source_dest_check': True, 'status': 'in-use', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'interface_type': 'interface'}], 'root_device_name': '/dev/sda1', 'root_device_type': 'ebs', 'security_groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'source_dest_check': True, 'tags': {'Name': 'webserver'}, 'virtualization_type': 'hvm', 'cpu_options': {'core_count': 1, 'threads_per_core': 1}, 'capacity_reservation_specification': {'capacity_reservation_preference': 'open'}, 'hibernation_options': {'configured': False}, 'metadata_options': {'state': 'applied', 'http_tokens': 'optional', 'http_put_response_hop_limit': 1, 'http_endpoint': 'enabled'}}) => {
+    "ansible_loop_var": "item",
+    "backup": "",
+    "changed": true,
+    "diff": [
+        {
+            "after": "",
+            "after_header": "./hosts (content)",
+            "before": "",
+            "before_header": "./hosts (content)"
+        },
+        {
+            "after_header": "./hosts (file attributes)",
+            "before_header": "./hosts (file attributes)"
+        }
+    ],
+    "invocation": {
+        "module_args": {
+            "attributes": null,
+            "backrefs": false,
+            "backup": false,
+            "content": null,
+            "create": false,
+            "delimiter": null,
+            "dest": "./hosts",
+            "directory_mode": null,
+            "firstmatch": false,
+            "follow": false,
+            "force": null,
+            "group": null,
+            "insertafter": "webserver",
+            "insertbefore": null,
+            "line": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+            "mode": null,
+            "owner": null,
+            "path": "./hosts",
+            "regexp": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+            "remote_src": null,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "present",
+            "unsafe_writes": null,
+            "validate": null
+        }
+    },
+    "item": {
+        "ami_launch_index": 0,
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "attach_time": "2020-02-25T23:26:41+00:00",
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-00efe123bb74bba97"
+                }
+            }
+        ],
+        "capacity_reservation_specification": {
+            "capacity_reservation_preference": "open"
+        },
+        "client_token": "",
+        "cpu_options": {
+            "core_count": 1,
+            "threads_per_core": 1
+        },
+        "ebs_optimized": false,
+        "ena_support": true,
+        "hibernation_options": {
+            "configured": false
+        },
+        "hypervisor": "xen",
+        "image_id": "ami-0cc0a36f626a4fdf5",
+        "instance_id": "i-03068ac7b90713a6b",
+        "instance_type": "t2.micro",
+        "key_name": "ansible_to_aws_key",
+        "launch_time": "2020-02-25T23:26:39+00:00",
+        "metadata_options": {
+            "http_endpoint": "enabled",
+            "http_put_response_hop_limit": 1,
+            "http_tokens": "optional",
+            "state": "applied"
+        },
+        "monitoring": {
+            "state": "disabled"
+        },
+        "network_interfaces": [
+            {
+                "association": {
+                    "ip_owner_id": "amazon",
+                    "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+                    "public_ip": "52.59.249.35"
+                },
+                "attachment": {
+                    "attach_time": "2020-02-25T23:26:39+00:00",
+                    "attachment_id": "eni-attach-0283e4e086e3393ff",
+                    "delete_on_termination": true,
+                    "device_index": 0,
+                    "status": "attached"
+                },
+                "description": "",
+                "groups": [
+                    {
+                        "group_id": "sg-0aaf3b328c7462f03",
+                        "group_name": "AWS-sec"
+                    }
+                ],
+                "interface_type": "interface",
+                "ipv6_addresses": [],
+                "mac_address": "06:00:9b:36:55:32",
+                "network_interface_id": "eni-0e1e2a664d2aeda0c",
+                "owner_id": "897213544005",
+                "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+                "private_ip_address": "172.31.32.13",
+                "private_ip_addresses": [
+                    {
+                        "association": {
+                            "ip_owner_id": "amazon",
+                            "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+                            "public_ip": "52.59.249.35"
+                        },
+                        "primary": true,
+                        "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+                        "private_ip_address": "172.31.32.13"
+                    }
+                ],
+                "source_dest_check": true,
+                "status": "in-use",
+                "subnet_id": "subnet-3f958d42",
+                "vpc_id": "vpc-a503f9cf"
+            }
+        ],
+        "placement": {
+            "availability_zone": "eu-central-1b",
+            "group_name": "",
+            "tenancy": "default"
+        },
+        "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+        "private_ip_address": "172.31.32.13",
+        "product_codes": [],
+        "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+        "public_ip_address": "52.59.249.35",
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "security_groups": [
+            {
+                "group_id": "sg-0aaf3b328c7462f03",
+                "group_name": "AWS-sec"
+            }
+        ],
+        "source_dest_check": true,
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "state_transition_reason": "",
+        "subnet_id": "subnet-3f958d42",
+        "tags": {
+            "Name": "webserver"
+        },
+        "virtualization_type": "hvm",
+        "vpc_id": "vpc-a503f9cf"
+    },
+    "msg": "line added"
+}
+skipping: [127.0.0.1] => (item={'ami_launch_index': 0, 'image_id': 'ami-0cc0a36f626a4fdf5', 'instance_id': 'i-0cad0d69e66d3ae1a', 'instance_type': 't2.micro', 'key_name': 'ansible_to_aws_key', 'launch_time': '2020-02-25T23:26:21+00:00', 'monitoring': {'state': 'disabled'}, 'placement': {'availability_zone': 'eu-central-1b', 'group_name': '', 'tenancy': 'default'}, 'private_dns_name': 'ip-172-31-39-122.eu-central-1.compute.internal', 'private_ip_address': '172.31.39.122', 'product_codes': [], 'public_dns_name': 'ec2-3-121-116-126.eu-central-1.compute.amazonaws.com', 'public_ip_address': '3.121.116.126', 'state': {'code': 16, 'name': 'running'}, 'state_transition_reason': '', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'architecture': 'x86_64', 'block_device_mappings': [{'device_name': '/dev/sda1', 'ebs': {'attach_time': '2020-02-25T23:26:22+00:00', 'delete_on_termination': True, 'status': 'attached', 'volume_id': 'vol-05117b33f6179020c'}}], 'client_token': '', 'ebs_optimized': False, 'ena_support': True, 'hypervisor': 'xen', 'network_interfaces': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-3-121-116-126.eu-central-1.compute.amazonaws.com', 'public_ip': '3.121.116.126'}, 'attachment': {'attach_time': '2020-02-25T23:26:21+00:00', 'attachment_id': 'eni-attach-05513d9387ecf53bf', 'delete_on_termination': True, 'device_index': 0, 'status': 'attached'}, 'description': '', 'groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'ipv6_addresses': [], 'mac_address': '06:d9:80:cd:39:0e', 'network_interface_id': 'eni-0e6812f2c82c1aab2', 'owner_id': '897213544005', 'private_dns_name': 'ip-172-31-39-122.eu-central-1.compute.internal', 'private_ip_address': '172.31.39.122', 'private_ip_addresses': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-3-121-116-126.eu-central-1.compute.amazonaws.com', 'public_ip': '3.121.116.126'}, 'primary': True, 'private_dns_name': 'ip-172-31-39-122.eu-central-1.compute.internal', 'private_ip_address': '172.31.39.122'}], 'source_dest_check': True, 'status': 'in-use', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'interface_type': 'interface'}], 'root_device_name': '/dev/sda1', 'root_device_type': 'ebs', 'security_groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'source_dest_check': True, 'tags': {'Name': 'lb'}, 'virtualization_type': 'hvm', 'cpu_options': {'core_count': 1, 'threads_per_core': 1}, 'capacity_reservation_specification': {'capacity_reservation_preference': 'open'}, 'hibernation_options': {'configured': False}, 'metadata_options': {'state': 'applied', 'http_tokens': 'optional', 'http_put_response_hop_limit': 1, 'http_endpoint': 'enabled'}})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ami_launch_index": 0,
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "attach_time": "2020-02-25T23:26:22+00:00",
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-05117b33f6179020c"
+                }
+            }
+        ],
+        "capacity_reservation_specification": {
+            "capacity_reservation_preference": "open"
+        },
+        "client_token": "",
+        "cpu_options": {
+            "core_count": 1,
+            "threads_per_core": 1
+        },
+        "ebs_optimized": false,
+        "ena_support": true,
+        "hibernation_options": {
+            "configured": false
+        },
+        "hypervisor": "xen",
+        "image_id": "ami-0cc0a36f626a4fdf5",
+        "instance_id": "i-0cad0d69e66d3ae1a",
+        "instance_type": "t2.micro",
+        "key_name": "ansible_to_aws_key",
+        "launch_time": "2020-02-25T23:26:21+00:00",
+        "metadata_options": {
+            "http_endpoint": "enabled",
+            "http_put_response_hop_limit": 1,
+            "http_tokens": "optional",
+            "state": "applied"
+        },
+        "monitoring": {
+            "state": "disabled"
+        },
+        "network_interfaces": [
+            {
+                "association": {
+                    "ip_owner_id": "amazon",
+                    "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+                    "public_ip": "3.121.116.126"
+                },
+                "attachment": {
+                    "attach_time": "2020-02-25T23:26:21+00:00",
+                    "attachment_id": "eni-attach-05513d9387ecf53bf",
+                    "delete_on_termination": true,
+                    "device_index": 0,
+                    "status": "attached"
+                },
+                "description": "",
+                "groups": [
+                    {
+                        "group_id": "sg-0aaf3b328c7462f03",
+                        "group_name": "AWS-sec"
+                    }
+                ],
+                "interface_type": "interface",
+                "ipv6_addresses": [],
+                "mac_address": "06:d9:80:cd:39:0e",
+                "network_interface_id": "eni-0e6812f2c82c1aab2",
+                "owner_id": "897213544005",
+                "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+                "private_ip_address": "172.31.39.122",
+                "private_ip_addresses": [
+                    {
+                        "association": {
+                            "ip_owner_id": "amazon",
+                            "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+                            "public_ip": "3.121.116.126"
+                        },
+                        "primary": true,
+                        "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+                        "private_ip_address": "172.31.39.122"
+                    }
+                ],
+                "source_dest_check": true,
+                "status": "in-use",
+                "subnet_id": "subnet-3f958d42",
+                "vpc_id": "vpc-a503f9cf"
+            }
+        ],
+        "placement": {
+            "availability_zone": "eu-central-1b",
+            "group_name": "",
+            "tenancy": "default"
+        },
+        "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+        "private_ip_address": "172.31.39.122",
+        "product_codes": [],
+        "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+        "public_ip_address": "3.121.116.126",
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "security_groups": [
+            {
+                "group_id": "sg-0aaf3b328c7462f03",
+                "group_name": "AWS-sec"
+            }
+        ],
+        "source_dest_check": true,
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "state_transition_reason": "",
+        "subnet_id": "subnet-3f958d42",
+        "tags": {
+            "Name": "lb"
+        },
+        "virtualization_type": "hvm",
+        "vpc_id": "vpc-a503f9cf"
+    },
+    "skip_reason": "Conditional result was False"
+}
+skipping: [127.0.0.1] => (item={'ami_launch_index': 0, 'image_id': 'ami-0cc0a36f626a4fdf5', 'instance_id': 'i-0af7c2bad9fd7edf2', 'instance_type': 't2.micro', 'key_name': 'ansible_to_aws_key', 'launch_time': '2020-02-25T23:27:02+00:00', 'monitoring': {'state': 'disabled'}, 'placement': {'availability_zone': 'eu-central-1b', 'group_name': '', 'tenancy': 'default'}, 'private_dns_name': 'ip-172-31-33-25.eu-central-1.compute.internal', 'private_ip_address': '172.31.33.25', 'product_codes': [], 'public_dns_name': 'ec2-3-120-131-32.eu-central-1.compute.amazonaws.com', 'public_ip_address': '3.120.131.32', 'state': {'code': 16, 'name': 'running'}, 'state_transition_reason': '', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'architecture': 'x86_64', 'block_device_mappings': [{'device_name': '/dev/sda1', 'ebs': {'attach_time': '2020-02-25T23:27:03+00:00', 'delete_on_termination': True, 'status': 'attached', 'volume_id': 'vol-005dd81ba70a6ccc8'}}], 'client_token': '', 'ebs_optimized': False, 'ena_support': True, 'hypervisor': 'xen', 'network_interfaces': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-3-120-131-32.eu-central-1.compute.amazonaws.com', 'public_ip': '3.120.131.32'}, 'attachment': {'attach_time': '2020-02-25T23:27:02+00:00', 'attachment_id': 'eni-attach-097b05ae79a1ebe81', 'delete_on_termination': True, 'device_index': 0, 'status': 'attached'}, 'description': '', 'groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'ipv6_addresses': [], 'mac_address': '06:6f:ac:57:41:8c', 'network_interface_id': 'eni-07fd6a85dadd2c36f', 'owner_id': '897213544005', 'private_dns_name': 'ip-172-31-33-25.eu-central-1.compute.internal', 'private_ip_address': '172.31.33.25', 'private_ip_addresses': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-3-120-131-32.eu-central-1.compute.amazonaws.com', 'public_ip': '3.120.131.32'}, 'primary': True, 'private_dns_name': 'ip-172-31-33-25.eu-central-1.compute.internal', 'private_ip_address': '172.31.33.25'}], 'source_dest_check': True, 'status': 'in-use', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'interface_type': 'interface'}], 'root_device_name': '/dev/sda1', 'root_device_type': 'ebs', 'security_groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'source_dest_check': True, 'tags': {'Name': 'jenkins'}, 'virtualization_type': 'hvm', 'cpu_options': {'core_count': 1, 'threads_per_core': 1}, 'capacity_reservation_specification': {'capacity_reservation_preference': 'open'}, 'hibernation_options': {'configured': False}, 'metadata_options': {'state': 'applied', 'http_tokens': 'optional', 'http_put_response_hop_limit': 1, 'http_endpoint': 'enabled'}})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ami_launch_index": 0,
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "attach_time": "2020-02-25T23:27:03+00:00",
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-005dd81ba70a6ccc8"
+                }
+            }
+        ],
+        "capacity_reservation_specification": {
+            "capacity_reservation_preference": "open"
+        },
+        "client_token": "",
+        "cpu_options": {
+            "core_count": 1,
+            "threads_per_core": 1
+        },
+        "ebs_optimized": false,
+        "ena_support": true,
+        "hibernation_options": {
+            "configured": false
+        },
+        "hypervisor": "xen",
+        "image_id": "ami-0cc0a36f626a4fdf5",
+        "instance_id": "i-0af7c2bad9fd7edf2",
+        "instance_type": "t2.micro",
+        "key_name": "ansible_to_aws_key",
+        "launch_time": "2020-02-25T23:27:02+00:00",
+        "metadata_options": {
+            "http_endpoint": "enabled",
+            "http_put_response_hop_limit": 1,
+            "http_tokens": "optional",
+            "state": "applied"
+        },
+        "monitoring": {
+            "state": "disabled"
+        },
+        "network_interfaces": [
+            {
+                "association": {
+                    "ip_owner_id": "amazon",
+                    "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+                    "public_ip": "3.120.131.32"
+                },
+                "attachment": {
+                    "attach_time": "2020-02-25T23:27:02+00:00",
+                    "attachment_id": "eni-attach-097b05ae79a1ebe81",
+                    "delete_on_termination": true,
+                    "device_index": 0,
+                    "status": "attached"
+                },
+                "description": "",
+                "groups": [
+                    {
+                        "group_id": "sg-0aaf3b328c7462f03",
+                        "group_name": "AWS-sec"
+                    }
+                ],
+                "interface_type": "interface",
+                "ipv6_addresses": [],
+                "mac_address": "06:6f:ac:57:41:8c",
+                "network_interface_id": "eni-07fd6a85dadd2c36f",
+                "owner_id": "897213544005",
+                "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+                "private_ip_address": "172.31.33.25",
+                "private_ip_addresses": [
+                    {
+                        "association": {
+                            "ip_owner_id": "amazon",
+                            "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+                            "public_ip": "3.120.131.32"
+                        },
+                        "primary": true,
+                        "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+                        "private_ip_address": "172.31.33.25"
+                    }
+                ],
+                "source_dest_check": true,
+                "status": "in-use",
+                "subnet_id": "subnet-3f958d42",
+                "vpc_id": "vpc-a503f9cf"
+            }
+        ],
+        "placement": {
+            "availability_zone": "eu-central-1b",
+            "group_name": "",
+            "tenancy": "default"
+        },
+        "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+        "private_ip_address": "172.31.33.25",
+        "product_codes": [],
+        "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+        "public_ip_address": "3.120.131.32",
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "security_groups": [
+            {
+                "group_id": "sg-0aaf3b328c7462f03",
+                "group_name": "AWS-sec"
+            }
+        ],
+        "source_dest_check": true,
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "state_transition_reason": "",
+        "subnet_id": "subnet-3f958d42",
+        "tags": {
+            "Name": "jenkins"
+        },
+        "virtualization_type": "hvm",
+        "vpc_id": "vpc-a503f9cf"
+    },
+    "skip_reason": "Conditional result was False"
+}
+skipping: [127.0.0.1] => (item={'ami_launch_index': 0, 'image_id': 'ami-0cc0a36f626a4fdf5', 'instance_id': 'i-04fa89befcb93e0b6', 'instance_type': 't2.micro', 'key_name': 'ansible_to_aws_key', 'launch_time': '2020-02-25T23:27:20+00:00', 'monitoring': {'state': 'disabled'}, 'placement': {'availability_zone': 'eu-central-1b', 'group_name': '', 'tenancy': 'default'}, 'private_dns_name': 'ip-172-31-45-163.eu-central-1.compute.internal', 'private_ip_address': '172.31.45.163', 'product_codes': [], 'public_dns_name': 'ec2-54-93-247-123.eu-central-1.compute.amazonaws.com', 'public_ip_address': '54.93.247.123', 'state': {'code': 16, 'name': 'running'}, 'state_transition_reason': '', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'architecture': 'x86_64', 'block_device_mappings': [{'device_name': '/dev/sda1', 'ebs': {'attach_time': '2020-02-25T23:27:21+00:00', 'delete_on_termination': True, 'status': 'attached', 'volume_id': 'vol-000177c3a2f630c2f'}}], 'client_token': '', 'ebs_optimized': False, 'ena_support': True, 'hypervisor': 'xen', 'network_interfaces': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-54-93-247-123.eu-central-1.compute.amazonaws.com', 'public_ip': '54.93.247.123'}, 'attachment': {'attach_time': '2020-02-25T23:27:20+00:00', 'attachment_id': 'eni-attach-033bae9d1350ca2df', 'delete_on_termination': True, 'device_index': 0, 'status': 'attached'}, 'description': '', 'groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'ipv6_addresses': [], 'mac_address': '06:4a:40:14:f9:9e', 'network_interface_id': 'eni-0ee810ecae76a3cc9', 'owner_id': '897213544005', 'private_dns_name': 'ip-172-31-45-163.eu-central-1.compute.internal', 'private_ip_address': '172.31.45.163', 'private_ip_addresses': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-54-93-247-123.eu-central-1.compute.amazonaws.com', 'public_ip': '54.93.247.123'}, 'primary': True, 'private_dns_name': 'ip-172-31-45-163.eu-central-1.compute.internal', 'private_ip_address': '172.31.45.163'}], 'source_dest_check': True, 'status': 'in-use', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'interface_type': 'interface'}], 'root_device_name': '/dev/sda1', 'root_device_type': 'ebs', 'security_groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'source_dest_check': True, 'tags': {'Name': 'db'}, 'virtualization_type': 'hvm', 'cpu_options': {'core_count': 1, 'threads_per_core': 1}, 'capacity_reservation_specification': {'capacity_reservation_preference': 'open'}, 'hibernation_options': {'configured': False}, 'metadata_options': {'state': 'applied', 'http_tokens': 'optional', 'http_put_response_hop_limit': 1, 'http_endpoint': 'enabled'}})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ami_launch_index": 0,
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "attach_time": "2020-02-25T23:27:21+00:00",
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-000177c3a2f630c2f"
+                }
+            }
+        ],
+        "capacity_reservation_specification": {
+            "capacity_reservation_preference": "open"
+        },
+        "client_token": "",
+        "cpu_options": {
+            "core_count": 1,
+            "threads_per_core": 1
+        },
+        "ebs_optimized": false,
+        "ena_support": true,
+        "hibernation_options": {
+            "configured": false
+        },
+        "hypervisor": "xen",
+        "image_id": "ami-0cc0a36f626a4fdf5",
+        "instance_id": "i-04fa89befcb93e0b6",
+        "instance_type": "t2.micro",
+        "key_name": "ansible_to_aws_key",
+        "launch_time": "2020-02-25T23:27:20+00:00",
+        "metadata_options": {
+            "http_endpoint": "enabled",
+            "http_put_response_hop_limit": 1,
+            "http_tokens": "optional",
+            "state": "applied"
+        },
+        "monitoring": {
+            "state": "disabled"
+        },
+        "network_interfaces": [
+            {
+                "association": {
+                    "ip_owner_id": "amazon",
+                    "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+                    "public_ip": "54.93.247.123"
+                },
+                "attachment": {
+                    "attach_time": "2020-02-25T23:27:20+00:00",
+                    "attachment_id": "eni-attach-033bae9d1350ca2df",
+                    "delete_on_termination": true,
+                    "device_index": 0,
+                    "status": "attached"
+                },
+                "description": "",
+                "groups": [
+                    {
+                        "group_id": "sg-0aaf3b328c7462f03",
+                        "group_name": "AWS-sec"
+                    }
+                ],
+                "interface_type": "interface",
+                "ipv6_addresses": [],
+                "mac_address": "06:4a:40:14:f9:9e",
+                "network_interface_id": "eni-0ee810ecae76a3cc9",
+                "owner_id": "897213544005",
+                "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+                "private_ip_address": "172.31.45.163",
+                "private_ip_addresses": [
+                    {
+                        "association": {
+                            "ip_owner_id": "amazon",
+                            "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+                            "public_ip": "54.93.247.123"
+                        },
+                        "primary": true,
+                        "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+                        "private_ip_address": "172.31.45.163"
+                    }
+                ],
+                "source_dest_check": true,
+                "status": "in-use",
+                "subnet_id": "subnet-3f958d42",
+                "vpc_id": "vpc-a503f9cf"
+            }
+        ],
+        "placement": {
+            "availability_zone": "eu-central-1b",
+            "group_name": "",
+            "tenancy": "default"
+        },
+        "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+        "private_ip_address": "172.31.45.163",
+        "product_codes": [],
+        "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+        "public_ip_address": "54.93.247.123",
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "security_groups": [
+            {
+                "group_id": "sg-0aaf3b328c7462f03",
+                "group_name": "AWS-sec"
+            }
+        ],
+        "source_dest_check": true,
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "state_transition_reason": "",
+        "subnet_id": "subnet-3f958d42",
+        "tags": {
+            "Name": "db"
+        },
+        "virtualization_type": "hvm",
+        "vpc_id": "vpc-a503f9cf"
+    },
+    "skip_reason": "Conditional result was False"
+}
+Read vars_file 'group_vars/pass.yml'
+
+TASK [getInsIp_ec2 : Add db to hosts] *************************************************************************************************************************************
+task path: /home/ansible/roles/getInsIp_ec2/tasks/main.yml:30
+skipping: [127.0.0.1] => (item={'ami_launch_index': 0, 'image_id': 'ami-0cc0a36f626a4fdf5', 'instance_id': 'i-03068ac7b90713a6b', 'instance_type': 't2.micro', 'key_name': 'ansible_to_aws_key', 'launch_time': '2020-02-25T23:26:39+00:00', 'monitoring': {'state': 'disabled'}, 'placement': {'availability_zone': 'eu-central-1b', 'group_name': '', 'tenancy': 'default'}, 'private_dns_name': 'ip-172-31-32-13.eu-central-1.compute.internal', 'private_ip_address': '172.31.32.13', 'product_codes': [], 'public_dns_name': 'ec2-52-59-249-35.eu-central-1.compute.amazonaws.com', 'public_ip_address': '52.59.249.35', 'state': {'code': 16, 'name': 'running'}, 'state_transition_reason': '', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'architecture': 'x86_64', 'block_device_mappings': [{'device_name': '/dev/sda1', 'ebs': {'attach_time': '2020-02-25T23:26:41+00:00', 'delete_on_termination': True, 'status': 'attached', 'volume_id': 'vol-00efe123bb74bba97'}}], 'client_token': '', 'ebs_optimized': False, 'ena_support': True, 'hypervisor': 'xen', 'network_interfaces': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-52-59-249-35.eu-central-1.compute.amazonaws.com', 'public_ip': '52.59.249.35'}, 'attachment': {'attach_time': '2020-02-25T23:26:39+00:00', 'attachment_id': 'eni-attach-0283e4e086e3393ff', 'delete_on_termination': True, 'device_index': 0, 'status': 'attached'}, 'description': '', 'groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'ipv6_addresses': [], 'mac_address': '06:00:9b:36:55:32', 'network_interface_id': 'eni-0e1e2a664d2aeda0c', 'owner_id': '897213544005', 'private_dns_name': 'ip-172-31-32-13.eu-central-1.compute.internal', 'private_ip_address': '172.31.32.13', 'private_ip_addresses': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-52-59-249-35.eu-central-1.compute.amazonaws.com', 'public_ip': '52.59.249.35'}, 'primary': True, 'private_dns_name': 'ip-172-31-32-13.eu-central-1.compute.internal', 'private_ip_address': '172.31.32.13'}], 'source_dest_check': True, 'status': 'in-use', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'interface_type': 'interface'}], 'root_device_name': '/dev/sda1', 'root_device_type': 'ebs', 'security_groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'source_dest_check': True, 'tags': {'Name': 'webserver'}, 'virtualization_type': 'hvm', 'cpu_options': {'core_count': 1, 'threads_per_core': 1}, 'capacity_reservation_specification': {'capacity_reservation_preference': 'open'}, 'hibernation_options': {'configured': False}, 'metadata_options': {'state': 'applied', 'http_tokens': 'optional', 'http_put_response_hop_limit': 1, 'http_endpoint': 'enabled'}})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ami_launch_index": 0,
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "attach_time": "2020-02-25T23:26:41+00:00",
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-00efe123bb74bba97"
+                }
+            }
+        ],
+        "capacity_reservation_specification": {
+            "capacity_reservation_preference": "open"
+        },
+        "client_token": "",
+        "cpu_options": {
+            "core_count": 1,
+            "threads_per_core": 1
+        },
+        "ebs_optimized": false,
+        "ena_support": true,
+        "hibernation_options": {
+            "configured": false
+        },
+        "hypervisor": "xen",
+        "image_id": "ami-0cc0a36f626a4fdf5",
+        "instance_id": "i-03068ac7b90713a6b",
+        "instance_type": "t2.micro",
+        "key_name": "ansible_to_aws_key",
+        "launch_time": "2020-02-25T23:26:39+00:00",
+        "metadata_options": {
+            "http_endpoint": "enabled",
+            "http_put_response_hop_limit": 1,
+            "http_tokens": "optional",
+            "state": "applied"
+        },
+        "monitoring": {
+            "state": "disabled"
+        },
+        "network_interfaces": [
+            {
+                "association": {
+                    "ip_owner_id": "amazon",
+                    "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+                    "public_ip": "52.59.249.35"
+                },
+                "attachment": {
+                    "attach_time": "2020-02-25T23:26:39+00:00",
+                    "attachment_id": "eni-attach-0283e4e086e3393ff",
+                    "delete_on_termination": true,
+                    "device_index": 0,
+                    "status": "attached"
+                },
+                "description": "",
+                "groups": [
+                    {
+                        "group_id": "sg-0aaf3b328c7462f03",
+                        "group_name": "AWS-sec"
+                    }
+                ],
+                "interface_type": "interface",
+                "ipv6_addresses": [],
+                "mac_address": "06:00:9b:36:55:32",
+                "network_interface_id": "eni-0e1e2a664d2aeda0c",
+                "owner_id": "897213544005",
+                "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+                "private_ip_address": "172.31.32.13",
+                "private_ip_addresses": [
+                    {
+                        "association": {
+                            "ip_owner_id": "amazon",
+                            "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+                            "public_ip": "52.59.249.35"
+                        },
+                        "primary": true,
+                        "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+                        "private_ip_address": "172.31.32.13"
+                    }
+                ],
+                "source_dest_check": true,
+                "status": "in-use",
+                "subnet_id": "subnet-3f958d42",
+                "vpc_id": "vpc-a503f9cf"
+            }
+        ],
+        "placement": {
+            "availability_zone": "eu-central-1b",
+            "group_name": "",
+            "tenancy": "default"
+        },
+        "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+        "private_ip_address": "172.31.32.13",
+        "product_codes": [],
+        "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+        "public_ip_address": "52.59.249.35",
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "security_groups": [
+            {
+                "group_id": "sg-0aaf3b328c7462f03",
+                "group_name": "AWS-sec"
+            }
+        ],
+        "source_dest_check": true,
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "state_transition_reason": "",
+        "subnet_id": "subnet-3f958d42",
+        "tags": {
+            "Name": "webserver"
+        },
+        "virtualization_type": "hvm",
+        "vpc_id": "vpc-a503f9cf"
+    },
+    "skip_reason": "Conditional result was False"
+}
+skipping: [127.0.0.1] => (item={'ami_launch_index': 0, 'image_id': 'ami-0cc0a36f626a4fdf5', 'instance_id': 'i-0cad0d69e66d3ae1a', 'instance_type': 't2.micro', 'key_name': 'ansible_to_aws_key', 'launch_time': '2020-02-25T23:26:21+00:00', 'monitoring': {'state': 'disabled'}, 'placement': {'availability_zone': 'eu-central-1b', 'group_name': '', 'tenancy': 'default'}, 'private_dns_name': 'ip-172-31-39-122.eu-central-1.compute.internal', 'private_ip_address': '172.31.39.122', 'product_codes': [], 'public_dns_name': 'ec2-3-121-116-126.eu-central-1.compute.amazonaws.com', 'public_ip_address': '3.121.116.126', 'state': {'code': 16, 'name': 'running'}, 'state_transition_reason': '', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'architecture': 'x86_64', 'block_device_mappings': [{'device_name': '/dev/sda1', 'ebs': {'attach_time': '2020-02-25T23:26:22+00:00', 'delete_on_termination': True, 'status': 'attached', 'volume_id': 'vol-05117b33f6179020c'}}], 'client_token': '', 'ebs_optimized': False, 'ena_support': True, 'hypervisor': 'xen', 'network_interfaces': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-3-121-116-126.eu-central-1.compute.amazonaws.com', 'public_ip': '3.121.116.126'}, 'attachment': {'attach_time': '2020-02-25T23:26:21+00:00', 'attachment_id': 'eni-attach-05513d9387ecf53bf', 'delete_on_termination': True, 'device_index': 0, 'status': 'attached'}, 'description': '', 'groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'ipv6_addresses': [], 'mac_address': '06:d9:80:cd:39:0e', 'network_interface_id': 'eni-0e6812f2c82c1aab2', 'owner_id': '897213544005', 'private_dns_name': 'ip-172-31-39-122.eu-central-1.compute.internal', 'private_ip_address': '172.31.39.122', 'private_ip_addresses': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-3-121-116-126.eu-central-1.compute.amazonaws.com', 'public_ip': '3.121.116.126'}, 'primary': True, 'private_dns_name': 'ip-172-31-39-122.eu-central-1.compute.internal', 'private_ip_address': '172.31.39.122'}], 'source_dest_check': True, 'status': 'in-use', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'interface_type': 'interface'}], 'root_device_name': '/dev/sda1', 'root_device_type': 'ebs', 'security_groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'source_dest_check': True, 'tags': {'Name': 'lb'}, 'virtualization_type': 'hvm', 'cpu_options': {'core_count': 1, 'threads_per_core': 1}, 'capacity_reservation_specification': {'capacity_reservation_preference': 'open'}, 'hibernation_options': {'configured': False}, 'metadata_options': {'state': 'applied', 'http_tokens': 'optional', 'http_put_response_hop_limit': 1, 'http_endpoint': 'enabled'}})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ami_launch_index": 0,
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "attach_time": "2020-02-25T23:26:22+00:00",
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-05117b33f6179020c"
+                }
+            }
+        ],
+        "capacity_reservation_specification": {
+            "capacity_reservation_preference": "open"
+        },
+        "client_token": "",
+        "cpu_options": {
+            "core_count": 1,
+            "threads_per_core": 1
+        },
+        "ebs_optimized": false,
+        "ena_support": true,
+        "hibernation_options": {
+            "configured": false
+        },
+        "hypervisor": "xen",
+        "image_id": "ami-0cc0a36f626a4fdf5",
+        "instance_id": "i-0cad0d69e66d3ae1a",
+        "instance_type": "t2.micro",
+        "key_name": "ansible_to_aws_key",
+        "launch_time": "2020-02-25T23:26:21+00:00",
+        "metadata_options": {
+            "http_endpoint": "enabled",
+            "http_put_response_hop_limit": 1,
+            "http_tokens": "optional",
+            "state": "applied"
+        },
+        "monitoring": {
+            "state": "disabled"
+        },
+        "network_interfaces": [
+            {
+                "association": {
+                    "ip_owner_id": "amazon",
+                    "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+                    "public_ip": "3.121.116.126"
+                },
+                "attachment": {
+                    "attach_time": "2020-02-25T23:26:21+00:00",
+                    "attachment_id": "eni-attach-05513d9387ecf53bf",
+                    "delete_on_termination": true,
+                    "device_index": 0,
+                    "status": "attached"
+                },
+                "description": "",
+                "groups": [
+                    {
+                        "group_id": "sg-0aaf3b328c7462f03",
+                        "group_name": "AWS-sec"
+                    }
+                ],
+                "interface_type": "interface",
+                "ipv6_addresses": [],
+                "mac_address": "06:d9:80:cd:39:0e",
+                "network_interface_id": "eni-0e6812f2c82c1aab2",
+                "owner_id": "897213544005",
+                "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+                "private_ip_address": "172.31.39.122",
+                "private_ip_addresses": [
+                    {
+                        "association": {
+                            "ip_owner_id": "amazon",
+                            "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+                            "public_ip": "3.121.116.126"
+                        },
+                        "primary": true,
+                        "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+                        "private_ip_address": "172.31.39.122"
+                    }
+                ],
+                "source_dest_check": true,
+                "status": "in-use",
+                "subnet_id": "subnet-3f958d42",
+                "vpc_id": "vpc-a503f9cf"
+            }
+        ],
+        "placement": {
+            "availability_zone": "eu-central-1b",
+            "group_name": "",
+            "tenancy": "default"
+        },
+        "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+        "private_ip_address": "172.31.39.122",
+        "product_codes": [],
+        "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+        "public_ip_address": "3.121.116.126",
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "security_groups": [
+            {
+                "group_id": "sg-0aaf3b328c7462f03",
+                "group_name": "AWS-sec"
+            }
+        ],
+        "source_dest_check": true,
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "state_transition_reason": "",
+        "subnet_id": "subnet-3f958d42",
+        "tags": {
+            "Name": "lb"
+        },
+        "virtualization_type": "hvm",
+        "vpc_id": "vpc-a503f9cf"
+    },
+    "skip_reason": "Conditional result was False"
+}
+skipping: [127.0.0.1] => (item={'ami_launch_index': 0, 'image_id': 'ami-0cc0a36f626a4fdf5', 'instance_id': 'i-0af7c2bad9fd7edf2', 'instance_type': 't2.micro', 'key_name': 'ansible_to_aws_key', 'launch_time': '2020-02-25T23:27:02+00:00', 'monitoring': {'state': 'disabled'}, 'placement': {'availability_zone': 'eu-central-1b', 'group_name': '', 'tenancy': 'default'}, 'private_dns_name': 'ip-172-31-33-25.eu-central-1.compute.internal', 'private_ip_address': '172.31.33.25', 'product_codes': [], 'public_dns_name': 'ec2-3-120-131-32.eu-central-1.compute.amazonaws.com', 'public_ip_address': '3.120.131.32', 'state': {'code': 16, 'name': 'running'}, 'state_transition_reason': '', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'architecture': 'x86_64', 'block_device_mappings': [{'device_name': '/dev/sda1', 'ebs': {'attach_time': '2020-02-25T23:27:03+00:00', 'delete_on_termination': True, 'status': 'attached', 'volume_id': 'vol-005dd81ba70a6ccc8'}}], 'client_token': '', 'ebs_optimized': False, 'ena_support': True, 'hypervisor': 'xen', 'network_interfaces': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-3-120-131-32.eu-central-1.compute.amazonaws.com', 'public_ip': '3.120.131.32'}, 'attachment': {'attach_time': '2020-02-25T23:27:02+00:00', 'attachment_id': 'eni-attach-097b05ae79a1ebe81', 'delete_on_termination': True, 'device_index': 0, 'status': 'attached'}, 'description': '', 'groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'ipv6_addresses': [], 'mac_address': '06:6f:ac:57:41:8c', 'network_interface_id': 'eni-07fd6a85dadd2c36f', 'owner_id': '897213544005', 'private_dns_name': 'ip-172-31-33-25.eu-central-1.compute.internal', 'private_ip_address': '172.31.33.25', 'private_ip_addresses': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-3-120-131-32.eu-central-1.compute.amazonaws.com', 'public_ip': '3.120.131.32'}, 'primary': True, 'private_dns_name': 'ip-172-31-33-25.eu-central-1.compute.internal', 'private_ip_address': '172.31.33.25'}], 'source_dest_check': True, 'status': 'in-use', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'interface_type': 'interface'}], 'root_device_name': '/dev/sda1', 'root_device_type': 'ebs', 'security_groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'source_dest_check': True, 'tags': {'Name': 'jenkins'}, 'virtualization_type': 'hvm', 'cpu_options': {'core_count': 1, 'threads_per_core': 1}, 'capacity_reservation_specification': {'capacity_reservation_preference': 'open'}, 'hibernation_options': {'configured': False}, 'metadata_options': {'state': 'applied', 'http_tokens': 'optional', 'http_put_response_hop_limit': 1, 'http_endpoint': 'enabled'}})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ami_launch_index": 0,
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "attach_time": "2020-02-25T23:27:03+00:00",
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-005dd81ba70a6ccc8"
+                }
+            }
+        ],
+        "capacity_reservation_specification": {
+            "capacity_reservation_preference": "open"
+        },
+        "client_token": "",
+        "cpu_options": {
+            "core_count": 1,
+            "threads_per_core": 1
+        },
+        "ebs_optimized": false,
+        "ena_support": true,
+        "hibernation_options": {
+            "configured": false
+        },
+        "hypervisor": "xen",
+        "image_id": "ami-0cc0a36f626a4fdf5",
+        "instance_id": "i-0af7c2bad9fd7edf2",
+        "instance_type": "t2.micro",
+        "key_name": "ansible_to_aws_key",
+        "launch_time": "2020-02-25T23:27:02+00:00",
+        "metadata_options": {
+            "http_endpoint": "enabled",
+            "http_put_response_hop_limit": 1,
+            "http_tokens": "optional",
+            "state": "applied"
+        },
+        "monitoring": {
+            "state": "disabled"
+        },
+        "network_interfaces": [
+            {
+                "association": {
+                    "ip_owner_id": "amazon",
+                    "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+                    "public_ip": "3.120.131.32"
+                },
+                "attachment": {
+                    "attach_time": "2020-02-25T23:27:02+00:00",
+                    "attachment_id": "eni-attach-097b05ae79a1ebe81",
+                    "delete_on_termination": true,
+                    "device_index": 0,
+                    "status": "attached"
+                },
+                "description": "",
+                "groups": [
+                    {
+                        "group_id": "sg-0aaf3b328c7462f03",
+                        "group_name": "AWS-sec"
+                    }
+                ],
+                "interface_type": "interface",
+                "ipv6_addresses": [],
+                "mac_address": "06:6f:ac:57:41:8c",
+                "network_interface_id": "eni-07fd6a85dadd2c36f",
+                "owner_id": "897213544005",
+                "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+                "private_ip_address": "172.31.33.25",
+                "private_ip_addresses": [
+                    {
+                        "association": {
+                            "ip_owner_id": "amazon",
+                            "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+                            "public_ip": "3.120.131.32"
+                        },
+                        "primary": true,
+                        "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+                        "private_ip_address": "172.31.33.25"
+                    }
+                ],
+                "source_dest_check": true,
+                "status": "in-use",
+                "subnet_id": "subnet-3f958d42",
+                "vpc_id": "vpc-a503f9cf"
+            }
+        ],
+        "placement": {
+            "availability_zone": "eu-central-1b",
+            "group_name": "",
+            "tenancy": "default"
+        },
+        "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+        "private_ip_address": "172.31.33.25",
+        "product_codes": [],
+        "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+        "public_ip_address": "3.120.131.32",
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "security_groups": [
+            {
+                "group_id": "sg-0aaf3b328c7462f03",
+                "group_name": "AWS-sec"
+            }
+        ],
+        "source_dest_check": true,
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "state_transition_reason": "",
+        "subnet_id": "subnet-3f958d42",
+        "tags": {
+            "Name": "jenkins"
+        },
+        "virtualization_type": "hvm",
+        "vpc_id": "vpc-a503f9cf"
+    },
+    "skip_reason": "Conditional result was False"
+}
+<127.0.0.1> ESTABLISH LOCAL CONNECTION FOR USER: ansible
+<127.0.0.1> EXEC /bin/sh -c 'echo ~ansible && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673258.2811422-239104661551054 `" && echo ansible-tmp-1582673258.2811422-239104661551054="` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673258.2811422-239104661551054 `" ) && sleep 0'
+Using module file /usr/local/lib/python3.6/dist-packages/ansible/modules/files/lineinfile.py
+<127.0.0.1> PUT /home/ansible/.ansible/tmp/ansible-local-56881gll1udq/tmpyjzrlha7 TO /home/ansible/.ansible/tmp/ansible-tmp-1582673258.2811422-239104661551054/AnsiballZ_lineinfile.py
+<127.0.0.1> EXEC /bin/sh -c 'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1582673258.2811422-239104661551054/ /home/ansible/.ansible/tmp/ansible-tmp-1582673258.2811422-239104661551054/AnsiballZ_lineinfile.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '/usr/bin/python3 /home/ansible/.ansible/tmp/ansible-tmp-1582673258.2811422-239104661551054/AnsiballZ_lineinfile.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'rm -f -r /home/ansible/.ansible/tmp/ansible-tmp-1582673258.2811422-239104661551054/ > /dev/null 2>&1 && sleep 0'
+changed: [127.0.0.1] => (item={'ami_launch_index': 0, 'image_id': 'ami-0cc0a36f626a4fdf5', 'instance_id': 'i-04fa89befcb93e0b6', 'instance_type': 't2.micro', 'key_name': 'ansible_to_aws_key', 'launch_time': '2020-02-25T23:27:20+00:00', 'monitoring': {'state': 'disabled'}, 'placement': {'availability_zone': 'eu-central-1b', 'group_name': '', 'tenancy': 'default'}, 'private_dns_name': 'ip-172-31-45-163.eu-central-1.compute.internal', 'private_ip_address': '172.31.45.163', 'product_codes': [], 'public_dns_name': 'ec2-54-93-247-123.eu-central-1.compute.amazonaws.com', 'public_ip_address': '54.93.247.123', 'state': {'code': 16, 'name': 'running'}, 'state_transition_reason': '', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'architecture': 'x86_64', 'block_device_mappings': [{'device_name': '/dev/sda1', 'ebs': {'attach_time': '2020-02-25T23:27:21+00:00', 'delete_on_termination': True, 'status': 'attached', 'volume_id': 'vol-000177c3a2f630c2f'}}], 'client_token': '', 'ebs_optimized': False, 'ena_support': True, 'hypervisor': 'xen', 'network_interfaces': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-54-93-247-123.eu-central-1.compute.amazonaws.com', 'public_ip': '54.93.247.123'}, 'attachment': {'attach_time': '2020-02-25T23:27:20+00:00', 'attachment_id': 'eni-attach-033bae9d1350ca2df', 'delete_on_termination': True, 'device_index': 0, 'status': 'attached'}, 'description': '', 'groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'ipv6_addresses': [], 'mac_address': '06:4a:40:14:f9:9e', 'network_interface_id': 'eni-0ee810ecae76a3cc9', 'owner_id': '897213544005', 'private_dns_name': 'ip-172-31-45-163.eu-central-1.compute.internal', 'private_ip_address': '172.31.45.163', 'private_ip_addresses': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-54-93-247-123.eu-central-1.compute.amazonaws.com', 'public_ip': '54.93.247.123'}, 'primary': True, 'private_dns_name': 'ip-172-31-45-163.eu-central-1.compute.internal', 'private_ip_address': '172.31.45.163'}], 'source_dest_check': True, 'status': 'in-use', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'interface_type': 'interface'}], 'root_device_name': '/dev/sda1', 'root_device_type': 'ebs', 'security_groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'source_dest_check': True, 'tags': {'Name': 'db'}, 'virtualization_type': 'hvm', 'cpu_options': {'core_count': 1, 'threads_per_core': 1}, 'capacity_reservation_specification': {'capacity_reservation_preference': 'open'}, 'hibernation_options': {'configured': False}, 'metadata_options': {'state': 'applied', 'http_tokens': 'optional', 'http_put_response_hop_limit': 1, 'http_endpoint': 'enabled'}}) => {
+    "ansible_loop_var": "item",
+    "backup": "",
+    "changed": true,
+    "diff": [
+        {
+            "after": "",
+            "after_header": "./hosts (content)",
+            "before": "",
+            "before_header": "./hosts (content)"
+        },
+        {
+            "after_header": "./hosts (file attributes)",
+            "before_header": "./hosts (file attributes)"
+        }
+    ],
+    "invocation": {
+        "module_args": {
+            "attributes": null,
+            "backrefs": false,
+            "backup": false,
+            "content": null,
+            "create": false,
+            "delimiter": null,
+            "dest": "./hosts",
+            "directory_mode": null,
+            "firstmatch": false,
+            "follow": false,
+            "force": null,
+            "group": null,
+            "insertafter": "db",
+            "insertbefore": null,
+            "line": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+            "mode": null,
+            "owner": null,
+            "path": "./hosts",
+            "regexp": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+            "remote_src": null,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "present",
+            "unsafe_writes": null,
+            "validate": null
+        }
+    },
+    "item": {
+        "ami_launch_index": 0,
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "attach_time": "2020-02-25T23:27:21+00:00",
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-000177c3a2f630c2f"
+                }
+            }
+        ],
+        "capacity_reservation_specification": {
+            "capacity_reservation_preference": "open"
+        },
+        "client_token": "",
+        "cpu_options": {
+            "core_count": 1,
+            "threads_per_core": 1
+        },
+        "ebs_optimized": false,
+        "ena_support": true,
+        "hibernation_options": {
+            "configured": false
+        },
+        "hypervisor": "xen",
+        "image_id": "ami-0cc0a36f626a4fdf5",
+        "instance_id": "i-04fa89befcb93e0b6",
+        "instance_type": "t2.micro",
+        "key_name": "ansible_to_aws_key",
+        "launch_time": "2020-02-25T23:27:20+00:00",
+        "metadata_options": {
+            "http_endpoint": "enabled",
+            "http_put_response_hop_limit": 1,
+            "http_tokens": "optional",
+            "state": "applied"
+        },
+        "monitoring": {
+            "state": "disabled"
+        },
+        "network_interfaces": [
+            {
+                "association": {
+                    "ip_owner_id": "amazon",
+                    "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+                    "public_ip": "54.93.247.123"
+                },
+                "attachment": {
+                    "attach_time": "2020-02-25T23:27:20+00:00",
+                    "attachment_id": "eni-attach-033bae9d1350ca2df",
+                    "delete_on_termination": true,
+                    "device_index": 0,
+                    "status": "attached"
+                },
+                "description": "",
+                "groups": [
+                    {
+                        "group_id": "sg-0aaf3b328c7462f03",
+                        "group_name": "AWS-sec"
+                    }
+                ],
+                "interface_type": "interface",
+                "ipv6_addresses": [],
+                "mac_address": "06:4a:40:14:f9:9e",
+                "network_interface_id": "eni-0ee810ecae76a3cc9",
+                "owner_id": "897213544005",
+                "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+                "private_ip_address": "172.31.45.163",
+                "private_ip_addresses": [
+                    {
+                        "association": {
+                            "ip_owner_id": "amazon",
+                            "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+                            "public_ip": "54.93.247.123"
+                        },
+                        "primary": true,
+                        "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+                        "private_ip_address": "172.31.45.163"
+                    }
+                ],
+                "source_dest_check": true,
+                "status": "in-use",
+                "subnet_id": "subnet-3f958d42",
+                "vpc_id": "vpc-a503f9cf"
+            }
+        ],
+        "placement": {
+            "availability_zone": "eu-central-1b",
+            "group_name": "",
+            "tenancy": "default"
+        },
+        "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+        "private_ip_address": "172.31.45.163",
+        "product_codes": [],
+        "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+        "public_ip_address": "54.93.247.123",
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "security_groups": [
+            {
+                "group_id": "sg-0aaf3b328c7462f03",
+                "group_name": "AWS-sec"
+            }
+        ],
+        "source_dest_check": true,
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "state_transition_reason": "",
+        "subnet_id": "subnet-3f958d42",
+        "tags": {
+            "Name": "db"
+        },
+        "virtualization_type": "hvm",
+        "vpc_id": "vpc-a503f9cf"
+    },
+    "msg": "line added"
+}
+Read vars_file 'group_vars/pass.yml'
+
+TASK [getInsIp_ec2 : Add jenkins to hosts] ********************************************************************************************************************************
+task path: /home/ansible/roles/getInsIp_ec2/tasks/main.yml:40
+<127.0.0.1> ESTABLISH LOCAL CONNECTION FOR USER: ansible
+skipping: [127.0.0.1] => (item={'ami_launch_index': 0, 'image_id': 'ami-0cc0a36f626a4fdf5', 'instance_id': 'i-03068ac7b90713a6b', 'instance_type': 't2.micro', 'key_name': 'ansible_to_aws_key', 'launch_time': '2020-02-25T23:26:39+00:00', 'monitoring': {'state': 'disabled'}, 'placement': {'availability_zone': 'eu-central-1b', 'group_name': '', 'tenancy': 'default'}, 'private_dns_name': 'ip-172-31-32-13.eu-central-1.compute.internal', 'private_ip_address': '172.31.32.13', 'product_codes': [], 'public_dns_name': 'ec2-52-59-249-35.eu-central-1.compute.amazonaws.com', 'public_ip_address': '52.59.249.35', 'state': {'code': 16, 'name': 'running'}, 'state_transition_reason': '', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'architecture': 'x86_64', 'block_device_mappings': [{'device_name': '/dev/sda1', 'ebs': {'attach_time': '2020-02-25T23:26:41+00:00', 'delete_on_termination': True, 'status': 'attached', 'volume_id': 'vol-00efe123bb74bba97'}}], 'client_token': '', 'ebs_optimized': False, 'ena_support': True, 'hypervisor': 'xen', 'network_interfaces': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-52-59-249-35.eu-central-1.compute.amazonaws.com', 'public_ip': '52.59.249.35'}, 'attachment': {'attach_time': '2020-02-25T23:26:39+00:00', 'attachment_id': 'eni-attach-0283e4e086e3393ff', 'delete_on_termination': True, 'device_index': 0, 'status': 'attached'}, 'description': '', 'groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'ipv6_addresses': [], 'mac_address': '06:00:9b:36:55:32', 'network_interface_id': 'eni-0e1e2a664d2aeda0c', 'owner_id': '897213544005', 'private_dns_name': 'ip-172-31-32-13.eu-central-1.compute.internal', 'private_ip_address': '172.31.32.13', 'private_ip_addresses': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-52-59-249-35.eu-central-1.compute.amazonaws.com', 'public_ip': '52.59.249.35'}, 'primary': True, 'private_dns_name': 'ip-172-31-32-13.eu-central-1.compute.internal', 'private_ip_address': '172.31.32.13'}], 'source_dest_check': True, 'status': 'in-use', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'interface_type': 'interface'}], 'root_device_name': '/dev/sda1', 'root_device_type': 'ebs', 'security_groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'source_dest_check': True, 'tags': {'Name': 'webserver'}, 'virtualization_type': 'hvm', 'cpu_options': {'core_count': 1, 'threads_per_core': 1}, 'capacity_reservation_specification': {'capacity_reservation_preference': 'open'}, 'hibernation_options': {'configured': False}, 'metadata_options': {'state': 'applied', 'http_tokens': 'optional', 'http_put_response_hop_limit': 1, 'http_endpoint': 'enabled'}})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ami_launch_index": 0,
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "attach_time": "2020-02-25T23:26:41+00:00",
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-00efe123bb74bba97"
+                }
+            }
+        ],
+        "capacity_reservation_specification": {
+            "capacity_reservation_preference": "open"
+        },
+        "client_token": "",
+        "cpu_options": {
+            "core_count": 1,
+            "threads_per_core": 1
+        },
+        "ebs_optimized": false,
+        "ena_support": true,
+        "hibernation_options": {
+            "configured": false
+        },
+        "hypervisor": "xen",
+        "image_id": "ami-0cc0a36f626a4fdf5",
+        "instance_id": "i-03068ac7b90713a6b",
+        "instance_type": "t2.micro",
+        "key_name": "ansible_to_aws_key",
+        "launch_time": "2020-02-25T23:26:39+00:00",
+        "metadata_options": {
+            "http_endpoint": "enabled",
+            "http_put_response_hop_limit": 1,
+            "http_tokens": "optional",
+            "state": "applied"
+        },
+        "monitoring": {
+            "state": "disabled"
+        },
+        "network_interfaces": [
+            {
+                "association": {
+                    "ip_owner_id": "amazon",
+                    "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+                    "public_ip": "52.59.249.35"
+                },
+                "attachment": {
+                    "attach_time": "2020-02-25T23:26:39+00:00",
+                    "attachment_id": "eni-attach-0283e4e086e3393ff",
+                    "delete_on_termination": true,
+                    "device_index": 0,
+                    "status": "attached"
+                },
+                "description": "",
+                "groups": [
+                    {
+                        "group_id": "sg-0aaf3b328c7462f03",
+                        "group_name": "AWS-sec"
+                    }
+                ],
+                "interface_type": "interface",
+                "ipv6_addresses": [],
+                "mac_address": "06:00:9b:36:55:32",
+                "network_interface_id": "eni-0e1e2a664d2aeda0c",
+                "owner_id": "897213544005",
+                "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+                "private_ip_address": "172.31.32.13",
+                "private_ip_addresses": [
+                    {
+                        "association": {
+                            "ip_owner_id": "amazon",
+                            "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+                            "public_ip": "52.59.249.35"
+                        },
+                        "primary": true,
+                        "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+                        "private_ip_address": "172.31.32.13"
+                    }
+                ],
+                "source_dest_check": true,
+                "status": "in-use",
+                "subnet_id": "subnet-3f958d42",
+                "vpc_id": "vpc-a503f9cf"
+            }
+        ],
+        "placement": {
+            "availability_zone": "eu-central-1b",
+            "group_name": "",
+            "tenancy": "default"
+        },
+        "private_dns_name": "ip-172-31-32-13.eu-central-1.compute.internal",
+        "private_ip_address": "172.31.32.13",
+        "product_codes": [],
+        "public_dns_name": "ec2-52-59-249-35.eu-central-1.compute.amazonaws.com",
+        "public_ip_address": "52.59.249.35",
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "security_groups": [
+            {
+                "group_id": "sg-0aaf3b328c7462f03",
+                "group_name": "AWS-sec"
+            }
+        ],
+        "source_dest_check": true,
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "state_transition_reason": "",
+        "subnet_id": "subnet-3f958d42",
+        "tags": {
+            "Name": "webserver"
+        },
+        "virtualization_type": "hvm",
+        "vpc_id": "vpc-a503f9cf"
+    },
+    "skip_reason": "Conditional result was False"
+}
+skipping: [127.0.0.1] => (item={'ami_launch_index': 0, 'image_id': 'ami-0cc0a36f626a4fdf5', 'instance_id': 'i-0cad0d69e66d3ae1a', 'instance_type': 't2.micro', 'key_name': 'ansible_to_aws_key', 'launch_time': '2020-02-25T23:26:21+00:00', 'monitoring': {'state': 'disabled'}, 'placement': {'availability_zone': 'eu-central-1b', 'group_name': '', 'tenancy': 'default'}, 'private_dns_name': 'ip-172-31-39-122.eu-central-1.compute.internal', 'private_ip_address': '172.31.39.122', 'product_codes': [], 'public_dns_name': 'ec2-3-121-116-126.eu-central-1.compute.amazonaws.com', 'public_ip_address': '3.121.116.126', 'state': {'code': 16, 'name': 'running'}, 'state_transition_reason': '', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'architecture': 'x86_64', 'block_device_mappings': [{'device_name': '/dev/sda1', 'ebs': {'attach_time': '2020-02-25T23:26:22+00:00', 'delete_on_termination': True, 'status': 'attached', 'volume_id': 'vol-05117b33f6179020c'}}], 'client_token': '', 'ebs_optimized': False, 'ena_support': True, 'hypervisor': 'xen', 'network_interfaces': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-3-121-116-126.eu-central-1.compute.amazonaws.com', 'public_ip': '3.121.116.126'}, 'attachment': {'attach_time': '2020-02-25T23:26:21+00:00', 'attachment_id': 'eni-attach-05513d9387ecf53bf', 'delete_on_termination': True, 'device_index': 0, 'status': 'attached'}, 'description': '', 'groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'ipv6_addresses': [], 'mac_address': '06:d9:80:cd:39:0e', 'network_interface_id': 'eni-0e6812f2c82c1aab2', 'owner_id': '897213544005', 'private_dns_name': 'ip-172-31-39-122.eu-central-1.compute.internal', 'private_ip_address': '172.31.39.122', 'private_ip_addresses': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-3-121-116-126.eu-central-1.compute.amazonaws.com', 'public_ip': '3.121.116.126'}, 'primary': True, 'private_dns_name': 'ip-172-31-39-122.eu-central-1.compute.internal', 'private_ip_address': '172.31.39.122'}], 'source_dest_check': True, 'status': 'in-use', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'interface_type': 'interface'}], 'root_device_name': '/dev/sda1', 'root_device_type': 'ebs', 'security_groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'source_dest_check': True, 'tags': {'Name': 'lb'}, 'virtualization_type': 'hvm', 'cpu_options': {'core_count': 1, 'threads_per_core': 1}, 'capacity_reservation_specification': {'capacity_reservation_preference': 'open'}, 'hibernation_options': {'configured': False}, 'metadata_options': {'state': 'applied', 'http_tokens': 'optional', 'http_put_response_hop_limit': 1, 'http_endpoint': 'enabled'}})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ami_launch_index": 0,
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "attach_time": "2020-02-25T23:26:22+00:00",
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-05117b33f6179020c"
+                }
+            }
+        ],
+        "capacity_reservation_specification": {
+            "capacity_reservation_preference": "open"
+        },
+        "client_token": "",
+        "cpu_options": {
+            "core_count": 1,
+            "threads_per_core": 1
+        },
+        "ebs_optimized": false,
+        "ena_support": true,
+        "hibernation_options": {
+            "configured": false
+        },
+        "hypervisor": "xen",
+        "image_id": "ami-0cc0a36f626a4fdf5",
+        "instance_id": "i-0cad0d69e66d3ae1a",
+        "instance_type": "t2.micro",
+        "key_name": "ansible_to_aws_key",
+        "launch_time": "2020-02-25T23:26:21+00:00",
+        "metadata_options": {
+            "http_endpoint": "enabled",
+            "http_put_response_hop_limit": 1,
+            "http_tokens": "optional",
+            "state": "applied"
+        },
+        "monitoring": {
+            "state": "disabled"
+        },
+        "network_interfaces": [
+            {
+                "association": {
+                    "ip_owner_id": "amazon",
+                    "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+                    "public_ip": "3.121.116.126"
+                },
+                "attachment": {
+                    "attach_time": "2020-02-25T23:26:21+00:00",
+                    "attachment_id": "eni-attach-05513d9387ecf53bf",
+                    "delete_on_termination": true,
+                    "device_index": 0,
+                    "status": "attached"
+                },
+                "description": "",
+                "groups": [
+                    {
+                        "group_id": "sg-0aaf3b328c7462f03",
+                        "group_name": "AWS-sec"
+                    }
+                ],
+                "interface_type": "interface",
+                "ipv6_addresses": [],
+                "mac_address": "06:d9:80:cd:39:0e",
+                "network_interface_id": "eni-0e6812f2c82c1aab2",
+                "owner_id": "897213544005",
+                "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+                "private_ip_address": "172.31.39.122",
+                "private_ip_addresses": [
+                    {
+                        "association": {
+                            "ip_owner_id": "amazon",
+                            "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+                            "public_ip": "3.121.116.126"
+                        },
+                        "primary": true,
+                        "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+                        "private_ip_address": "172.31.39.122"
+                    }
+                ],
+                "source_dest_check": true,
+                "status": "in-use",
+                "subnet_id": "subnet-3f958d42",
+                "vpc_id": "vpc-a503f9cf"
+            }
+        ],
+        "placement": {
+            "availability_zone": "eu-central-1b",
+            "group_name": "",
+            "tenancy": "default"
+        },
+        "private_dns_name": "ip-172-31-39-122.eu-central-1.compute.internal",
+        "private_ip_address": "172.31.39.122",
+        "product_codes": [],
+        "public_dns_name": "ec2-3-121-116-126.eu-central-1.compute.amazonaws.com",
+        "public_ip_address": "3.121.116.126",
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "security_groups": [
+            {
+                "group_id": "sg-0aaf3b328c7462f03",
+                "group_name": "AWS-sec"
+            }
+        ],
+        "source_dest_check": true,
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "state_transition_reason": "",
+        "subnet_id": "subnet-3f958d42",
+        "tags": {
+            "Name": "lb"
+        },
+        "virtualization_type": "hvm",
+        "vpc_id": "vpc-a503f9cf"
+    },
+    "skip_reason": "Conditional result was False"
+}
+<127.0.0.1> EXEC /bin/sh -c 'echo ~ansible && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '( umask 77 && mkdir -p "` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673258.51003-120691069402857 `" && echo ansible-tmp-1582673258.51003-120691069402857="` echo /home/ansible/.ansible/tmp/ansible-tmp-1582673258.51003-120691069402857 `" ) && sleep 0'
+Using module file /usr/local/lib/python3.6/dist-packages/ansible/modules/files/lineinfile.py
+<127.0.0.1> PUT /home/ansible/.ansible/tmp/ansible-local-56881gll1udq/tmpd4a08_sn TO /home/ansible/.ansible/tmp/ansible-tmp-1582673258.51003-120691069402857/AnsiballZ_lineinfile.py
+<127.0.0.1> EXEC /bin/sh -c 'chmod u+x /home/ansible/.ansible/tmp/ansible-tmp-1582673258.51003-120691069402857/ /home/ansible/.ansible/tmp/ansible-tmp-1582673258.51003-120691069402857/AnsiballZ_lineinfile.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c '/usr/bin/python3 /home/ansible/.ansible/tmp/ansible-tmp-1582673258.51003-120691069402857/AnsiballZ_lineinfile.py && sleep 0'
+<127.0.0.1> EXEC /bin/sh -c 'rm -f -r /home/ansible/.ansible/tmp/ansible-tmp-1582673258.51003-120691069402857/ > /dev/null 2>&1 && sleep 0'
+changed: [127.0.0.1] => (item={'ami_launch_index': 0, 'image_id': 'ami-0cc0a36f626a4fdf5', 'instance_id': 'i-0af7c2bad9fd7edf2', 'instance_type': 't2.micro', 'key_name': 'ansible_to_aws_key', 'launch_time': '2020-02-25T23:27:02+00:00', 'monitoring': {'state': 'disabled'}, 'placement': {'availability_zone': 'eu-central-1b', 'group_name': '', 'tenancy': 'default'}, 'private_dns_name': 'ip-172-31-33-25.eu-central-1.compute.internal', 'private_ip_address': '172.31.33.25', 'product_codes': [], 'public_dns_name': 'ec2-3-120-131-32.eu-central-1.compute.amazonaws.com', 'public_ip_address': '3.120.131.32', 'state': {'code': 16, 'name': 'running'}, 'state_transition_reason': '', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'architecture': 'x86_64', 'block_device_mappings': [{'device_name': '/dev/sda1', 'ebs': {'attach_time': '2020-02-25T23:27:03+00:00', 'delete_on_termination': True, 'status': 'attached', 'volume_id': 'vol-005dd81ba70a6ccc8'}}], 'client_token': '', 'ebs_optimized': False, 'ena_support': True, 'hypervisor': 'xen', 'network_interfaces': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-3-120-131-32.eu-central-1.compute.amazonaws.com', 'public_ip': '3.120.131.32'}, 'attachment': {'attach_time': '2020-02-25T23:27:02+00:00', 'attachment_id': 'eni-attach-097b05ae79a1ebe81', 'delete_on_termination': True, 'device_index': 0, 'status': 'attached'}, 'description': '', 'groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'ipv6_addresses': [], 'mac_address': '06:6f:ac:57:41:8c', 'network_interface_id': 'eni-07fd6a85dadd2c36f', 'owner_id': '897213544005', 'private_dns_name': 'ip-172-31-33-25.eu-central-1.compute.internal', 'private_ip_address': '172.31.33.25', 'private_ip_addresses': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-3-120-131-32.eu-central-1.compute.amazonaws.com', 'public_ip': '3.120.131.32'}, 'primary': True, 'private_dns_name': 'ip-172-31-33-25.eu-central-1.compute.internal', 'private_ip_address': '172.31.33.25'}], 'source_dest_check': True, 'status': 'in-use', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'interface_type': 'interface'}], 'root_device_name': '/dev/sda1', 'root_device_type': 'ebs', 'security_groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'source_dest_check': True, 'tags': {'Name': 'jenkins'}, 'virtualization_type': 'hvm', 'cpu_options': {'core_count': 1, 'threads_per_core': 1}, 'capacity_reservation_specification': {'capacity_reservation_preference': 'open'}, 'hibernation_options': {'configured': False}, 'metadata_options': {'state': 'applied', 'http_tokens': 'optional', 'http_put_response_hop_limit': 1, 'http_endpoint': 'enabled'}}) => {
+    "ansible_loop_var": "item",
+    "backup": "",
+    "changed": true,
+    "diff": [
+        {
+            "after": "",
+            "after_header": "./hosts (content)",
+            "before": "",
+            "before_header": "./hosts (content)"
+        },
+        {
+            "after_header": "./hosts (file attributes)",
+            "before_header": "./hosts (file attributes)"
+        }
+    ],
+    "invocation": {
+        "module_args": {
+            "attributes": null,
+            "backrefs": false,
+            "backup": false,
+            "content": null,
+            "create": false,
+            "delimiter": null,
+            "dest": "./hosts",
+            "directory_mode": null,
+            "firstmatch": false,
+            "follow": false,
+            "force": null,
+            "group": null,
+            "insertafter": "jenkins",
+            "insertbefore": null,
+            "line": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+            "mode": null,
+            "owner": null,
+            "path": "./hosts",
+            "regexp": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+            "remote_src": null,
+            "selevel": null,
+            "serole": null,
+            "setype": null,
+            "seuser": null,
+            "src": null,
+            "state": "present",
+            "unsafe_writes": null,
+            "validate": null
+        }
+    },
+    "item": {
+        "ami_launch_index": 0,
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "attach_time": "2020-02-25T23:27:03+00:00",
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-005dd81ba70a6ccc8"
+                }
+            }
+        ],
+        "capacity_reservation_specification": {
+            "capacity_reservation_preference": "open"
+        },
+        "client_token": "",
+        "cpu_options": {
+            "core_count": 1,
+            "threads_per_core": 1
+        },
+        "ebs_optimized": false,
+        "ena_support": true,
+        "hibernation_options": {
+            "configured": false
+        },
+        "hypervisor": "xen",
+        "image_id": "ami-0cc0a36f626a4fdf5",
+        "instance_id": "i-0af7c2bad9fd7edf2",
+        "instance_type": "t2.micro",
+        "key_name": "ansible_to_aws_key",
+        "launch_time": "2020-02-25T23:27:02+00:00",
+        "metadata_options": {
+            "http_endpoint": "enabled",
+            "http_put_response_hop_limit": 1,
+            "http_tokens": "optional",
+            "state": "applied"
+        },
+        "monitoring": {
+            "state": "disabled"
+        },
+        "network_interfaces": [
+            {
+                "association": {
+                    "ip_owner_id": "amazon",
+                    "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+                    "public_ip": "3.120.131.32"
+                },
+                "attachment": {
+                    "attach_time": "2020-02-25T23:27:02+00:00",
+                    "attachment_id": "eni-attach-097b05ae79a1ebe81",
+                    "delete_on_termination": true,
+                    "device_index": 0,
+                    "status": "attached"
+                },
+                "description": "",
+                "groups": [
+                    {
+                        "group_id": "sg-0aaf3b328c7462f03",
+                        "group_name": "AWS-sec"
+                    }
+                ],
+                "interface_type": "interface",
+                "ipv6_addresses": [],
+                "mac_address": "06:6f:ac:57:41:8c",
+                "network_interface_id": "eni-07fd6a85dadd2c36f",
+                "owner_id": "897213544005",
+                "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+                "private_ip_address": "172.31.33.25",
+                "private_ip_addresses": [
+                    {
+                        "association": {
+                            "ip_owner_id": "amazon",
+                            "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+                            "public_ip": "3.120.131.32"
+                        },
+                        "primary": true,
+                        "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+                        "private_ip_address": "172.31.33.25"
+                    }
+                ],
+                "source_dest_check": true,
+                "status": "in-use",
+                "subnet_id": "subnet-3f958d42",
+                "vpc_id": "vpc-a503f9cf"
+            }
+        ],
+        "placement": {
+            "availability_zone": "eu-central-1b",
+            "group_name": "",
+            "tenancy": "default"
+        },
+        "private_dns_name": "ip-172-31-33-25.eu-central-1.compute.internal",
+        "private_ip_address": "172.31.33.25",
+        "product_codes": [],
+        "public_dns_name": "ec2-3-120-131-32.eu-central-1.compute.amazonaws.com",
+        "public_ip_address": "3.120.131.32",
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "security_groups": [
+            {
+                "group_id": "sg-0aaf3b328c7462f03",
+                "group_name": "AWS-sec"
+            }
+        ],
+        "source_dest_check": true,
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "state_transition_reason": "",
+        "subnet_id": "subnet-3f958d42",
+        "tags": {
+            "Name": "jenkins"
+        },
+        "virtualization_type": "hvm",
+        "vpc_id": "vpc-a503f9cf"
+    },
+    "msg": "line added"
+}
+skipping: [127.0.0.1] => (item={'ami_launch_index': 0, 'image_id': 'ami-0cc0a36f626a4fdf5', 'instance_id': 'i-04fa89befcb93e0b6', 'instance_type': 't2.micro', 'key_name': 'ansible_to_aws_key', 'launch_time': '2020-02-25T23:27:20+00:00', 'monitoring': {'state': 'disabled'}, 'placement': {'availability_zone': 'eu-central-1b', 'group_name': '', 'tenancy': 'default'}, 'private_dns_name': 'ip-172-31-45-163.eu-central-1.compute.internal', 'private_ip_address': '172.31.45.163', 'product_codes': [], 'public_dns_name': 'ec2-54-93-247-123.eu-central-1.compute.amazonaws.com', 'public_ip_address': '54.93.247.123', 'state': {'code': 16, 'name': 'running'}, 'state_transition_reason': '', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'architecture': 'x86_64', 'block_device_mappings': [{'device_name': '/dev/sda1', 'ebs': {'attach_time': '2020-02-25T23:27:21+00:00', 'delete_on_termination': True, 'status': 'attached', 'volume_id': 'vol-000177c3a2f630c2f'}}], 'client_token': '', 'ebs_optimized': False, 'ena_support': True, 'hypervisor': 'xen', 'network_interfaces': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-54-93-247-123.eu-central-1.compute.amazonaws.com', 'public_ip': '54.93.247.123'}, 'attachment': {'attach_time': '2020-02-25T23:27:20+00:00', 'attachment_id': 'eni-attach-033bae9d1350ca2df', 'delete_on_termination': True, 'device_index': 0, 'status': 'attached'}, 'description': '', 'groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'ipv6_addresses': [], 'mac_address': '06:4a:40:14:f9:9e', 'network_interface_id': 'eni-0ee810ecae76a3cc9', 'owner_id': '897213544005', 'private_dns_name': 'ip-172-31-45-163.eu-central-1.compute.internal', 'private_ip_address': '172.31.45.163', 'private_ip_addresses': [{'association': {'ip_owner_id': 'amazon', 'public_dns_name': 'ec2-54-93-247-123.eu-central-1.compute.amazonaws.com', 'public_ip': '54.93.247.123'}, 'primary': True, 'private_dns_name': 'ip-172-31-45-163.eu-central-1.compute.internal', 'private_ip_address': '172.31.45.163'}], 'source_dest_check': True, 'status': 'in-use', 'subnet_id': 'subnet-3f958d42', 'vpc_id': 'vpc-a503f9cf', 'interface_type': 'interface'}], 'root_device_name': '/dev/sda1', 'root_device_type': 'ebs', 'security_groups': [{'group_name': 'AWS-sec', 'group_id': 'sg-0aaf3b328c7462f03'}], 'source_dest_check': True, 'tags': {'Name': 'db'}, 'virtualization_type': 'hvm', 'cpu_options': {'core_count': 1, 'threads_per_core': 1}, 'capacity_reservation_specification': {'capacity_reservation_preference': 'open'}, 'hibernation_options': {'configured': False}, 'metadata_options': {'state': 'applied', 'http_tokens': 'optional', 'http_put_response_hop_limit': 1, 'http_endpoint': 'enabled'}})  => {
+    "ansible_loop_var": "item",
+    "changed": false,
+    "item": {
+        "ami_launch_index": 0,
+        "architecture": "x86_64",
+        "block_device_mappings": [
+            {
+                "device_name": "/dev/sda1",
+                "ebs": {
+                    "attach_time": "2020-02-25T23:27:21+00:00",
+                    "delete_on_termination": true,
+                    "status": "attached",
+                    "volume_id": "vol-000177c3a2f630c2f"
+                }
+            }
+        ],
+        "capacity_reservation_specification": {
+            "capacity_reservation_preference": "open"
+        },
+        "client_token": "",
+        "cpu_options": {
+            "core_count": 1,
+            "threads_per_core": 1
+        },
+        "ebs_optimized": false,
+        "ena_support": true,
+        "hibernation_options": {
+            "configured": false
+        },
+        "hypervisor": "xen",
+        "image_id": "ami-0cc0a36f626a4fdf5",
+        "instance_id": "i-04fa89befcb93e0b6",
+        "instance_type": "t2.micro",
+        "key_name": "ansible_to_aws_key",
+        "launch_time": "2020-02-25T23:27:20+00:00",
+        "metadata_options": {
+            "http_endpoint": "enabled",
+            "http_put_response_hop_limit": 1,
+            "http_tokens": "optional",
+            "state": "applied"
+        },
+        "monitoring": {
+            "state": "disabled"
+        },
+        "network_interfaces": [
+            {
+                "association": {
+                    "ip_owner_id": "amazon",
+                    "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+                    "public_ip": "54.93.247.123"
+                },
+                "attachment": {
+                    "attach_time": "2020-02-25T23:27:20+00:00",
+                    "attachment_id": "eni-attach-033bae9d1350ca2df",
+                    "delete_on_termination": true,
+                    "device_index": 0,
+                    "status": "attached"
+                },
+                "description": "",
+                "groups": [
+                    {
+                        "group_id": "sg-0aaf3b328c7462f03",
+                        "group_name": "AWS-sec"
+                    }
+                ],
+                "interface_type": "interface",
+                "ipv6_addresses": [],
+                "mac_address": "06:4a:40:14:f9:9e",
+                "network_interface_id": "eni-0ee810ecae76a3cc9",
+                "owner_id": "897213544005",
+                "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+                "private_ip_address": "172.31.45.163",
+                "private_ip_addresses": [
+                    {
+                        "association": {
+                            "ip_owner_id": "amazon",
+                            "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+                            "public_ip": "54.93.247.123"
+                        },
+                        "primary": true,
+                        "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+                        "private_ip_address": "172.31.45.163"
+                    }
+                ],
+                "source_dest_check": true,
+                "status": "in-use",
+                "subnet_id": "subnet-3f958d42",
+                "vpc_id": "vpc-a503f9cf"
+            }
+        ],
+        "placement": {
+            "availability_zone": "eu-central-1b",
+            "group_name": "",
+            "tenancy": "default"
+        },
+        "private_dns_name": "ip-172-31-45-163.eu-central-1.compute.internal",
+        "private_ip_address": "172.31.45.163",
+        "product_codes": [],
+        "public_dns_name": "ec2-54-93-247-123.eu-central-1.compute.amazonaws.com",
+        "public_ip_address": "54.93.247.123",
+        "root_device_name": "/dev/sda1",
+        "root_device_type": "ebs",
+        "security_groups": [
+            {
+                "group_id": "sg-0aaf3b328c7462f03",
+                "group_name": "AWS-sec"
+            }
+        ],
+        "source_dest_check": true,
+        "state": {
+            "code": 16,
+            "name": "running"
+        },
+        "state_transition_reason": "",
+        "subnet_id": "subnet-3f958d42",
+        "tags": {
+            "Name": "db"
+        },
+        "virtualization_type": "hvm",
+        "vpc_id": "vpc-a503f9cf"
+    },
+    "skip_reason": "Conditional result was False"
+}
+META: ran handlers
+META: ran handlers
+Read vars_file 'group_vars/pass.yml'
+Read vars_file 'group_vars/pass.yml'
+
+PLAY [db] *****************************************************************************************************************************************************************
+skipping: no hosts matched
+Read vars_file 'group_vars/pass.yml'
+Read vars_file 'group_vars/pass.yml'
+
+PLAY [webserver] **********************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [lb] *****************************************************************************************************************************************************************
+skipping: no hosts matched
+Read vars_file 'group_vars/pass.yml'
+Read vars_file 'group_vars/pass.yml'
+
+PLAY [jenkins] ************************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [webserver] **********************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [webserver] **********************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [webserver] **********************************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY RECAP ****************************************************************************************************************************************************************
+127.0.0.1                  : ok=8    changed=7    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   

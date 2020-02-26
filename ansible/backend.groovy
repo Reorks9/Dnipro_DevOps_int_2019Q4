@@ -5,7 +5,7 @@ pipeline {
     GIT_HUB_USER_EMAIL  = "studentota2lvl@gmail.com"
     GIT_HUB_REPO        = "git@github.com:studentota2lvl/back-TODO.git"
     ANSIBLE_SERVER_USER = "jenkins"
-    ANSIBLE_SERVER_ADDR = "192.168.0.115" // static ansible server ip
+    ANSIBLE_SERVER_ADDR = "{{192.168.0.115}}" // static ansible server ip
     ANSIBLE_SERVER_PATH = "~/todo/back"
   }
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~build env~~~~~~~~~~~~~~~~~~~~~~~~~~~~

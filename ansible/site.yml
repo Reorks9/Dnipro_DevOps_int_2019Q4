@@ -1,7 +1,9 @@
 ---
+# run as
+# ansible-playbook -i hosts site.yml -t create_resource -t instDb -t instWeb -t instLb -t installJenkins
+
 # create aws VM and get instances public IP and write it to ./hosts
 - hosts: 127.0.0.1
-  become: yes
   gather_facts: False
   vars_files:
     - group_vars/pass.yml

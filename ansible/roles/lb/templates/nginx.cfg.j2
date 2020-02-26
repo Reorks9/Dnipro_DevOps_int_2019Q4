@@ -1,3 +1,6 @@
+# location ~ ^/api(/?)(.*) {
+# proxy_pass http://node_backends/$2;
+
 upstream nginx_backends {
  {% for backend in groups['webserver'] %}
   server {{ backend }}:80;

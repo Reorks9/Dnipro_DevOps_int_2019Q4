@@ -20,6 +20,14 @@
     name: jenkins
     state: present
 
+- name: Create directory if it does not exist
+  become: false
+  file:
+    path: "{{ path_to_jenkins_data }}"
+    state: directory
+    mode: '0755'
+  delegate_to: 127.0.0.1
+
 - name: get jenkins data from s3
   become: false
   aws_s3:
