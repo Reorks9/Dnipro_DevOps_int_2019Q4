@@ -1,0 +1,79 @@
+module.vpc.data.template_file.user_data: Refreshing state...
+module.vpc.aws_vpc.vpc: Refreshing state... [id=vpc-004e4ba3fbdf978d1]
+module.vpc.aws_route_table.public_route_tables[0]: Refreshing state... [id=rtb-024bc74195e707855]
+module.vpc.aws_subnet.public_subnets[0]: Refreshing state... [id=subnet-091bf9170ee40ee34]
+module.vpc.aws_route_table.private_route_tables[0]: Refreshing state... [id=rtb-062fca647d347e255]
+module.vpc.aws_internet_gateway.internet_gw[0]: Refreshing state... [id=igw-0eb947ca382eaeebe]
+module.vpc.aws_default_network_acl.default_acl: Refreshing state... [id=acl-0914ec9ffddcf5f57]
+module.vpc.aws_security_group.sg: Refreshing state... [id=sg-0f7cb92593e099bb7]
+module.vpc.aws_subnet.private_subnets[0]: Refreshing state... [id=subnet-0a9b7847ecf157301]
+module.vpc.aws_security_group_rule.ingress_ports[2]: Refreshing state... [id=sgrule-3783610051]
+module.vpc.aws_security_group_rule.ingress_ports[3]: Refreshing state... [id=sgrule-3501364066]
+module.vpc.aws_eip.nat_eip[0]: Refreshing state... [id=eipalloc-0b5ef707c9b500d6f]
+module.vpc.aws_route.public_internet_gateway[0]: Refreshing state... [id=r-rtb-024bc74195e7078551080289494]
+module.vpc.aws_route_table_association.private_route_table_associations[0]: Refreshing state... [id=rtbassoc-00fef95b733890545]
+module.vpc.aws_security_group_rule.default_egress[0]: Refreshing state... [id=sgrule-3751525421]
+module.vpc.aws_security_group_rule.ingress_ports[0]: Refreshing state... [id=sgrule-3035317717]
+module.vpc.aws_security_group_rule.icmp-self: Refreshing state... [id=sgrule-3123804046]
+module.vpc.aws_route_table_association.public_route_table_associations[0]: Refreshing state... [id=rtbassoc-0366756b67795cab7]
+module.vpc.aws_security_group_rule.ingress_ports[1]: Refreshing state... [id=sgrule-39917664]
+module.vpc.aws_instance.priec2[0]: Refreshing state... [id=i-0a7f6a193d596fe52]
+module.vpc.aws_instance.pubec2[0]: Refreshing state... [id=i-0bf1427e2918a4f73]
+module.vpc.aws_nat_gateway.nat_gw[0]: Refreshing state... [id=nat-067eed850ecff9951]
+module.vpc.aws_route.private_nat_gateway[0]: Refreshing state... [id=r-rtb-062fca647d347e2551080289494]
+module.vpc.aws_security_group_rule.ingress_ports[0]: Destroying... [id=sgrule-3035317717]
+module.vpc.aws_security_group_rule.default_egress[0]: Destroying... [id=sgrule-3751525421]
+module.vpc.aws_instance.priec2[0]: Destroying... [id=i-0a7f6a193d596fe52]
+module.vpc.aws_security_group_rule.icmp-self: Destroying... [id=sgrule-3123804046]
+module.vpc.aws_security_group_rule.ingress_ports[1]: Destroying... [id=sgrule-39917664]
+module.vpc.aws_default_network_acl.default_acl: Destroying... [id=acl-0914ec9ffddcf5f57]
+module.vpc.aws_instance.pubec2[0]: Destroying... [id=i-0bf1427e2918a4f73]
+module.vpc.aws_route.public_internet_gateway[0]: Destroying... [id=r-rtb-024bc74195e7078551080289494]
+module.vpc.aws_route.private_nat_gateway[0]: Destroying... [id=r-rtb-062fca647d347e2551080289494]
+module.vpc.aws_security_group_rule.ingress_ports[2]: Destroying... [id=sgrule-3783610051]
+module.vpc.aws_default_network_acl.default_acl: Destruction complete after 0s
+module.vpc.aws_security_group_rule.ingress_ports[3]: Destroying... [id=sgrule-3501364066]
+module.vpc.aws_route.public_internet_gateway[0]: Destruction complete after 0s
+module.vpc.aws_route.private_nat_gateway[0]: Destruction complete after 0s
+module.vpc.aws_security_group_rule.ingress_ports[0]: Destruction complete after 0s
+module.vpc.aws_nat_gateway.nat_gw[0]: Destroying... [id=nat-067eed850ecff9951]
+module.vpc.aws_security_group_rule.default_egress[0]: Destruction complete after 1s
+module.vpc.aws_security_group_rule.ingress_ports[2]: Destruction complete after 1s
+module.vpc.aws_security_group_rule.icmp-self: Destruction complete after 2s
+module.vpc.aws_security_group_rule.ingress_ports[1]: Destruction complete after 2s
+module.vpc.aws_security_group_rule.ingress_ports[3]: Destruction complete after 3s
+module.vpc.aws_instance.priec2[0]: Still destroying... [id=i-0a7f6a193d596fe52, 10s elapsed]
+module.vpc.aws_instance.pubec2[0]: Still destroying... [id=i-0bf1427e2918a4f73, 10s elapsed]
+module.vpc.aws_nat_gateway.nat_gw[0]: Still destroying... [id=nat-067eed850ecff9951, 10s elapsed]
+module.vpc.aws_instance.priec2[0]: Destruction complete after 20s
+module.vpc.aws_instance.pubec2[0]: Still destroying... [id=i-0bf1427e2918a4f73, 20s elapsed]
+module.vpc.aws_route_table_association.private_route_table_associations[0]: Destroying... [id=rtbassoc-00fef95b733890545]
+module.vpc.aws_route_table_association.private_route_table_associations[0]: Destruction complete after 0s
+module.vpc.aws_nat_gateway.nat_gw[0]: Still destroying... [id=nat-067eed850ecff9951, 20s elapsed]
+module.vpc.aws_subnet.private_subnets[0]: Destroying... [id=subnet-0a9b7847ecf157301]
+module.vpc.aws_route_table.private_route_tables[0]: Destroying... [id=rtb-062fca647d347e255]
+module.vpc.aws_subnet.private_subnets[0]: Destruction complete after 0s
+module.vpc.aws_route_table.private_route_tables[0]: Destruction complete after 0s
+module.vpc.aws_instance.pubec2[0]: Still destroying... [id=i-0bf1427e2918a4f73, 30s elapsed]
+module.vpc.aws_instance.pubec2[0]: Destruction complete after 30s
+module.vpc.aws_route_table_association.public_route_table_associations[0]: Destroying... [id=rtbassoc-0366756b67795cab7]
+module.vpc.aws_security_group.sg: Destroying... [id=sg-0f7cb92593e099bb7]
+module.vpc.aws_nat_gateway.nat_gw[0]: Still destroying... [id=nat-067eed850ecff9951, 30s elapsed]
+module.vpc.aws_route_table_association.public_route_table_associations[0]: Destruction complete after 1s
+module.vpc.aws_route_table.public_route_tables[0]: Destroying... [id=rtb-024bc74195e707855]
+module.vpc.aws_security_group.sg: Destruction complete after 1s
+module.vpc.aws_route_table.public_route_tables[0]: Destruction complete after 0s
+module.vpc.aws_nat_gateway.nat_gw[0]: Still destroying... [id=nat-067eed850ecff9951, 40s elapsed]
+module.vpc.aws_nat_gateway.nat_gw[0]: Still destroying... [id=nat-067eed850ecff9951, 50s elapsed]
+module.vpc.aws_nat_gateway.nat_gw[0]: Destruction complete after 52s
+module.vpc.aws_eip.nat_eip[0]: Destroying... [id=eipalloc-0b5ef707c9b500d6f]
+module.vpc.aws_subnet.public_subnets[0]: Destroying... [id=subnet-091bf9170ee40ee34]
+module.vpc.aws_subnet.public_subnets[0]: Destruction complete after 1s
+module.vpc.aws_eip.nat_eip[0]: Destruction complete after 1s
+module.vpc.aws_internet_gateway.internet_gw[0]: Destroying... [id=igw-0eb947ca382eaeebe]
+module.vpc.aws_internet_gateway.internet_gw[0]: Still destroying... [id=igw-0eb947ca382eaeebe, 10s elapsed]
+module.vpc.aws_internet_gateway.internet_gw[0]: Destruction complete after 10s
+module.vpc.aws_vpc.vpc: Destroying... [id=vpc-004e4ba3fbdf978d1]
+module.vpc.aws_vpc.vpc: Destruction complete after 0s
+
+Destroy complete! Resources: 22 destroyed.

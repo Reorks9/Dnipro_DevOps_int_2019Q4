@@ -43,19 +43,6 @@ variable "createdby" {
     default     = "Ololosh Ivanovich"
 }
 
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# variable "aws_access_key" {
-#     description = "aws_access_key"
-#     type        = string
-#     default     = "AKIA5BZQYGZC2BEGWB6P"
-# }
-
-# variable "aws_secret_key" {
-#     description = "aws_secret_key"
-#     type        = string
-#     default     = "FWhD2Ms9USPAqCDuydYVpCBmCekwjEU3JWU9sr5I"
-# }
-
 variable "allowed_ports" {
     description = "Allowed ports from/to host"
     type        = list(string)
