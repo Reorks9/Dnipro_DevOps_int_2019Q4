@@ -1,0 +1,126 @@
+module.ec2.data.template_file.user_data: Refreshing state...
+module.iam.data.aws_iam_policy_document.policy-document: Refreshing state...
+module.iam.data.aws_iam_policy_document.role-policy-document: Refreshing state...
+module.iam.data.aws_iam_policy_document.cross_account_assume_role_policy: Refreshing state...
+module.ec2.aws_key_pair.key_pair: Refreshing state... [id=web_server-key_pair-prod]
+module.vpc.aws_vpc.vpc: Refreshing state... [id=vpc-08a6ea89acbc60df4]
+module.iam.aws_iam_policy.iam_policy: Refreshing state... [id=arn:aws:iam::897213544005:policy/my-security-iam_policy-prod]
+module.iam.aws_iam_role.iam_role: Refreshing state... [id=my-security-iam_role-prod]
+module.iam.aws_iam_instance_profile.iam_instance_profile: Refreshing state... [id=my-security-iam_instance_profile-prod]
+module.iam.aws_iam_policy_attachment.iam_policy_attachment: Refreshing state... [id=my-security-iam_policy_attachment-prod]
+module.vpc.aws_subnet.public_subnets[1]: Refreshing state... [id=subnet-08bbd682b3cd644cd]
+module.vpc.aws_route_table.private_route_tables[0]: Refreshing state... [id=rtb-008219009fb69403d]
+module.vpc.aws_subnet.private_subnets[0]: Refreshing state... [id=subnet-04c578d3e5ddd7a66]
+module.vpc.aws_internet_gateway.internet_gw[0]: Refreshing state... [id=igw-08f426b4918161a8f]
+module.vpc.aws_route_table.public_route_tables[0]: Refreshing state... [id=rtb-007105b7de453dc48]
+module.vpc.aws_subnet.private_subnets[1]: Refreshing state... [id=subnet-0fc9a9c6f7fc4e948]
+module.vpc.aws_subnet.public_subnets[0]: Refreshing state... [id=subnet-0fd7044e7d4f62f12]
+module.vpc.aws_security_group.sg: Refreshing state... [id=sg-086118ae65dcc543d]
+module.vpc.aws_default_network_acl.default_acl: Refreshing state... [id=acl-0a7045abc1110ed1c]
+module.vpc.aws_route_table.private_route_tables[1]: Refreshing state... [id=rtb-07293dc33f20747ac]
+module.vpc.aws_route.public_internet_gateway[0]: Refreshing state... [id=r-rtb-007105b7de453dc481080289494]
+module.alb.aws_lb_target_group.alb_target_group: Refreshing state... [id=arn:aws:elasticloadbalancing:eu-central-1:897213544005:targetgroup/app-load-balancer-alb-tg-prod/f7cc5790abb87c27]
+module.vpc.aws_security_group_rule.default_egress[0]: Refreshing state... [id=sgrule-3546140435]
+module.vpc.aws_security_group_rule.ingress_ports[2]: Refreshing state... [id=sgrule-3905426137]
+module.vpc.aws_security_group_rule.ingress_ports[3]: Refreshing state... [id=sgrule-349174333]
+module.vpc.aws_security_group_rule.icmp-self: Refreshing state... [id=sgrule-1915017295]
+module.vpc.aws_security_group_rule.ingress_ports[0]: Refreshing state... [id=sgrule-4218281604]
+module.vpc.aws_security_group_rule.ingress_ports[1]: Refreshing state... [id=sgrule-1307018033]
+module.vpc.aws_route_table_association.public_route_table_associations[0]: Refreshing state... [id=rtbassoc-094e87b6cb5452d40]
+module.vpc.aws_route_table_association.public_route_table_associations[2]: Refreshing state... [id=rtbassoc-094e87b6cb5452d40]
+module.vpc.aws_route_table_association.public_route_table_associations[1]: Refreshing state... [id=rtbassoc-0c2e4c27e6f3cdebb]
+module.alb.aws_lb.alb: Refreshing state... [id=arn:aws:elasticloadbalancing:eu-central-1:897213544005:loadbalancer/app/app-load-balancer-alb-prod/57493a895d9be5c2]
+module.ec2.aws_instance.instance[1]: Refreshing state... [id=i-078d0ba2a9898096a]
+module.ec2.aws_instance.instance[0]: Refreshing state... [id=i-0a6a2548dc3710ca1]
+module.vpc.aws_route_table_association.private_route_table_associations[0]: Refreshing state... [id=rtbassoc-0e3715e2439d179a8]
+module.vpc.aws_route_table_association.private_route_table_associations[1]: Refreshing state... [id=rtbassoc-07e7e0d66be1cec6d]
+module.vpc.aws_route_table_association.private_route_table_associations[2]: Refreshing state... [id=rtbassoc-0e3715e2439d179a8]
+module.alb.aws_lb_listener.frontend_http[0]: Refreshing state... [id=arn:aws:elasticloadbalancing:eu-central-1:897213544005:listener/app/app-load-balancer-alb-prod/57493a895d9be5c2/867b6040d4ed87d9]
+module.alb.aws_lb_target_group_attachment.alb_target_group_attachment: Refreshing state... [id=arn:aws:elasticloadbalancing:eu-central-1:897213544005:targetgroup/app-load-balancer-alb-tg-prod/f7cc5790abb87c27-20200315201642343200000001]
+module.vpc.aws_route.public_internet_gateway[0]: Destroying... [id=r-rtb-007105b7de453dc481080289494]
+module.vpc.aws_route_table_association.private_route_table_associations[2]: Destroying... [id=rtbassoc-0e3715e2439d179a8]
+module.vpc.aws_security_group_rule.ingress_ports[1]: Destroying... [id=sgrule-1307018033]
+module.vpc.aws_route_table_association.private_route_table_associations[0]: Destroying... [id=rtbassoc-0e3715e2439d179a8]
+module.vpc.aws_route_table_association.private_route_table_associations[1]: Destroying... [id=rtbassoc-07e7e0d66be1cec6d]
+module.vpc.aws_route_table_association.public_route_table_associations[0]: Destroying... [id=rtbassoc-094e87b6cb5452d40]
+module.vpc.aws_security_group_rule.ingress_ports[2]: Destroying... [id=sgrule-3905426137]
+module.vpc.aws_security_group_rule.default_egress[0]: Destroying... [id=sgrule-3546140435]
+module.vpc.aws_security_group_rule.ingress_ports[3]: Destroying... [id=sgrule-349174333]
+module.alb.aws_lb_target_group_attachment.alb_target_group_attachment: Destroying... [id=arn:aws:elasticloadbalancing:eu-central-1:897213544005:targetgroup/app-load-balancer-alb-tg-prod/f7cc5790abb87c27-20200315201642343200000001]
+module.alb.aws_lb_target_group_attachment.alb_target_group_attachment: Destruction complete after 0s
+module.vpc.aws_route_table_association.private_route_table_associations[2]: Destruction complete after 0s
+module.vpc.aws_route_table_association.public_route_table_associations[0]: Destruction complete after 0s
+module.vpc.aws_route_table_association.private_route_table_associations[1]: Destruction complete after 0s
+module.vpc.aws_route_table_association.private_route_table_associations[0]: Destruction complete after 0s
+module.vpc.aws_route.public_internet_gateway[0]: Destruction complete after 0s
+module.vpc.aws_security_group_rule.ingress_ports[1]: Destruction complete after 0s
+module.vpc.aws_route_table_association.public_route_table_associations[2]: Destroying... [id=rtbassoc-094e87b6cb5452d40]
+module.vpc.aws_route_table.private_route_tables[0]: Destroying... [id=rtb-008219009fb69403d]
+module.vpc.aws_security_group_rule.icmp-self: Destroying... [id=sgrule-1915017295]
+module.vpc.aws_security_group_rule.ingress_ports[0]: Destroying... [id=sgrule-4218281604]
+module.iam.aws_iam_policy_attachment.iam_policy_attachment: Destroying... [id=my-security-iam_policy_attachment-prod]
+module.vpc.aws_route_table_association.public_route_table_associations[1]: Destroying... [id=rtbassoc-0c2e4c27e6f3cdebb]
+module.vpc.aws_default_network_acl.default_acl: Destroying... [id=acl-0a7045abc1110ed1c]
+module.vpc.aws_default_network_acl.default_acl: Destruction complete after 0s
+module.vpc.aws_route_table.private_route_tables[1]: Destroying... [id=rtb-07293dc33f20747ac]
+module.vpc.aws_route_table_association.public_route_table_associations[2]: Destruction complete after 1s
+module.alb.aws_lb_listener.frontend_http[0]: Destroying... [id=arn:aws:elasticloadbalancing:eu-central-1:897213544005:listener/app/app-load-balancer-alb-prod/57493a895d9be5c2/867b6040d4ed87d9]
+module.vpc.aws_route_table_association.public_route_table_associations[1]: Destruction complete after 0s
+module.vpc.aws_subnet.private_subnets[0]: Destroying... [id=subnet-04c578d3e5ddd7a66]
+module.alb.aws_lb_listener.frontend_http[0]: Destruction complete after 0s
+module.vpc.aws_security_group_rule.default_egress[0]: Destruction complete after 1s
+module.vpc.aws_internet_gateway.internet_gw[0]: Destroying... [id=igw-08f426b4918161a8f]
+module.vpc.aws_subnet.private_subnets[1]: Destroying... [id=subnet-0fc9a9c6f7fc4e948]
+module.iam.aws_iam_policy_attachment.iam_policy_attachment: Destruction complete after 0s
+module.vpc.aws_route_table.private_route_tables[0]: Destruction complete after 0s
+module.vpc.aws_route_table.private_route_tables[1]: Destruction complete after 0s
+module.ec2.aws_instance.instance[0]: Destroying... [id=i-0a6a2548dc3710ca1]
+module.vpc.aws_subnet.private_subnets[0]: Destruction complete after 0s
+module.ec2.aws_instance.instance[1]: Destroying... [id=i-078d0ba2a9898096a]
+module.vpc.aws_route_table.public_route_tables[0]: Destroying... [id=rtb-007105b7de453dc48]
+module.alb.aws_lb.alb: Destroying... [id=arn:aws:elasticloadbalancing:eu-central-1:897213544005:loadbalancer/app/app-load-balancer-alb-prod/57493a895d9be5c2]
+module.vpc.aws_security_group_rule.ingress_ports[3]: Destruction complete after 1s
+module.alb.aws_lb_target_group.alb_target_group: Destroying... [id=arn:aws:elasticloadbalancing:eu-central-1:897213544005:targetgroup/app-load-balancer-alb-tg-prod/f7cc5790abb87c27]
+module.vpc.aws_subnet.private_subnets[1]: Destruction complete after 1s
+module.iam.aws_iam_policy.iam_policy: Destroying... [id=arn:aws:iam::897213544005:policy/my-security-iam_policy-prod]
+module.alb.aws_lb_target_group.alb_target_group: Destruction complete after 0s
+module.vpc.aws_security_group_rule.ingress_ports[2]: Destruction complete after 2s
+module.vpc.aws_route_table.public_route_tables[0]: Destruction complete after 1s
+module.alb.aws_lb.alb: Destruction complete after 1s
+module.vpc.aws_security_group_rule.icmp-self: Destruction complete after 1s
+module.iam.aws_iam_policy.iam_policy: Destruction complete after 1s
+module.vpc.aws_security_group_rule.ingress_ports[0]: Destruction complete after 2s
+module.vpc.aws_internet_gateway.internet_gw[0]: Still destroying... [id=igw-08f426b4918161a8f, 10s elapsed]
+module.ec2.aws_instance.instance[0]: Still destroying... [id=i-0a6a2548dc3710ca1, 10s elapsed]
+module.ec2.aws_instance.instance[1]: Still destroying... [id=i-078d0ba2a9898096a, 10s elapsed]
+module.vpc.aws_internet_gateway.internet_gw[0]: Still destroying... [id=igw-08f426b4918161a8f, 20s elapsed]
+module.ec2.aws_instance.instance[0]: Still destroying... [id=i-0a6a2548dc3710ca1, 20s elapsed]
+module.ec2.aws_instance.instance[1]: Still destroying... [id=i-078d0ba2a9898096a, 20s elapsed]
+module.vpc.aws_internet_gateway.internet_gw[0]: Still destroying... [id=igw-08f426b4918161a8f, 30s elapsed]
+module.ec2.aws_instance.instance[0]: Still destroying... [id=i-0a6a2548dc3710ca1, 30s elapsed]
+module.ec2.aws_instance.instance[1]: Still destroying... [id=i-078d0ba2a9898096a, 30s elapsed]
+module.ec2.aws_instance.instance[0]: Destruction complete after 30s
+module.ec2.aws_instance.instance[1]: Destruction complete after 30s
+module.vpc.aws_subnet.public_subnets[0]: Destroying... [id=subnet-0fd7044e7d4f62f12]
+module.iam.aws_iam_instance_profile.iam_instance_profile: Destroying... [id=my-security-iam_instance_profile-prod]
+module.ec2.aws_key_pair.key_pair: Destroying... [id=web_server-key_pair-prod]
+module.vpc.aws_security_group.sg: Destroying... [id=sg-086118ae65dcc543d]
+module.vpc.aws_subnet.public_subnets[1]: Destroying... [id=subnet-08bbd682b3cd644cd]
+module.ec2.aws_key_pair.key_pair: Destruction complete after 0s
+module.iam.aws_iam_instance_profile.iam_instance_profile: Destruction complete after 1s
+module.iam.aws_iam_role.iam_role: Destroying... [id=my-security-iam_role-prod]
+module.iam.aws_iam_role.iam_role: Destruction complete after 1s
+module.vpc.aws_internet_gateway.internet_gw[0]: Destruction complete after 36s
+module.vpc.aws_subnet.public_subnets[0]: Still destroying... [id=subnet-0fd7044e7d4f62f12, 10s elapsed]
+module.vpc.aws_security_group.sg: Still destroying... [id=sg-086118ae65dcc543d, 10s elapsed]
+module.vpc.aws_subnet.public_subnets[1]: Still destroying... [id=subnet-08bbd682b3cd644cd, 10s elapsed]
+module.vpc.aws_subnet.public_subnets[0]: Still destroying... [id=subnet-0fd7044e7d4f62f12, 20s elapsed]
+module.vpc.aws_security_group.sg: Still destroying... [id=sg-086118ae65dcc543d, 20s elapsed]
+module.vpc.aws_subnet.public_subnets[1]: Still destroying... [id=subnet-08bbd682b3cd644cd, 20s elapsed]
+module.vpc.aws_subnet.public_subnets[0]: Destruction complete after 26s
+module.vpc.aws_subnet.public_subnets[1]: Destruction complete after 26s
+module.vpc.aws_security_group.sg: Destruction complete after 27s
+module.vpc.aws_vpc.vpc: Destroying... [id=vpc-08a6ea89acbc60df4]
+module.vpc.aws_vpc.vpc: Destruction complete after 1s
+
+Destroy complete! Resources: 35 destroyed.

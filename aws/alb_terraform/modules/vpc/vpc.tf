@@ -25,15 +25,16 @@ resource "aws_vpc" "vpc" {
 # private
 #~~~~~~~~~~~~~~~~~~~
 resource "aws_subnet" "private_subnets" {
-    count                   = length(var.private_subnet_cidrs)
+    ## need second counter (for create all subnets in each az)
+    # count                   = length(var.private_subnet_cidrs)
+    count                   = length(var.availability_zones)
 
     cidr_block              = element(var.private_subnet_cidrs, count.index)
     vpc_id                  = aws_vpc.vpc.id
     map_public_ip_on_launch = "false"
-    ## need second counter (for create all subnets in each az)
-    # count                   = length(var.availability_zones)
+
     # availability_zone       = element(var.availability_zones, count.index)
-    availability_zone       = element(var.availability_zones, 0)
+    availability_zone       = element(var.availability_zones, count.index)
     
     tags = {
         Name            = "private_subnet-${element(var.availability_zones, count.index)}"
@@ -49,12 +50,12 @@ resource "aws_subnet" "private_subnets" {
 # public
 #~~~~~~~~~~~~~~~~~~~
 resource "aws_subnet" "public_subnets" {
-    count                   = length(var.public_subnet_cidrs)
-
+    #count                   = length(var.public_subnet_cidrs)
+    count                   = length(var.availability_zones)
     cidr_block              = element(var.public_subnet_cidrs, count.index)
     vpc_id                  = aws_vpc.vpc.id
     map_public_ip_on_launch = var.map_public_ip_on_launch
-    availability_zone       = element(var.availability_zones, 0)
+    availability_zone       = element(var.availability_zones, count.index)
     
     tags = {
         Name            = "public_subnet-${element(var.availability_zones, count.index)}"
@@ -413,78 +414,4 @@ resource "aws_vpc_dhcp_options_association" "vpc_dhcp_options_association" {
     dhcp_options_id = aws_vpc_dhcp_options.vpc_dhcp_options[0].id
     
     depends_on      = [aws_vpc.vpc, aws_vpc_dhcp_options.vpc_dhcp_options]
-}
-
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-# Add AWS ec2
-#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-data "template_file" "user_data" {
-  template = file("${path.module}/init.tpl")
-}
-
-#~~~~~~~~~~~~~~~~~~~
-# public
-#~~~~~~~~~~~~~~~~~~~
-resource "aws_instance" "pubec2" {
-    count                   = length(var.public_subnet_cidrs)
-
-    ami                     = "ami-0b418580298265d5c" # eu-central-1
-    instance_type           = "t2.micro"
-    availability_zone       = element(var.availability_zones, count.index)
-    vpc_security_group_ids  = [aws_security_group.sg.id]
-    subnet_id               = element(aws_subnet.public_subnets.*.id, count.index)
-    key_name                = "test_key_for_terraform"
-    root_block_device { 
-        volume_type         = "gp2"
-        volume_size         = 8
-        iops                = 100
-    }
-    user_data               = data.template_file.user_data.rendered
-
-    credit_specification {
-        cpu_credits     = "standard"
-    }
-
-    tags = {
-        Name            = "public_ec2-${element(var.availability_zones, count.index)}"
-        Environment     = var.environment
-        Orchestration   = var.orchestration
-        Createdby       = var.createdby
-    }
-
-    depends_on          = [aws_route_table_association.public_route_table_associations]
-}
-
-#~~~~~~~~~~~~~~~~~~~
-# private
-#~~~~~~~~~~~~~~~~~~~
-resource "aws_instance" "priec2" {
-    count                   = length(var.private_subnet_cidrs)
-
-    ami                     = "ami-0b418580298265d5c" # eu-central-1
-    instance_type           = "t2.micro"
-    availability_zone       = element(var.availability_zones, count.index)
-    vpc_security_group_ids  = [aws_security_group.sg.id]
-    subnet_id               = element(aws_subnet.private_subnets.*.id, count.index)
-    key_name                = "test_key_for_terraform"
-    root_block_device { 
-        volume_type         = "gp2"
-        volume_size         = 8
-        iops                = 100
-    }
-    user_data               = data.template_file.user_data.rendered
-
-    credit_specification {
-        cpu_credits     = "standard"
-    }
-
-    tags = {
-        Name            = "private_ec2-${element(var.availability_zones, count.index)}"
-        Environment     = var.environment
-        Orchestration   = var.orchestration
-        Createdby       = var.createdby
-    }
-
-    depends_on          = [aws_route_table_association.private_route_table_associations]
 }
