@@ -73,7 +73,7 @@ module "ec2" {
     disk_size                           = "8"
     tenancy                             = module.vpc.instance_tenancy
     iam_instance_profile                = module.iam.instance_profile_id
-    subnet_id                           = element(module.vpc.vpc-publicsubnet-ids, 0)
+    subnet_id                           = module.vpc.vpc-publicsubnet-ids# element(module.vpc.vpc-publicsubnet-ids, 0)
     vpc_security_group_ids              = [module.vpc.security_group_id]
 
     monitoring                          = "false"

@@ -23,7 +23,8 @@ resource "aws_instance" "instance" {
     instance_type               = var.ec2_instance_type
     user_data                   = data.template_file.user_data.rendered
     key_name                    = aws_key_pair.key_pair.id
-    subnet_id                   = var.subnet_id
+    subnet_id                   = element(var.subnet_id, count.index)
+    # subnet_id                   = var.subnet_id
     vpc_security_group_ids      = var.vpc_security_group_ids
     monitoring                  = var.monitoring
     iam_instance_profile        = var.iam_instance_profile
