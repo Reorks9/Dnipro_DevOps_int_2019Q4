@@ -4,6 +4,12 @@
 ![task ](./img/101.png) ![task ](./img/102.jpg)
 
 ***
+tasks:  
+1. Start an EC2 instance;  
+2. Add an EBS volume to the instance;  
+3. Set up a web server behind an application load balancer.  
+
+***
 
 #### Brief manual
 To deploy solution please install terraform via install script from root folder:

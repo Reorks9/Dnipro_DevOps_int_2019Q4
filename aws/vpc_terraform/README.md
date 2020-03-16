@@ -4,7 +4,14 @@
 ![task ](./img/101.png) ![task ](./img/102.jpg)
 
 ***
+tasks:  
+1. Create a new VPC;  
+2. Create a public and a private subnet;  
+3. Start a new EC2 instance;  
+4. Deploy an ACL and a security group;  
+5. Set up VPC peering.  
 
+***
 #### Brief manual
 To deploy solution please install terraform via install script from root folder:
 ```bash
