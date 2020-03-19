@@ -56,7 +56,7 @@ tasks:
 
 #### Check role
 <p align="center">
-  <img src="./img/8.png">
+  <img src="./img/9.png">
 </p>
 
 command list:  
