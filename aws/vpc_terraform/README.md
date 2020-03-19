@@ -1,7 +1,10 @@
 ## <p style="text-align: center;">AWS</p>
 
 ### <p style="text-align: center;">AWS VPC through Terraform</p>
-![task ](./img/101.png) ![task ](./img/102.jpg)
+<div style="text-align:center">
+    <img src="./img/101.png"/>
+    <img src="./img/102.jpg"/>
+</div>
 
 ***
 tasks:  
@@ -55,7 +58,9 @@ internet gateway
 ec2 dashboard  
 ![ec2](./img/9.png)  
 connect to both ec2 in vpc  
-![connect](./img/7.png)  
+<div style="text-align:center">
+    <img src="./img/7.png"/>
+</div>
 check executing user data  
 ![user_data](./img/8.png)  
 

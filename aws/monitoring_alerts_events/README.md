@@ -1,7 +1,10 @@
 ## <p style="text-align: center;">AWS</p>
 
-### <p style="text-align: center;">Monitoring/Alerts/Events</p>
-![task ](./img/101.png) ![task ](./img/102.jpg)
+### <p style="text-align: center;">Monitoring/ Alerts/ Events</p>
+<div style="text-align:center">
+    <img src="./img/101.png"/>
+    <img src="./img/102.jpg"/>
+</div>
 
 ***
 tasks:  

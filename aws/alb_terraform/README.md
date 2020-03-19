@@ -1,7 +1,10 @@
 ## <p style="text-align: center;">AWS</p>
 
 ### <p style="text-align: center;">AWS ALB through Terraform</p>
-![task ](./img/101.png) ![task ](./img/102.jpg)
+<div style="text-align:center">
+    <img src="./img/101.png"/>
+    <img src="./img/102.jpg"/>
+</div>
 
 ***
 tasks:  
@@ -72,7 +75,7 @@ elastic load balancer
 ![alb](./img/4.png)  
 
 nginx web server, which are working on both server  
-![internet_gateway](./img/7.png) 
+<div style="text-align:center"><img src="./img/7.png"/></div>
 
 ***
 
