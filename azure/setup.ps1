@@ -91,6 +91,7 @@
 # };
 
 # function setupEnv {
+    Write-Host '<!DOCTYPE html><html><head><title>Page Title</title></head><body><h1>My First Heading</h1><p>My first paragraph.</p></body></html>' > C:\inetpub\wwwroot\iisstart.htm
 	Get-WindowsFeature NET-* | Add-WindowsFeature;  
 	Get-WindowsFeature Web-* | Add-WindowsFeature;
 # 	installGit;
