@@ -1,0 +1,173 @@
+{
+  "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Resources/deployments/Microsoft.Template",
+  "name": "Microsoft.Template",
+  "type": "Microsoft.Resources/deployments",
+  "tags": {
+    "primaryResourceId": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourcegroups/rg_sec_task",
+    "marketplaceItemId": "Microsoft.Template"
+  },
+  "properties": {
+    "templateHash": "17998147240382338526",
+    "parameters": {
+      "diskType": {
+        "type": "String",
+        "value": "Standard_LRS"
+      },
+      "vmName": {
+        "type": "String",
+        "value": "vmWeb"
+      },
+      "vmSize": {
+        "type": "String",
+        "value": "Standard_A2"
+      },
+      "imageSKU": {
+        "type": "String",
+        "value": "2016-Datacenter"
+      },
+      "adminUsername": {
+        "type": "String",
+        "value": "arudy"
+      },
+      "adminPassword": {
+        "type": "SecureString"
+      },
+      "location": {
+        "type": "String",
+        "value": "westus"
+      }
+    },
+    "mode": "Incremental",
+    "debugSetting": {
+      "detailLevel": "None"
+    },
+    "provisioningState": "Succeeded",
+    "timestamp": "2020-03-30T06:36:34.3841111Z",
+    "duration": "PT36M38.3478618S",
+    "correlationId": "d1960241-468f-4278-985c-31a13543c6c2",
+    "providers": [
+      {
+        "namespace": "Microsoft.Network",
+        "resourceTypes": [
+          {
+            "resourceType": "publicIPAddresses",
+            "locations": [
+              "westus"
+            ]
+          },
+          {
+            "resourceType": "networkSecurityGroups",
+            "locations": [
+              "westus"
+            ]
+          },
+          {
+            "resourceType": "virtualNetworks",
+            "locations": [
+              "westus"
+            ]
+          },
+          {
+            "resourceType": "networkInterfaces",
+            "locations": [
+              "westus"
+            ]
+          }
+        ]
+      },
+      {
+        "namespace": "Microsoft.Compute",
+        "resourceTypes": [
+          {
+            "resourceType": "virtualMachines",
+            "locations": [
+              "westus"
+            ]
+          },
+          {
+            "resourceType": "virtualMachines/extensions",
+            "locations": [
+              "westus"
+            ]
+          }
+        ]
+      }
+    ],
+    "dependencies": [
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Network/networkSecurityGroups/default-NSG",
+            "resourceType": "Microsoft.Network/networkSecurityGroups",
+            "resourceName": "default-NSG"
+          }
+        ],
+        "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Network/virtualNetworks/dscVNET",
+        "resourceType": "Microsoft.Network/virtualNetworks",
+        "resourceName": "dscVNET"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Network/publicIPAddresses/dscPubIP",
+            "resourceType": "Microsoft.Network/publicIPAddresses",
+            "resourceName": "dscPubIP"
+          },
+          {
+            "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Network/virtualNetworks/dscVNET",
+            "resourceType": "Microsoft.Network/virtualNetworks",
+            "resourceName": "dscVNET"
+          }
+        ],
+        "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Network/networkInterfaces/dscNIC",
+        "resourceType": "Microsoft.Network/networkInterfaces",
+        "resourceName": "dscNIC"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Network/networkInterfaces/dscNIC",
+            "resourceType": "Microsoft.Network/networkInterfaces",
+            "resourceName": "dscNIC"
+          }
+        ],
+        "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Compute/virtualMachines/vmWeb",
+        "resourceType": "Microsoft.Compute/virtualMachines",
+        "resourceName": "vmWeb"
+      },
+      {
+        "dependsOn": [
+          {
+            "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Compute/virtualMachines/vmWeb",
+            "resourceType": "Microsoft.Compute/virtualMachines",
+            "resourceName": "vmWeb"
+          }
+        ],
+        "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Compute/virtualMachines/vmWeb/extensions/config-app",
+        "resourceType": "Microsoft.Compute/virtualMachines/extensions",
+        "resourceName": "vmWeb/config-app"
+      }
+    ],
+    "outputResources": [
+      {
+        "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Compute/virtualMachines/vmWeb"
+      },
+      {
+        "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Compute/virtualMachines/vmWeb/extensions/config-app"
+      },
+      {
+        "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Network/networkInterfaces/dscNIC"
+      },
+      {
+        "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Network/networkSecurityGroups/default-NSG"
+      },
+      {
+        "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Network/publicIPAddresses/dscPubIP"
+      },
+      {
+        "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Network/virtualNetworks/dscVNET"
+      }
+    ],
+    "validationLevel": "Template"
+  }
+}

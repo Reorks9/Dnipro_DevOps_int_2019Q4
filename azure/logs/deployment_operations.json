@@ -1,0 +1,117 @@
+[
+  {
+    "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/A0BD3EC050EE582C",
+    "operationId": "A0BD3EC050EE582C",
+    "properties": {
+      "provisioningOperation": "Create",
+      "provisioningState": "Succeeded",
+      "timestamp": "2020-03-30T06:36:34.1018174Z",
+      "duration": "PT26M46.3245687S",
+      "trackingId": "6636c661-a40d-4795-ada8-325630e8e9b4",
+      "statusCode": "OK",
+      "targetResource": {
+        "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Compute/virtualMachines/vmWeb/extensions/config-app",
+        "resourceType": "Microsoft.Compute/virtualMachines/extensions",
+        "resourceName": "vmWeb/config-app"
+      }
+    }
+  },
+  {
+    "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/230BFB5C29ED3171",
+    "operationId": "230BFB5C29ED3171",
+    "properties": {
+      "provisioningOperation": "Create",
+      "provisioningState": "Succeeded",
+      "timestamp": "2020-03-30T06:09:47.7218467Z",
+      "duration": "PT7M24.5602691S",
+      "trackingId": "df218dce-44c4-4849-ab8a-8b0125e4e54b",
+      "statusCode": "OK",
+      "targetResource": {
+        "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Compute/virtualMachines/vmWeb",
+        "resourceType": "Microsoft.Compute/virtualMachines",
+        "resourceName": "vmWeb"
+      }
+    }
+  },
+  {
+    "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/26AA252DB19BE0F6",
+    "operationId": "26AA252DB19BE0F6",
+    "properties": {
+      "provisioningOperation": "Create",
+      "provisioningState": "Succeeded",
+      "timestamp": "2020-03-30T06:02:23.1332081Z",
+      "duration": "PT4.5852102S",
+      "trackingId": "40e23f4c-2ab0-406a-9692-d86452c75cc5",
+      "statusCode": "Created",
+      "targetResource": {
+        "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Network/networkInterfaces/dscNIC",
+        "resourceType": "Microsoft.Network/networkInterfaces",
+        "resourceName": "dscNIC"
+      }
+    }
+  },
+  {
+    "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/7487AAFF68A1E7DC",
+    "operationId": "7487AAFF68A1E7DC",
+    "properties": {
+      "provisioningOperation": "Create",
+      "provisioningState": "Succeeded",
+      "timestamp": "2020-03-30T06:02:18.4747751Z",
+      "duration": "PT36.224538S",
+      "trackingId": "9ba51a62-20fc-43e2-9306-47b7544e8639",
+      "statusCode": "OK",
+      "targetResource": {
+        "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Network/virtualNetworks/dscVNET",
+        "resourceType": "Microsoft.Network/virtualNetworks",
+        "resourceName": "dscVNET"
+      }
+    }
+  },
+  {
+    "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/8BBB34D403ABF0C9",
+    "operationId": "8BBB34D403ABF0C9",
+    "properties": {
+      "provisioningOperation": "Create",
+      "provisioningState": "Succeeded",
+      "timestamp": "2020-03-30T06:01:47.1260714Z",
+      "duration": "PT1M43.6872817S",
+      "trackingId": "4153d077-449a-42f4-85dd-2a3ae863c331",
+      "statusCode": "OK",
+      "targetResource": {
+        "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Network/publicIPAddresses/dscPubIP",
+        "resourceType": "Microsoft.Network/publicIPAddresses",
+        "resourceName": "dscPubIP"
+      }
+    }
+  },
+  {
+    "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/C52E1276879C6DBF",
+    "operationId": "C52E1276879C6DBF",
+    "properties": {
+      "provisioningOperation": "Create",
+      "provisioningState": "Succeeded",
+      "timestamp": "2020-03-30T06:01:42.2114244Z",
+      "duration": "PT1M38.7726347S",
+      "trackingId": "d3e9997b-14e8-4004-848d-abf76ad42e6a",
+      "statusCode": "OK",
+      "targetResource": {
+        "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Network/networkSecurityGroups/default-NSG",
+        "resourceType": "Microsoft.Network/networkSecurityGroups",
+        "resourceName": "default-NSG"
+      }
+    }
+  },
+  {
+    "id": "/subscriptions/c1d93376-36ee-4ddd-b448-62f67d3575e8/resourceGroups/rg_sec_task/providers/Microsoft.Resources/deployments/Microsoft.Template/operations/08586160588894413928",
+    "operationId": "08586160588894413928",
+    "properties": {
+      "provisioningOperation": "EvaluateDeploymentOutput",
+      "provisioningState": "Succeeded",
+      "timestamp": "2020-03-30T06:36:34.3423256Z",
+      "duration": "PT0.076009S",
+      "trackingId": "0ed73f85-dfa0-468d-8241-2b4d0d69d72b",
+      "statusCode": "OK",
+      "statusMessage": null
+    }
+  }
+]
